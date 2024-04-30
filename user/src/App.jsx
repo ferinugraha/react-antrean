@@ -6,64 +6,67 @@ import Home from "./pages/HomePage";
 import About from "./pages/AboutPage";
 import NotFound from "./pages/NotFoundPage";
 
-const roles = {
-  guest: ["/", "/register"],
-  user: ["/home", "/about"],
-};
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userRole, setUserRole] = useState("");
+  const [role, setRole] = useState(null);
 
   useEffect(() => {
-    // Simulate retrieving user role from local storage or a context
-    const storedRole = localStorage.getItem("userRole");
-    if (storedRole) {
+    const token = localStorage.getItem("token");
+    if (token) {
       setIsLoggedIn(true);
-      setUserRole(storedRole);
+      setRole("user");
     }
   }, []);
 
-  const handleLogin = (role) => {
+  const authenticateUser = (role) => {
     setIsLoggedIn(true);
-    setUserRole(role);
-    localStorage.setItem("userRole", role); // Simulate storing role in localStorage
+    setRole(role);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    setUserRole("");
-    localStorage.removeItem("userRole"); // Simulate removing role from localStorage
-  };
-
-  const isRouteAccessible = (route) => {
-    if (!isLoggedIn) return false; // Redirect to login if not logged in
-    return roles[userRole].includes(route);
-  };
-
-  const ProtectedRoute = ({ element, path }) => {
-    return isRouteAccessible(path) ? element : <Navigate to="/not-found" />;
+    setRole(null);
+    localStorage.removeItem("token");
   };
 
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<LoginPage handleLogin={handleLogin} />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/home" replace />
+            ) : (
+              <LoginPage authenticateUser={authenticateUser} />
+            )
+          }
+        />
+        <Route
+          path="/register"
+          element={<RegisterPage authenticateUser={authenticateUser} />}
+        />
         <Route
           path="/home"
-          element={<ProtectedRoute element={<Home />} path="/home" />}
+          element={
+            isLoggedIn ? (
+              <Home role={role} handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
         />
         <Route
           path="/about"
-          element={<ProtectedRoute element={<About />} path="/about" />}
+          element={
+            isLoggedIn ? (
+              <About role={role} handleLogout={handleLogout} />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
         />
-        <Route
-          path="/logout"
-          element={<button onClick={handleLogout}>Logout</button>}
-        />
-        <Route path="/not-found" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/not-found" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>
   );

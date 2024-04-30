@@ -27,14 +27,14 @@ function LoginPage({ authenticateUser }) {
     try {
       if (!email || !password) {
         setErrorMessage("Email dan password wajib diisi.");
-        return; // Exit early if validation fails
+        return;
       }
 
       if (email.length < 3 || password.length < 3) {
         setErrorMessage(
           "Email dan password harus memiliki minimal 3 karakter."
         );
-        return; // Exit early if validation fails
+        return;
       }
 
       const response = await axios.post("http://localhost:3000/user/signin", {
@@ -43,8 +43,11 @@ function LoginPage({ authenticateUser }) {
       });
 
       const { role } = response.data;
-      authenticateUser(role); // Pass the role to the parent component
-      navigate("/home"); // Redirect to the home page after successful login
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+
+      authenticateUser(role);
+      navigate("/home");
     } catch (error) {
       console.error(error);
       setErrorMessage(

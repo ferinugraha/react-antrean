@@ -4,7 +4,7 @@ const {
   UserNotExist,
   ValidatePassword,
   MakeJWTToken,
-} = require("./user.service");
+} = require("./user.service"); // tambahkan FetchUserRoleFromAPI
 const { ExceptionHandler } = require("../libs/lib.exception");
 
 async function UserRegister(req, res) {
@@ -24,22 +24,80 @@ async function UserRegister(req, res) {
   }
 }
 
+// async function UserSignIn(req, res) {
+//   try {
+//     const user = await UserModel.findOne({ email: req.body.email });
+//     if (!user) {
+//       return res
+//         .status(401)
+//         .json({ message: "Email and Password do not match" });
+//     }
+
+//     const isPasswordValid = await ValidatePassword(
+//       req.body.password,
+//       user.password
+//     );
+//     if (!isPasswordValid) {
+//       return res
+//         .status(401)
+//         .json({ message: "Email and Password do not match" });
+//     }
+
+//     const roleResponse = await FetchUserRoleFromAPI(req.body.email);
+
+//     const payload = {
+//       email: user.email,
+//       name: user.name,
+//       role: roleResponse.role,
+//     };
+
+//     console.log(payload);
+//     const token = MakeJWTToken(payload);
+
+//     return res.status(200).json({ token });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// }
+
 async function UserSignIn(req, res) {
   try {
-    const user = await UserNotExist(req.body.email);
-    await ValidatePassword(req, user);
+    const user = await UserModel.findOne({ email: req.body.email });
+    if (!user) {
+      return res
+        .status(401)
+        .json({ message: "Email and Password do not match" });
+    }
+
+    const isPasswordValid = await ValidatePassword(
+      req.body.password,
+      user.password
+    );
+    if (!isPasswordValid) {
+      return res
+        .status(401)
+        .json({ message: "Email and Password do not match" });
+    }
+
+    const roleResponse = await UserModel.findOne({ email: req.body.email });
+    const role = roleResponse.role;
 
     const payload = {
       email: user.email,
       name: user.name,
-      role: user.role,
+      role: roleResponse.role,
     };
+
     const token = MakeJWTToken(payload);
 
-    return res.status(200).json({ token });
+    return res.status(200).json({ token, role });
   } catch (error) {
     console.error(error);
-    return res.status(401).json({ message: "Email and Password do not match" });
+    if (error instanceof Error401) {
+      return res.status(401).json({ message: error.message });
+    }
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
