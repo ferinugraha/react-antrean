@@ -1,0 +1,122 @@
+2024-04-15T10:34:25.395Z error: Gagal terkoneksi database mongoDB
+2024-04-15T10:34:25.397Z error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2024-04-15T10:36:17.953Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:36:41.226Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:37:11.501Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:37:20.840Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:44:44.348Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:44:50.235Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:45:17.966Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:45:23.693Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:45:32.481Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:48:10.828Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:48:15.092Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T10:51:50.774Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:02:07.592Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:04:04.468Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:05:44.061Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:05:48.419Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:06:39.227Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:06:47.342Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:06:49.844Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:07:13.589Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:09:06.492Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:10:53.223Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:11:04.154Z info: Received a POST request for /user/register
+2024-04-15T11:14:02.475Z info: Received a POST request for /user/register
+2024-04-15T11:15:13.848Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:15:15.814Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T11:15:27.532Z info: Received a POST request for /user/register
+2024-04-15T11:15:41.693Z info: Received a POST request for /user/register
+2024-04-15T11:19:11.319Z info: Received a POST request for /user/register
+2024-04-15T11:19:17.686Z info: Received a POST request for /user/register
+2024-04-15T11:19:22.822Z info: Received a POST request for /user/register
+2024-04-15T11:19:48.668Z info: Received a POST request for /user/register
+2024-04-15T11:21:18.577Z info: Received a POST request for /user/register
+2024-04-15T11:42:26.643Z info: Received a POST request for /user/register
+2024-04-15T12:00:46.155Z info: Received a POST request for /user/signin
+2024-04-15T12:00:47.524Z info: Received a POST request for /user/signin
+2024-04-15T12:01:12.959Z info: Received a POST request for /user/signin
+2024-04-15T12:01:55.199Z info: Received a POST request for /user/signin
+2024-04-15T12:03:20.207Z info: Received a POST request for /user/signin
+2024-04-15T12:08:08.459Z info: Received a POST request for /user/signin
+2024-04-15T12:09:22.343Z info: Received a POST request for /user/signin
+2024-04-15T12:12:19.077Z info: Received a POST request for /user/signin
+2024-04-15T12:12:21.270Z info: Received a POST request for /user/signin
+2024-04-15T12:12:29.184Z info: Received a POST request for /user/signin
+2024-04-15T12:15:43.918Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T12:15:49.962Z info: Berhasil terhubung ke database mongoDB
+2024-04-15T12:15:59.203Z info: Received a POST request for /user/signin
+2024-04-15T12:18:14.585Z info: Received a POST request for /user/signin
+2024-04-15T12:21:12.256Z info: Received a POST request for /user/signin
+2024-04-15T12:25:06.467Z info: Received a POST request for /user/signin
+2024-04-16T00:33:49.652Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T00:34:18.860Z info: Received a POST request for /user/register
+2024-04-16T00:34:30.678Z info: Received a POST request for /user/signin
+2024-04-16T02:41:04.591Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:08:50.482Z info: Received a POST request for /user/signin
+2024-04-16T03:08:52.835Z info: Received a POST request for /user/signin
+2024-04-16T03:10:51.208Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:10:54.850Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:11:02.295Z info: Received a POST request for /user/signin
+2024-04-16T03:12:19.877Z info: Received a POST request for /user/signin
+2024-04-16T03:12:29.391Z info: Received a POST request for /user/signin
+2024-04-16T03:12:32.596Z info: Received a POST request for /user/signin
+2024-04-16T03:12:36.876Z info: Received a POST request for /user/signin
+2024-04-16T03:12:46.981Z info: Received a POST request for /user/signin
+2024-04-16T03:13:07.695Z info: Received a POST request for /user/register
+2024-04-16T03:13:12.200Z info: Received a POST request for /user/signin
+2024-04-16T03:14:07.407Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:14:28.850Z info: Received a POST request for /user/signin
+2024-04-16T03:14:32.810Z info: Received a POST request for /user/signin
+2024-04-16T03:14:37.376Z info: Received a POST request for /user/signin
+2024-04-16T03:14:39.584Z info: Received a POST request for /user/signin
+2024-04-16T03:16:16.893Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:16:26.065Z info: Received a POST request for /user/signin
+2024-04-16T03:16:35.713Z info: Received a POST request for /user/signin
+2024-04-16T03:16:40.833Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:16:44.538Z info: Received a POST request for /user/signin
+2024-04-16T03:17:00.201Z info: Received a POST request for /user/signin
+2024-04-16T03:17:02.616Z info: Received a POST request for /user/signin
+2024-04-16T03:19:29.212Z info: Berhasil terhubung ke database mongoDB
+2024-04-16T03:19:43.488Z info: Received a POST request for /user/signin
+2024-04-16T03:20:57.380Z info: Received a POST request for /user/signin
+2024-04-16T03:21:53.302Z info: Received a POST request for /user/signin
+2024-04-16T03:22:06.076Z info: Received a POST request for /user/signin
+2024-04-16T03:24:23.465Z info: Received a POST request for /user/signin
+2024-04-16T03:24:48.192Z info: Received a POST request for /user/signin
+2024-04-16T03:30:22.080Z info: Received a POST request for /user/signin
+2024-04-16T03:30:30.278Z info: Received a POST request for /user/signin
+2024-04-16T03:34:19.146Z info: Received a POST request for /user/signin
+2024-04-16T03:36:53.977Z info: Received a POST request for /user/signin
+2024-04-16T03:37:19.608Z info: Received a POST request for /user/signin
+2024-04-16T03:38:16.194Z info: Received a POST request for /user/signin
+2024-04-17T04:21:38.964Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T04:33:56.398Z info: Received a POST request for /user/register
+2024-04-17T04:34:04.868Z info: Received a POST request for /user/register
+2024-04-17T04:35:10.862Z info: Received a POST request for /user/register
+2024-04-17T04:35:36.580Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T04:35:38.510Z info: Received a POST request for /user/register
+2024-04-17T04:35:50.217Z info: Received a POST request for /user/signin
+2024-04-17T04:38:20.861Z info: Received a POST request for /user/register
+2024-04-17T04:38:27.896Z info: Received a POST request for /user/register
+2024-04-17T04:38:59.551Z info: Received a POST request for /user/signin
+2024-04-17T04:39:33.665Z info: Received a POST request for /user/signin
+2024-04-17T04:39:42.531Z info: Received a POST request for /user/signin
+2024-04-17T04:41:43.864Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T04:58:00.609Z info: Received a POST request for /user/signin
+2024-04-17T04:58:05.574Z info: Received a POST request for /user/signin
+2024-04-17T04:58:52.864Z info: Received a POST request for /user/register
+2024-04-17T04:59:01.645Z info: Received a POST request for /user/signin
+2024-04-17T04:59:03.291Z info: Received a POST request for /user/signin
+2024-04-17T04:59:09.153Z info: Received a POST request for /user/signin
+2024-04-17T06:00:22.717Z info: Received a POST request for /user/signin
+2024-04-17T06:01:39.739Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T06:01:41.009Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T06:01:48.685Z info: Berhasil terhubung ke database mongoDB
+2024-04-17T06:01:55.936Z info: Received a POST request for /user/signin
+2024-04-17T06:02:03.484Z info: Received a POST request for /user/signin
+2024-04-17T06:02:25.178Z info: Received a POST request for /user/signin
+2024-04-17T06:02:36.470Z info: Received a POST request for /user/signin
+2024-04-17T06:02:43.183Z info: Received a POST request for /user/signin
+2024-04-17T06:07:47.956Z info: Received a POST request for /user/signin
