@@ -47,7 +47,13 @@ function LoginPage({ authenticateUser }) {
       localStorage.setItem("token", token);
 
       authenticateUser(role);
-      navigate("/home");
+      if (role === "user") {
+        navigate("/home-user");
+      } else if (role === "doctor") {
+        navigate("/home-doctor");
+      } else {
+        navigate("/home-staff");
+      }
     } catch (error) {
       console.error(error);
       setErrorMessage(

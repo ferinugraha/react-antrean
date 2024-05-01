@@ -1,16 +1,16 @@
 import React from "react";
 
-function HomePage({ handleLogout }) {
+function HomeUser({ handleLogout }) {
   const handleLogoutClick = () => {
     handleLogout();
   };
 
   return (
     <div>
-      <h1>HomePage</h1>
+      <h1>HomeUser</h1>
       <button onClick={handleLogoutClick}>Logout</button>
     </div>
   );
 }
 
-export default HomePage;
+export default HomeUser;

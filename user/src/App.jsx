@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./auth/LoginPage";
 import RegisterPage from "./auth/RegisterPage";
-import Home from "./pages/HomePage";
-import About from "./pages/AboutPage";
+import HomeUser from "./pages/users/HomeUser";
+import HomeDoctors from "./pages/doctor/HomeDoctor";
+import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
-      setRole("user");
+      setRole(token);
     }
   }, []);
 
@@ -29,6 +30,14 @@ function App() {
     localStorage.removeItem("token");
   };
 
+  const checkRoleAndRender = (Component, expectedRole) => {
+    return isLoggedIn && role === expectedRole ? (
+      <Component role={role} handleLogout={handleLogout} />
+    ) : (
+      <Navigate to="/" replace />
+    );
+  };
+
   return (
     <HashRouter>
       <Routes>
@@ -36,7 +45,15 @@ function App() {
           path="/"
           element={
             isLoggedIn ? (
-              <Navigate to="/home" replace />
+              role === "user" ? (
+                <Navigate to="/home-user" replace />
+              ) : role === "doctor" ? (
+                <Navigate to="/home-doctor" replace />
+              ) : role === "staff" ? (
+                <Navigate to="/home-staff" replace />
+              ) : (
+                <Navigate to="/" replace />
+              )
             ) : (
               <LoginPage authenticateUser={authenticateUser} />
             )
@@ -44,27 +61,33 @@ function App() {
         />
         <Route
           path="/register"
-          element={<RegisterPage authenticateUser={authenticateUser} />}
-        />
-        <Route
-          path="/home"
           element={
             isLoggedIn ? (
-              <Home role={role} handleLogout={handleLogout} />
+              role === "user" ? (
+                <Navigate to="/home-user" replace />
+              ) : role === "doctor" ? (
+                <Navigate to="/home-doctor" replace />
+              ) : role === "staff" ? (
+                <Navigate to="/home-staff" replace />
+              ) : (
+                <Navigate to="/" replace />
+              )
             ) : (
-              <Navigate to="/" replace />
+              <RegisterPage authenticateUser={authenticateUser} />
             )
           }
         />
         <Route
-          path="/about"
-          element={
-            isLoggedIn ? (
-              <About role={role} handleLogout={handleLogout} />
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
+          path="/home-user"
+          element={checkRoleAndRender(HomeUser, "user")}
+        />
+        <Route
+          path="/home-doctor"
+          element={checkRoleAndRender(HomeDoctors, "doctor")}
+        />
+        <Route
+          path="/home-staff"
+          element={checkRoleAndRender(HomeStaff, "staff")}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
