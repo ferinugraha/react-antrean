@@ -1,14 +1,12 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
-function HomeDoctor({ handleLogout }) {
-  const handleLogoutClick = () => {
-    handleLogout();
-  };
-
+function HomeDoctor() {
   return (
     <div>
-      <h1>HomeDoctor</h1>
-      <button onClick={handleLogoutClick}>Logout</button>
+      <Container className="mt-2">
+        <h1>HomeDoctor</h1>
+      </Container>
     </div>
   );
 }

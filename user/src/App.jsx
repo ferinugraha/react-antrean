@@ -6,6 +6,9 @@ import HomeUser from "./pages/users/HomeUser";
 import HomeDoctors from "./pages/doctor/HomeDoctor";
 import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
+import AboutPage from "./pages/users/AboutPage";
+import AntreanPage from "./pages/users/AntreanPage";
+import NavbarWidget from "./widget/NavbarWidget";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,6 +25,7 @@ function App() {
   const authenticateUser = (role) => {
     setIsLoggedIn(true);
     setRole(role);
+    localStorage.setItem("token", role);
   };
 
   const handleLogout = () => {
@@ -77,18 +81,48 @@ function App() {
             )
           }
         />
+        <Route path="/home-user">
+          <Route
+            index
+            element={
+              <div>
+                <NavbarWidget handleLogout={handleLogout} role={role} />
+                {checkRoleAndRender(HomeUser, "user")}
+              </div>
+            }
+          />
+        </Route>
+
         <Route
-          path="/home-user"
-          element={checkRoleAndRender(HomeUser, "user")}
+          path="/about"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(AboutPage, "user")}
+            </div>
+          }
         />
+
         <Route
           path="/home-doctor"
-          element={checkRoleAndRender(HomeDoctors, "doctor")}
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeDoctors, "doctor")}
+            </div>
+          }
         />
+
         <Route
           path="/home-staff"
-          element={checkRoleAndRender(HomeStaff, "staff")}
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeStaff, "staff")}
+            </div>
+          }
         />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>
