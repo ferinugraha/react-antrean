@@ -51,6 +51,8 @@ function LoginPage({ authenticateUser }) {
         navigate("/home-user");
       } else if (role === "doctor") {
         navigate("/home-doctor");
+      } else if (role === "admin") {
+        navigate("/home-admin");
       } else {
         navigate("/home-staff");
       }

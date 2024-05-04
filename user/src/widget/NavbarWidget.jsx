@@ -21,10 +21,10 @@ function NavbarWidget({ handleLogout, role }) {
                 <Nav.Link as={Link} to="/home-user">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/about">
+                <Nav.Link as={Link} to="/antrean">
                   Register
                 </Nav.Link>
-                <Nav.Link as={Link} to="/about">
+                <Nav.Link as={Link} to="/history">
                   History
                 </Nav.Link>
               </>
@@ -33,6 +33,19 @@ function NavbarWidget({ handleLogout, role }) {
               <>
                 <Nav.Link as={Link} to="/home-staff">
                   Home
+                </Nav.Link>
+              </>
+            )}
+            {role === "admin" && (
+              <>
+                <Nav.Link as={Link} to="/home-admin">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/home-admin">
+                  Report
+                </Nav.Link>
+                <Nav.Link as={Link} to="/akun">
+                  Akun
                 </Nav.Link>
               </>
             )}

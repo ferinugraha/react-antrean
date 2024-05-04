@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFoundPage";
 import AboutPage from "./pages/users/AboutPage";
 import AntreanPage from "./pages/users/AntreanPage";
 import NavbarWidget from "./widget/NavbarWidget";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import HistoryPage from "./pages/users/HistoryPage";
+import ListUser from "./pages/admin/akun/PageList";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,9 +19,15 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const lastVisitedPage = localStorage.getItem("lastVisitedPage");
+
     if (token) {
       setIsLoggedIn(true);
       setRole(token);
+
+      if (lastVisitedPage) {
+        navigate(lastVisitedPage);
+      }
     }
   }, []);
 
@@ -32,6 +41,12 @@ function App() {
     setIsLoggedIn(false);
     setRole(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("lastVisitedPage");
+  };
+
+  const navigate = (path) => {
+    window.location.href = path;
+    localStorage.setItem("lastVisitedPage", path);
   };
 
   const checkRoleAndRender = (Component, expectedRole) => {
@@ -55,6 +70,8 @@ function App() {
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -73,6 +90,8 @@ function App() {
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -81,6 +100,7 @@ function App() {
             )
           }
         />
+
         <Route path="/home-user">
           <Route
             index
@@ -104,11 +124,51 @@ function App() {
         />
 
         <Route
+          path="/antrean"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(AntreanPage, "user")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/history"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HistoryPage, "user")}
+            </div>
+          }
+        />
+
+        <Route
           path="/home-doctor"
           element={
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(HomeDoctors, "doctor")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/home-admin"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeAdmin, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/akun"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(ListUser, "admin")}
             </div>
           }
         />
