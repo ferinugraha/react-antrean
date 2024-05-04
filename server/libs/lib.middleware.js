@@ -23,7 +23,7 @@ const IsAuthenticated = (req, res, next) => {
 }
 
 const Validate = (validations) => {
-  return async (err, req, res, next) => {
+  return async ( req, res, next) => {
 
     for (let validation of validations) {
       await validation.run(req);
@@ -31,12 +31,11 @@ const Validate = (validations) => {
     }
     
     const errors = validationResult(req);
-    const errs =  _.chain(errors.errors).groupBy("path").value()
     if (errors.isEmpty()) {
       req.cleanedData = matchedData(req);
       return next();
     }
-    res.status(400).json(errs);
+    return res.status(400).json(errors.errors);
   };
 }
 

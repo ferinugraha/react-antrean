@@ -14,11 +14,30 @@ const UserNotExist = async (email) => {
   return result;
 };
 
-const ValidatePassword = async (req, user) => {
-  if (!(await bcrypt.compare(req.body.password, user.password))) {
-    // throw new Error("Password tidak cocok");
+// const ValidatePassword = async (req, user) => {
+//   if (!(await bcrypt.compare(req.body.password, user.password))) {
+//     // throw new Error("Password tidak cocok");
+//     throw new Error401("Password salah.");
+//   }
+// };
+
+async function ValidatePassword(plainPassword, hashedPassword) {
+  const isMatch = await bcrypt.compare(plainPassword, hashedPassword);
+  if (!isMatch) {
     throw new Error401("Password salah.");
+  } else {
+    return isMatch;
   }
+
+  // return isMatch;
+}
+
+const FetchUserRoleFromModel = async (email) => {
+  const userRole = await UserModel.findOne({ email });
+  if (!userRole) {
+    throw new Error("User role not found");
+  }
+  return userRole;
 };
 
 const MakeJWTToken = (payload) => {
@@ -31,4 +50,5 @@ module.exports = {
   UserNotExist,
   ValidatePassword,
   MakeJWTToken,
+  FetchUserRoleFromModel,
 };
