@@ -1,14 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import Hero from "../../../app/_components/Hero";
+
+// import { Button, Col, Container, Row } from "react-bootstrap";
 
 function HomeUser() {
-  return (
-    <div>
-      <Container className="mt-2">
-        <h1>HomeUser</h1>
-      </Container>
-    </div>
-  );
+  return <Hero />;
 }
 
 export default HomeUser;

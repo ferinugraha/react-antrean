@@ -70,88 +70,138 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container">
-      <div className="row justify-content-center align-items-center vh-100">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title text-center">Register Page</h1>
-              {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+    // <div className="container">
+    //   <div className="row justify-content-center align-items-center vh-100">
+    <div
+      className="container-fluid vh-100 d-flex justify-content-center align-items-center"
+      style={{
+        backgroundImage: `url('/background.medical.jpg.png')`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="col-md-5">
+        <div
+          className="card"
+          style={{
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+            backgroundColor: "transparent",
+            backdropFilter: "blur(30px)",
+            borderRadius: "16px",
+          }}
+        >
+          <div className="card-body">
+            <h1 className="card-title text-center" style={{ fontSize: "32px" }}>
+              Register Page
+            </h1>
+            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
-              <form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicName" className="mb-2">
-                  <Form.Label>Name</Form.Label>
+            <form onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicName" className="mb-2">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter name"
+                  style={{
+                    backgroundColor: "transparent",
+                    borderColor: "grey",
+                  }}
+                  value={name}
+                  onChange={handleNameChange}
+                  required
+                  minLength={3}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Name harus diisi dan minimal 3 karakter.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicEmail" className="mb-2">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  style={{
+                    backgroundColor: "transparent",
+                    borderColor: "grey",
+                  }}
+                  value={email}
+                  onChange={handleEmailChange}
+                  required // Input wajib diisi
+                  minLength={3} // Minimal 3 karakter
+                />
+                <Form.Control.Feedback type="invalid">
+                  Email harus diisi dan minimal 3 karakter.
+                </Form.Control.Feedback>
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <div className="input-group">
                   <Form.Control
-                    type="text"
-                    placeholder="Enter name"
-                    value={name}
-                    onChange={handleNameChange}
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    style={{
+                      backgroundColor: "transparent",
+                      borderColor: "grey",
+                    }}
+                    value={password}
+                    onChange={handlePasswordChange}
                     required
                     minLength={3}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Name harus diisi dan minimal 3 karakter.
+                    Password harus diisi dan minimal 3 karakter.
                   </Form.Control.Feedback>
-                </Form.Group>
+                  <button
+                    type="button"
+                    className="input-group-text"
+                    style={{
+                      backgroundColor: "transparent",
+                      borderColor: "grey",
+                    }}
+                    onClick={handleTogglePassword}
+                  >
+                    {showPassword ? <BsEye /> : <BsEyeSlash />}
+                  </button>
+                </div>
+              </Form.Group>
 
-                <Form.Group controlId="formBasicEmail" className="mb-2">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={handleEmailChange}
-                    required // Input wajib diisi
-                    minLength={3} // Minimal 3 karakter
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Email harus diisi dan minimal 3 karakter.
-                  </Form.Control.Feedback>
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
+              <button
+                type="submit"
+                className="btn btn-secondary w-100 mt-4"
+                style={{ borderRadius: "16px" }}
+              >
+                Submit
+              </button>
 
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <div className="input-group">
-                    <Form.Control
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Password"
-                      value={password}
-                      onChange={handlePasswordChange}
-                      required
-                      minLength={3}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Password harus diisi dan minimal 3 karakter.
-                    </Form.Control.Feedback>
-                    <button
-                      type="button"
-                      className="input-group-text"
-                      onClick={handleTogglePassword}
-                    >
-                      {showPassword ? <BsEye /> : <BsEyeSlash />}
-                    </button>
-                  </div>
-                </Form.Group>
-
-                <button type="submit" className="btn btn-primary w-100 mt-4">
-                  Submit
-                </button>
-
-                <p className="text-center mt-3">
-                  Already have an account?{" "}
-                  <Link to="/" className="text-decoration-none">
+              <p className="text-center mt-3">
+                Already have an account?{" "}
+                <Link to="/" className="text-decoration-none">
+                  <span
+                    style={{
+                      transition: "all 0.3s ease",
+                      color: "#000000",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.color = "grey";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.color = "#000000";
+                    }}
+                  >
                     Login
-                  </Link>
-                </p>
-              </form>
-            </div>
+                  </span>
+                </Link>
+              </p>
+            </form>
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 }
 

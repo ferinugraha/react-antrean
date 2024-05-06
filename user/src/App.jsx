@@ -6,9 +6,11 @@ import HomeUser from "./pages/users/HomeUser";
 import HomeDoctors from "./pages/doctor/HomeDoctor";
 import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
-import AboutPage from "./pages/users/AboutPage";
-import AntreanPage from "./pages/users/AntreanPage";
+import AboutPage from "./pages/users/HistoryPage";
+// import AntreanPage from "./pages/users/AntreanPage";
 import NavbarWidget from "./widget/NavbarWidget";
+import HistoryPage from "./pages/users/HistoryPage";
+import AntreanPage from "./pages/users/AntreanPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -94,11 +96,21 @@ function App() {
         </Route>
 
         <Route
-          path="/about"
+          path="/registrasi"
           element={
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(AboutPage, "user")}
+              {checkRoleAndRender(AntreanPage, "user")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/history"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HistoryPage, "user")}
             </div>
           }
         />
