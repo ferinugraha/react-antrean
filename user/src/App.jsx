@@ -66,7 +66,7 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
@@ -86,7 +86,7 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
@@ -148,7 +148,7 @@ function App() {
           element={
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(HomeDoctors, "doctor")}
+              {checkRoleAndRender(HomeDoctors, "dokter")}
             </div>
           }
         />

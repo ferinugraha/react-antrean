@@ -49,7 +49,7 @@ function LoginPage({ authenticateUser }) {
       authenticateUser(role);
       if (role === "user") {
         navigate("/home-user");
-      } else if (role === "doctor") {
+      } else if (role === "dokter") {
         navigate("/home-doctor");
       } else if (role === "admin") {
         navigate("/home-admin");

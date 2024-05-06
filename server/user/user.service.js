@@ -24,12 +24,10 @@ const UserNotExist = async (email) => {
 async function ValidatePassword(plainPassword, hashedPassword) {
   const isMatch = await bcrypt.compare(plainPassword, hashedPassword);
   if (!isMatch) {
-    throw new Error401("Password salah.");
+    throw new Error("Password salah.");
   } else {
     return isMatch;
   }
-
-  // return isMatch;
 }
 
 const FetchUserRoleFromModel = async (email) => {
