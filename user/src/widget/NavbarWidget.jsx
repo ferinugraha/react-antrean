@@ -41,7 +41,7 @@ function NavbarWidget({ handleLogout, role }) {
                 <Nav.Link as={Link} to="/home-admin">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/home-admin">
+                <Nav.Link as={Link} to="/report">
                   Report
                 </Nav.Link>
                 <Nav.Link as={Link} to="/akun">

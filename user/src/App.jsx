@@ -10,6 +10,7 @@ import AboutPage from "./pages/users/AboutPage";
 import AntreanPage from "./pages/users/AntreanPage";
 import NavbarWidget from "./widget/NavbarWidget";
 import HomeAdmin from "./pages/admin/HomeAdmin";
+import ReportPage from "./pages/admin/ReportPage";
 import HistoryPage from "./pages/users/HistoryPage";
 import ListUser from "./pages/admin/akun/PageList";
 
@@ -169,6 +170,16 @@ function App() {
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(ListUser, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/report"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(ReportPage, "admin")}
             </div>
           }
         />

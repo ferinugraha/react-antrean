@@ -657,3 +657,454 @@
 2024-05-06T07:33:10.049Z info: Berhasil terhubung ke database mongoDB
 2024-05-06T07:33:36.878Z info: Berhasil terhubung ke database mongoDB
 2024-05-06T07:33:41.555Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T12:48:15.322Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T12:48:51.622Z info: Received a POST request for /user/signin
+2024-05-06T12:49:19.898Z info: Received a POST request for /user/signin
+2024-05-06T12:49:28.274Z info: Received a POST request for /user/signin
+2024-05-06T12:49:30.874Z info: Received a GET request for /user/list
+2024-05-06T12:49:35.272Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:49:45.044Z info: Received a GET request for /user/list?filter=user
+2024-05-06T12:49:56.687Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:52:43.535Z info: Received a POST request for /user/register
+2024-05-06T12:52:43.693Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:53:34.667Z info: Received a PUT request for /user/edit/6638d29bd940e7709d1767b1
+2024-05-06T12:53:34.810Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:53:50.151Z info: Received a PUT request for /user/edit/6638d29bd940e7709d1767b1
+2024-05-06T12:53:50.313Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:53:58.818Z info: Received a DELETE request for /user/delete/66385ff2fa417597d8d7c64a
+2024-05-06T12:53:58.833Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T12:54:10.146Z info: Received a POST request for /user/signin
+2024-05-06T12:54:12.619Z info: Received a GET request for /user/list
+2024-05-06T13:06:04.076Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:06:04.949Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:09:21.235Z info: Received a POST request for /user/signin
+2024-05-06T13:09:21.453Z info: Received a GET request for /pasien/list
+2024-05-06T13:09:23.029Z info: Received a GET request for /pasien/list
+2024-05-06T13:14:08.309Z info: Received a POST request for /user/signin
+2024-05-06T13:17:18.972Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:18:42.966Z info: Received a POST request for /user/signin
+2024-05-06T13:18:53.724Z info: Received a POST request for /pasien/create
+2024-05-06T13:19:01.677Z info: Received a POST request for /pasien/create
+2024-05-06T13:20:36.113Z info: Received a POST request for /pasien/create
+2024-05-06T13:20:43.756Z info: Received a POST request for /pasien/create
+2024-05-06T13:21:41.803Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:22:02.730Z info: Received a POST request for /pasien/create
+2024-05-06T13:22:54.461Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:22:59.443Z info: Received a POST request for /pasien/create
+2024-05-06T13:23:56.203Z info: Received a POST request for /pasien/create
+2024-05-06T13:26:08.630Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:26:11.758Z info: Received a POST request for /pasien/create
+2024-05-06T13:27:14.539Z info: Received a POST request for /pasien/create
+2024-05-06T13:29:08.776Z info: Received a POST request for /pasien/create
+2024-05-06T13:29:28.179Z info: Received a POST request for /pasien/create
+2024-05-06T13:30:12.138Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:30:13.566Z info: Received a POST request for /pasien/create
+2024-05-06T13:31:41.749Z info: Received a POST request for /user/signin
+2024-05-06T13:33:46.984Z info: Received a POST request for /user/signin
+2024-05-06T13:33:47.167Z info: Received a GET request for /pasien/list
+2024-05-06T13:34:04.871Z info: Received a GET request for /pasien/list
+2024-05-06T13:34:11.869Z info: Received a GET request for /pasien/list
+2024-05-06T13:34:17.393Z info: Received a POST request for /user/signin
+2024-05-06T13:34:17.522Z info: Received a GET request for /pasien/list
+2024-05-06T13:34:28.468Z info: Received a GET request for /pasien/list
+2024-05-06T13:36:11.069Z info: Received a POST request for /user/signin
+2024-05-06T13:37:51.239Z info: Received a POST request for /user/signin
+2024-05-06T13:37:53.038Z info: Received a GET request for /user/list
+2024-05-06T13:38:09.386Z info: Received a POST request for /user/register
+2024-05-06T13:38:09.550Z info: Received a GET request for /user/list
+2024-05-06T13:38:28.073Z info: Received a GET request for /user/list?filter=user
+2024-05-06T13:38:46.899Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T13:38:57.436Z info: Received a PUT request for /user/edit/6638dd41f4bd1f85ef6db37b
+2024-05-06T13:38:57.577Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T13:39:01.633Z info: Received a DELETE request for /user/delete/6638dd41f4bd1f85ef6db37b
+2024-05-06T13:39:01.650Z info: Received a GET request for /user/list?filter=sistem
+2024-05-06T13:48:00.966Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:48:10.031Z info: Received a POST request for /user/signin
+2024-05-06T13:48:19.399Z info: Received a POST request for /pasien/create
+2024-05-06T13:48:37.679Z info: Received a POST request for /pasien/create
+2024-05-06T13:55:19.238Z info: Received a POST request for /pasien/create
+2024-05-06T13:56:55.442Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:56:58.065Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:57:03.207Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:57:12.641Z info: Received a POST request for /pasien/create
+2024-05-06T13:58:16.579Z info: Received a GET request for /pasien/create
+2024-05-06T13:58:20.682Z info: Received a POST request for /pasien/create
+2024-05-06T13:58:26.669Z info: Received a POST request for /create
+2024-05-06T13:58:47.592Z info: Received a POST request for /pasien
+2024-05-06T13:59:00.056Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:59:25.097Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:59:56.133Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T13:59:59.158Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T14:00:01.901Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T14:00:05.270Z info: Received a POST request for /pasien
+2024-05-06T14:00:13.334Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T14:01:05.399Z info: Received a POST request for /pasien/create
+2024-05-06T14:02:15.816Z info: Received a POST request for /pasien
+2024-05-06T14:02:20.940Z info: Received a POST request for /pasien/create
+2024-05-06T14:02:26.701Z info: Received a POST request for /pasien/list
+2024-05-06T14:02:39.181Z info: Received a POST request for /user/list
+2024-05-06T14:03:01.808Z info: Received a POST request for /user/list
+2024-05-06T14:03:05.168Z info: Received a GET request for /user/list
+2024-05-06T14:04:57.554Z info: Received a POST request for /user/register
+2024-05-06T14:06:32.067Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T14:06:48.924Z info: Received a POST request for /user/register
+2024-05-06T14:07:16.633Z info: Berhasil terhubung ke database mongoDB
+2024-05-06T14:07:21.262Z info: Received a POST request for /pasien/create
+2024-05-07T00:49:35.859Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T00:50:20.044Z info: Received a POST request for /user/signin
+2024-05-07T00:50:26.545Z info: Received a POST request for /user/signin
+2024-05-07T00:51:02.678Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T00:51:20.586Z info: Received a POST request for /pasien/create
+2024-05-07T00:52:51.451Z info: Received a POST request for /pasien/create
+2024-05-07T00:54:35.297Z info: Received a POST request for /pasien/create
+2024-05-07T00:59:57.812Z info: Received a GET request for /user/list
+2024-05-07T01:00:05.893Z info: Received a GET request for /user/signin
+2024-05-07T01:00:13.070Z info: Received a GET request for /user/list
+2024-05-07T01:00:35.432Z info: Received a GET request for /pasien/list
+2024-05-07T01:00:42.805Z info: Received a POST request for /pasien/list
+2024-05-07T01:03:48.522Z info: Received a POST request for /user/signin
+2024-05-07T01:04:04.698Z info: Received a GET request for /user/list
+2024-05-07T01:04:10.457Z info: Received a GET request for /user/list?filter=user
+2024-05-07T01:04:17.878Z info: Received a GET request for /user/list?filter=sistem
+2024-05-07T01:04:45.677Z info: Received a POST request for /user/signin
+2024-05-07T01:05:29.834Z info: Received a POST request for /pasien/create
+2024-05-07T01:06:59.477Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:07:00.671Z info: Received a POST request for /pasien/create
+2024-05-07T01:07:35.485Z info: Received a GET request for /pasien/list
+2024-05-07T01:10:08.344Z info: Received a GET request for /pasien/list
+2024-05-07T01:13:20.733Z info: Received a POST request for /pasien/create
+2024-05-07T01:19:14.272Z info: Received a POST request for /user/signin
+2024-05-07T01:19:16.645Z info: Received a GET request for /user/list
+2024-05-07T01:19:36.114Z info: Received a POST request for /user/login
+2024-05-07T01:20:24.621Z info: Received a POST request for /user/signin
+2024-05-07T01:20:46.116Z info: Received a POST request for /user/signin
+2024-05-07T01:22:48.210Z info: Received a GET request for /user/list/
+2024-05-07T01:23:20.271Z info: Received a GET request for /user/list/
+2024-05-07T01:24:25.928Z info: Received a GET request for /pasien/list
+2024-05-07T01:24:26.915Z info: Received a GET request for /pasien/list
+2024-05-07T01:24:35.782Z info: Received a GET request for /user/list/
+2024-05-07T01:25:43.595Z info: Received a GET request for /user/list/
+2024-05-07T01:25:44.328Z info: Received a GET request for /user/list/
+2024-05-07T01:25:55.596Z info: Received a GET request for /user/list/
+2024-05-07T01:26:25.331Z info: Received a GET request for /user/list/
+2024-05-07T01:26:29.643Z info: Received a GET request for /pasien/list/
+2024-05-07T01:28:17.446Z info: Received a GET request for /pasien/list/
+2024-05-07T01:28:18.651Z info: Received a GET request for /pasien/list/
+2024-05-07T01:29:56.535Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:29:59.882Z info: Received a GET request for /pasien/list/
+2024-05-07T01:30:00.712Z info: Received a GET request for /pasien/list/
+2024-05-07T01:31:30.544Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:31:31.891Z info: Received a GET request for /pasien/list/
+2024-05-07T01:33:26.897Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:33:32.695Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:33:33.793Z info: Received a GET request for /pasien/list/
+2024-05-07T01:33:34.540Z info: Received a GET request for /pasien/list/
+2024-05-07T01:33:35.037Z info: Received a GET request for /pasien/list/
+2024-05-07T01:33:36.451Z info: Received a GET request for /pasien/list/
+2024-05-07T01:34:00.983Z info: Received a GET request for /user/list/
+2024-05-07T01:34:03.040Z info: Received a GET request for /pasien/list/
+2024-05-07T01:34:51.405Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:34:58.204Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:35:48.853Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:35:54.979Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:36:10.140Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:36:30.593Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:36:36.658Z info: Received a GET request for /pasien/list/
+2024-05-07T01:37:03.505Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:37:50.957Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:38:04.951Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:40:34.518Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:41:16.676Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:41:23.634Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:41:26.125Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:42:15.873Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:42:23.374Z info: Received a GET request for /user/list/
+2024-05-07T01:42:29.173Z info: Received a GET request for /pasien/list/
+2024-05-07T01:43:13.357Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:43:15.005Z info: Received a POST request for /pasien/create
+2024-05-07T01:43:24.337Z info: Received a POST request for /pasien/create
+2024-05-07T01:43:33.071Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:43:33.949Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:43:34.987Z info: Received a POST request for /pasien/create
+2024-05-07T01:44:38.089Z info: Received a POST request for /user/signin
+2024-05-07T01:44:38.382Z info: Received a GET request for /pasien/list
+2024-05-07T01:45:10.264Z info: Received a POST request for /pasien/list/
+2024-05-07T01:45:28.025Z info: Received a POST request for /pasien/list
+2024-05-07T01:45:32.266Z info: Received a GET request for /pasien/list
+2024-05-07T01:45:53.334Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:45:54.701Z info: Received a GET request for /pasien/list
+2024-05-07T01:45:57.701Z info: Received a GET request for /pasien/list
+2024-05-07T01:46:38.494Z info: Received a GET request for /pasien/list
+2024-05-07T01:46:44.890Z info: Received a GET request for /pasien/list
+2024-05-07T01:47:31.506Z info: Received a GET request for /pasien/list
+2024-05-07T01:47:33.547Z info: Received a GET request for /pasien/list
+2024-05-07T01:48:04.511Z info: Received a GET request for /pasien/list
+2024-05-07T01:48:32.254Z info: Received a GET request for /pasien/list
+2024-05-07T01:48:49.244Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:48:53.708Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:49:24.333Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:36.496Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:40.490Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:46.348Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:47.806Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:53.101Z info: Received a GET request for /pasien/list
+2024-05-07T01:49:58.488Z info: Received a GET request for /pasien/list
+2024-05-07T01:50:36.501Z info: Received a GET request for /pasien/list
+2024-05-07T01:50:38.884Z info: Received a GET request for /pasien/list
+2024-05-07T01:51:09.384Z info: Received a GET request for /pasien/list
+2024-05-07T01:51:10.461Z info: Received a GET request for /pasien/list
+2024-05-07T01:51:11.063Z info: Received a GET request for /pasien/list
+2024-05-07T01:51:18.498Z info: Received a GET request for /pasien/list
+2024-05-07T01:51:51.512Z info: Received a GET request for /pasien/list
+2024-05-07T01:52:01.063Z info: Received a GET request for /pasien/list
+2024-05-07T01:52:23.537Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:53:03.573Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:53:11.244Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T01:54:49.511Z info: Received a GET request for /pasien/list
+2024-05-07T01:54:50.699Z info: Received a GET request for /pasien/list
+2024-05-07T01:54:53.047Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:54:55.720Z info: Received a GET request for /pasien/list
+2024-05-07T01:54:56.300Z info: Received a GET request for /pasien/list
+2024-05-07T01:55:02.566Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:55:04.020Z info: Received a GET request for /pasien/list
+2024-05-07T01:55:38.504Z info: Received a GET request for /pasien/list
+2024-05-07T01:55:48.504Z info: Received a GET request for /pasien/list
+2024-05-07T01:55:51.730Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:55:54.467Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:56:55.937Z info: Received a GET request for /pasien/list
+2024-05-07T01:56:58.919Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:57:01.415Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:57:02.908Z info: Received a GET request for /pasien/list
+2024-05-07T01:57:04.804Z info: Received a GET request for /pasien/list
+2024-05-07T01:57:14.495Z info: Received a GET request for /pasien/list
+2024-05-07T01:58:14.503Z info: Received a GET request for /pasien/list
+2024-05-07T01:59:15.487Z info: Received a GET request for /pasien/list
+2024-05-07T01:59:40.510Z info: Received a GET request for /pasien/list
+2024-05-07T01:59:41.800Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T01:59:44.974Z info: Received a GET request for /pasien/list
+2024-05-07T02:00:44.982Z info: Received a GET request for /pasien/list
+2024-05-07T02:01:45.496Z info: Received a GET request for /pasien/list
+2024-05-07T02:02:02.358Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T02:02:10.275Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T02:02:45.501Z info: Received a GET request for /pasien/list
+2024-05-07T02:02:47.473Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T02:02:49.785Z info: Received a GET request for /pasien/list
+2024-05-07T02:02:55.246Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T02:03:01.514Z info: Received a GET request for /pasien/list
+2024-05-07T02:04:00.495Z info: Received a GET request for /pasien/list
+2024-05-07T02:04:02.480Z info: Received a GET request for /pasien/list
+2024-05-07T02:04:04.461Z info: Received a GET request for /pasien/list
+2024-05-07T02:05:04.494Z info: Received a GET request for /pasien/list
+2024-05-07T02:05:20.507Z info: Received a GET request for /pasien/list
+2024-05-07T02:05:22.653Z info: Received a GET request for /pasien/list
+2024-05-07T02:06:23.500Z info: Received a GET request for /pasien/list
+2024-05-07T02:07:54.543Z info: Received a GET request for /pasien/list
+2024-05-07T02:07:56.796Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T02:08:00.806Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:28.502Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:31.238Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T02:08:35.505Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:41.237Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:46.523Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:53.491Z info: Received a GET request for /pasien/list
+2024-05-07T02:08:58.569Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:05.501Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:11.500Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:17.494Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:23.495Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:29.499Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:35.502Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:41.492Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:47.487Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:53.504Z info: Received a GET request for /pasien/list
+2024-05-07T02:09:59.490Z info: Received a GET request for /pasien/list
+2024-05-07T02:10:05.495Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:05.513Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:10.522Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:12.202Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:14.405Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T02:11:18.222Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:19.203Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:25.494Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:31.507Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:37.205Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:43.502Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:49.494Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:55.502Z info: Received a GET request for /pasien/list
+2024-05-07T02:11:57.501Z info: Received a GET request for /pasien/list
+2024-05-07T02:12:04.494Z info: Received a GET request for /pasien/list
+2024-05-07T02:12:05.865Z info: Received a GET request for /pasien/list
+2024-05-07T02:12:22.504Z info: Received a GET request for /pasien/list
+2024-05-07T02:12:43.497Z info: Received a GET request for /pasien/list
+2024-05-07T02:13:43.514Z info: Received a GET request for /pasien/list
+2024-05-07T02:14:43.516Z info: Received a GET request for /pasien/list
+2024-05-07T02:15:43.507Z info: Received a GET request for /pasien/list
+2024-05-07T02:16:43.503Z info: Received a GET request for /pasien/list
+2024-05-07T02:17:43.512Z info: Received a GET request for /pasien/list
+2024-05-07T02:18:43.508Z info: Received a GET request for /pasien/list
+2024-05-07T02:19:43.503Z info: Received a GET request for /pasien/list
+2024-05-07T02:20:43.507Z info: Received a GET request for /pasien/list
+2024-05-07T02:21:43.511Z info: Received a GET request for /pasien/list
+2024-05-07T02:22:43.501Z info: Received a GET request for /pasien/list
+2024-05-07T02:23:43.504Z info: Received a GET request for /pasien/list
+2024-05-07T02:24:43.514Z info: Received a GET request for /pasien/list
+2024-05-07T02:25:43.512Z info: Received a GET request for /pasien/list
+2024-05-07T02:26:43.515Z info: Received a GET request for /pasien/list
+2024-05-07T02:27:06.861Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T02:27:21.107Z info: Received a POST request for /user/signin
+2024-05-07T02:43:04.490Z info: Received a POST request for /user/signin
+2024-05-07T02:43:39.504Z info: Received a GET request for /pasien/list
+2024-05-07T02:43:42.059Z info: Received a GET request for /pasien/list
+2024-05-07T02:43:50.500Z info: Received a GET request for /pasien/list
+2024-05-07T02:44:00.507Z info: Received a GET request for /pasien/list
+2024-05-07T02:44:02.748Z info: Received a GET request for /pasien/list
+2024-05-07T02:44:15.500Z info: Received a GET request for /pasien/list
+2024-05-07T02:44:50.496Z info: Received a GET request for /pasien/list
+2024-05-07T02:45:41.499Z info: Received a GET request for /pasien/list
+2024-05-07T02:46:02.495Z info: Received a GET request for /pasien/list
+2024-05-07T02:46:09.491Z info: Received a GET request for /pasien/list
+2024-05-07T02:46:15.498Z info: Received a GET request for /pasien/list
+2024-05-07T02:46:22.498Z info: Received a GET request for /pasien/list
+2024-05-07T02:47:15.503Z info: Received a GET request for /pasien/list
+2024-05-07T02:48:05.508Z info: Received a GET request for /pasien/list
+2024-05-07T02:48:12.501Z info: Received a GET request for /pasien/list
+2024-05-07T02:49:01.510Z info: Received a GET request for /pasien/list
+2024-05-07T02:49:02.989Z info: Received a GET request for /pasien/list
+2024-05-07T02:49:07.496Z info: Received a GET request for /pasien/list
+2024-05-07T02:49:58.503Z info: Received a GET request for /pasien/list
+2024-05-07T02:51:02.495Z info: Received a GET request for /pasien/list
+2024-05-07T02:51:05.391Z info: Received a GET request for /pasien/list
+2024-05-07T02:51:08.257Z info: Received a GET request for /pasien/list
+2024-05-07T02:51:09.616Z info: Received a GET request for /pasien/list
+2024-05-07T02:52:08.499Z info: Received a GET request for /pasien/list
+2024-05-07T02:52:09.991Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:26.315Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:38.523Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:39.209Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:39.614Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:39.883Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:40.114Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:40.508Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:42.517Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:46.113Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:53.530Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:55.030Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:55.422Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:55.761Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:56.245Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:56.425Z info: Received a GET request for /pasien/list
+2024-05-07T02:53:56.607Z info: Received a GET request for /pasien/list
+2024-05-07T02:54:08.543Z info: Received a POST request for /user/signin
+2024-05-07T02:54:08.634Z info: Received a GET request for /pasien/list
+2024-05-07T02:54:12.518Z info: Received a GET request for /pasien/list
+2024-05-07T02:54:15.505Z info: Received a GET request for /pasien/list
+2024-05-07T02:54:16.280Z info: Received a GET request for /pasien/list
+2024-05-07T02:54:21.225Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:38.534Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:39.950Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:40.397Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:40.681Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:40.854Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:41.036Z info: Received a GET request for /pasien/list
+2024-05-07T02:55:46.496Z info: Received a GET request for /pasien/list
+2024-05-07T02:56:33.421Z info: Received a GET request for /pasien/list
+2024-05-07T02:57:30.492Z info: Received a GET request for /pasien/list
+2024-05-07T02:59:11.518Z info: Received a GET request for /pasien/list
+2024-05-07T02:59:13.167Z info: Received a GET request for /pasien/list
+2024-05-07T02:59:59.505Z info: Received a GET request for /pasien/list
+2024-05-07T03:00:24.492Z info: Received a GET request for /pasien/list
+2024-05-07T03:00:26.455Z info: Received a GET request for /pasien/list
+2024-05-07T03:02:16.501Z info: Received a GET request for /pasien/list
+2024-05-07T03:02:36.496Z info: Received a GET request for /pasien/list
+2024-05-07T03:02:50.502Z info: Received a GET request for /pasien/list
+2024-05-07T03:02:55.128Z info: Received a GET request for /pasien/list
+2024-05-07T03:03:28.548Z info: Received a GET request for /pasien/list
+2024-05-07T03:03:36.349Z info: Received a GET request for /pasien/list
+2024-05-07T03:03:45.496Z info: Received a GET request for /pasien/list
+2024-05-07T03:04:11.496Z info: Received a GET request for /pasien/list
+2024-05-07T03:05:17.505Z info: Received a GET request for /pasien/list
+2024-05-07T03:05:54.494Z info: Received a GET request for /pasien/list
+2024-05-07T03:05:58.500Z info: Received a GET request for /pasien/list
+2024-05-07T03:07:09.505Z info: Received a GET request for /pasien/list
+2024-05-07T03:07:36.496Z info: Received a GET request for /pasien/list
+2024-05-07T03:07:53.305Z info: Received a GET request for /pasien/list
+2024-05-07T03:07:58.493Z info: Received a GET request for /pasien/list
+2024-05-07T03:08:01.955Z info: Received a GET request for /pasien/list
+2024-05-07T03:08:03.204Z info: Received a GET request for /pasien/list
+2024-05-07T03:08:35.498Z info: Received a GET request for /pasien/list
+2024-05-07T03:08:45.508Z info: Received a GET request for /pasien/list
+2024-05-07T03:08:50.503Z info: Received a GET request for /pasien/list
+2024-05-07T03:09:00.213Z info: Received a GET request for /pasien/list
+2024-05-07T03:09:00.826Z info: Received a GET request for /pasien/list
+2024-05-07T03:10:39.076Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:12:11.546Z info: Received a GET request for /pasien/list
+2024-05-07T03:13:20.103Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:13:31.153Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:32.697Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:33.354Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:33.523Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:33.673Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:33.841Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:34.030Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:34.221Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:34.437Z info: Received a POST request for /pasien/update
+2024-05-07T03:13:44.693Z info: Received a POST request for /pasien/update
+2024-05-07T03:14:18.953Z info: Received a POST request for /user/signin
+2024-05-07T03:14:33.355Z info: Received a POST request for /pasien/create
+2024-05-07T03:14:52.364Z info: Received a POST request for /user/signin
+2024-05-07T03:14:52.491Z info: Received a GET request for /pasien/list
+2024-05-07T03:15:53.501Z info: Received a GET request for /pasien/list
+2024-05-07T03:16:53.502Z info: Received a GET request for /pasien/list
+2024-05-07T03:17:53.488Z info: Received a GET request for /pasien/list
+2024-05-07T03:18:13.323Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:18:53.523Z info: Received a GET request for /pasien/list
+2024-05-07T03:20:02.725Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:20:05.499Z info: Received a GET request for /pasien/list
+2024-05-07T03:21:05.496Z info: Received a GET request for /pasien/list
+2024-05-07T03:21:34.013Z info: Received a PUT request for /pasien/update/66399c99c7d190a21b88bcfe
+2024-05-07T03:21:53.501Z info: Received a GET request for /pasien/list
+2024-05-07T03:21:58.926Z info: Received a GET request for /pasien/list
+2024-05-07T03:22:04.411Z info: Received a POST request for /user/signin
+2024-05-07T03:22:04.624Z info: Received a GET request for /pasien/list
+2024-05-07T03:23:10.506Z info: Received a GET request for /pasien/list
+2024-05-07T03:24:07.503Z info: Received a GET request for /pasien/list
+2024-05-07T03:24:16.057Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:24:18.420Z info: Received a GET request for /pasien/list
+2024-05-07T03:24:22.499Z info: Received a GET request for /pasien/list
+2024-05-07T03:24:53.501Z info: Received a GET request for /pasien/list
+2024-05-07T03:24:57.358Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:25:48.503Z info: Received a GET request for /pasien/list
+2024-05-07T03:25:57.503Z info: Received a GET request for /pasien/list
+2024-05-07T03:26:06.498Z info: Received a GET request for /pasien/list
+2024-05-07T03:26:11.889Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:27:34.505Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:45.419Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:27:50.115Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:50.845Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.109Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.292Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.472Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.646Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.818Z info: Received a GET request for /pasien/list
+2024-05-07T03:27:51.979Z info: Received a GET request for /pasien/list
+2024-05-07T03:28:06.026Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:28:13.481Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:28:14.553Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:28:14.991Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:28:35.832Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:28:37.382Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:28:55.612Z info: Received a GET request for /pasien/list
+2024-05-07T03:28:58.821Z info: Received a GET request for /pasien/list
+2024-05-07T03:29:00.260Z info: Received a GET request for /pasien/list
+2024-05-07T03:29:02.846Z info: Received a GET request for /pasien/list
+2024-05-07T03:29:32.557Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:29:36.790Z info: Received a GET request for /pasien/list
+2024-05-07T03:30:39.506Z info: Received a GET request for /pasien/list
+2024-05-07T03:30:42.601Z info: Received a GET request for /pasien/list
+2024-05-07T03:30:50.529Z info: Received a PUT request for /pasien/update/66398b189f7c04f266ccb9e8
+2024-05-07T03:30:56.706Z info: Received a GET request for /pasien/list
+2024-05-07T03:31:11.498Z info: Received a GET request for /pasien/list
+2024-05-07T03:31:32.492Z info: Received a GET request for /pasien/list
+2024-05-07T03:31:35.939Z info: Received a GET request for /pasien/list
+2024-05-07T03:31:46.759Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:31:49.828Z info: Berhasil terhubung ke database mongoDB

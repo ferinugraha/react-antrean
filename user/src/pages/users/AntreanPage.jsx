@@ -1,33 +1,43 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { PasienInit } from "../../data/Pasien";
 
 function AntreanPage() {
-  const [formData, setFormData] = useState({
-    nama: "",
-    notelp: "",
-    jenisKelamin: "",
-    umur: "",
-    alamat: "",
-    keluhan: "",
-    jenisPembayaran: "",
-    totalPembayaran: "0",
-  });
+  const [formData, setFormData] = useState(PasienInit);
+
+  const onCreatePasien = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/pasien/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        throw new Error("Terjadi kesalahan saat mendaftarkan pasien.");
+      }
+      const data = await response.json();
+      console.log(data);
+      alert("Pasien berhasil didaftarkan!");
+      setFormData(PasienInit);
+    } catch (error) {
+      console.error(error.message);
+      alert("Terjadi kesalahan saat mendaftarkan pasien. Silakan coba lagi.");
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "jenisPembayaran") {
-      const totalPembayaran = value === "bpjs" ? "0" : "100000";
-      setFormData((prevData) => ({
-        ...prevData,
-        jenisPembayaran: value,
-        totalPembayaran,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
+    let updatedData = { ...formData, [name]: value };
+    if (name === "jenisPembayaran" && value === "bpjs") {
+      updatedData = { ...updatedData, totalPembayaran: 0 };
+    } else if (name === "jenisPembayaran" && value === "tunai") {
+      updatedData = { ...updatedData, totalPembayaran: 100000 };
     }
+    setFormData(updatedData);
   };
 
   const formatRupiah = (angka) => {
@@ -37,16 +47,11 @@ function AntreanPage() {
     return `Rp ${formattedValue}`;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(JSON.stringify(formData, null, 2));
-  };
-
   return (
     <div>
       <Container className="mt-4">
         <h4>Form Pendaftaran Antrean</h4>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={onCreatePasien}>
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group controlId="formNama">
@@ -61,13 +66,13 @@ function AntreanPage() {
               </Form.Group>
             </Col>
             <Col md={6}>
-              <Form.Group controlId="formtelp">
+              <Form.Group controlId="formTelepon">
                 <Form.Label>No Telp</Form.Label>
                 <Form.Control
-                  type="number"
-                  placeholder="Masukkan Nomoer Telepon"
-                  name="notelp"
-                  value={formData.notelp}
+                  type="text"
+                  placeholder="Masukkan Nomor Telepon"
+                  name="telepon"
+                  value={formData.telepon}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -80,8 +85,8 @@ function AntreanPage() {
                 <Form.Label>Jenis Kelamin</Form.Label>
                 <Form.Control
                   as="select"
-                  name="jenisKelamin"
-                  value={formData.jenisKelamin}
+                  name="gender"
+                  value={formData.gender}
                   onChange={handleChange}
                 >
                   <option value="">Pilih jenis kelamin</option>
@@ -155,9 +160,10 @@ function AntreanPage() {
                 <Form.Label>Total Pembayaran</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Rp 0"
+                  placeholder={formatRupiah(formData.totalPembayaran)}
                   name="totalPembayaran"
-                  value={formatRupiah(formData.totalPembayaran)}
+                  value={formData.totalPembayaran}
+                  onChange={handleChange}
                   readOnly
                 />
               </Form.Group>
