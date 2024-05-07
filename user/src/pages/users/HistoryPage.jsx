@@ -1,10 +1,21 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 // import { Container } from "react-bootstrap";
 // import History from "../../../app/_components/History";
 import "../../../app/globals.css";
 
 function HistoryPage() {
+  const pengguna = [
+    {
+      nama: "Theodorus Fredrik Kiatra",
+      jenisKelamin: "Laki-laki",
+      umur: "21",
+      email: "patricia.yahya@gmail.com",
+      noTelp: "081234567890",
+      alamat:
+        "Perumahan Sinbad Agung, Sinbad Agung, RT04/RW01, Sukadamai Kel., Tanah Sareal, Bogor Kota, 16165, Indonesia",
+    },
+  ];
   const historyData = [
     {
       id: 1,
@@ -12,6 +23,10 @@ function HistoryPage() {
       tanggal: "2023-05-20",
       namaDokter: "Dr. Raditya Dika",
       detail: "Flu biasa tanpa komplikasi.",
+
+      jenisPembayaran: "Bayar Sendiri",
+      totalPembayaran: "50000",
+      keluhan: "Sakit kepala disertai flu",
     },
     {
       id: 2,
@@ -19,6 +34,10 @@ function HistoryPage() {
       tanggal: "2023-08-10",
       namaDokter: "Dr. Tony Stark",
       detail: "Demam ringan akibat cuaca.",
+
+      jenisPembayaran: "BPJS",
+      totalPembayaran: "0",
+      keluhan: "Sakit kepala disertai demam",
     },
     {
       id: 3,
@@ -26,6 +45,10 @@ function HistoryPage() {
       tanggal: "2023-11-15",
       namaDokter: "Dr. Calvin Evans",
       detail: "Batuk karena alergi debu.",
+
+      jenisPembayaran: "BPJS",
+      totalPembayaran: "0",
+      keluhan: "Batuk & pilek seperti bersin-bersin terus",
     },
   ];
 
@@ -64,7 +87,9 @@ function HistoryPage() {
                     </h1>
 
                     <p className="text-right text-xs text-gray-500">
-                      {item.namaDokter}
+                      <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
+                        {item.namaDokter}
+                      </span>
                     </p>
                   </div>
                 </article>
@@ -74,33 +99,173 @@ function HistoryPage() {
         </Container>
       </div>
 
-      {/* <div className="mt-4 flex flex-wrap gap-1">
-                    <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
-                      Snippet
-                    </span>
-
-                    <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
-                      JavaScript
-                    </span>
-                  </div> */}
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal
+        className="mt-8"
+        show={showModal}
+        onHide={() => setShowModal(false)}
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Detail Penyakit</Modal.Title>
+          <Modal.Title>Detail Informasi</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selectedItem && (
-            <div>
-              <p>
-                <strong>Nama Penyakit:</strong> {selectedItem.penyakit}
-              </p>
-              <p>
-                <strong>Tanggal:</strong> {selectedItem.tanggal}
-              </p>
-              <p>
-                <strong>Detail:</strong> {selectedItem.detail}
-              </p>
-            </div>
+            <>
+              <div>
+                <Col>
+                  <Form>
+                    <Form.Group className="mb-2">
+                      <Form.Label>Nama</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={pengguna[0].nama}
+                        disabled
+                      />
+                    </Form.Group>
+                  </Form>
+                </Col>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <Form>
+                  <Form.Group className="mb-2">
+                    <Form.Label>Jenis Kelamin</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={pengguna[0].jenisKelamin}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+                <Form>
+                  <Form.Group className="mb-2">
+                    <Form.Label>Umur</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={pengguna[0].umur}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <Form>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={pengguna[0].email}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+                <Form>
+                  <Form.Label>Nomor Telefon</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={pengguna[0].noTelp}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+
+              <div>
+                <Form>
+                  <Form.Label>Alamat</Form.Label>
+                  <Form.Group className="w-full">
+                    <Form.Control
+                      as="textarea"
+                      rows={3}
+                      type="text"
+                      value={pengguna[0].alamat}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+                <Form>
+                  <Form.Label>Keluhan</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      as="textarea"
+                      rows={3}
+                      type="text"
+                      value={selectedItem.keluhan}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <Form>
+                  <Form.Label>Jenis Pembayaran</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={selectedItem.jenisPembayaran}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+                <Form>
+                  <Form.Label>Total Pembayaran</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={selectedItem.totalPembayaran}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+
+              <div className="my-6">
+                <span className="flex items-center">
+                  <span className="h-px flex-1 bg-black"></span>
+                  <span className="shrink-0 px-6">
+                    Catatan Dokter: {selectedItem.namaDokter}
+                  </span>
+                  <span className="h-px flex-1 bg-black"></span>
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <Form>
+                  <Form.Label>Penyakit</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={selectedItem.penyakit}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+                <Form>
+                  <Form.Label>Tanggal</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={selectedItem.tanggal}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+              <div>
+                <Form>
+                  <Form.Label>Detail</Form.Label>
+                  <Form.Group className="mb-2">
+                    <Form.Control
+                      type="text"
+                      value={selectedItem.detail}
+                      disabled
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+            </>
           )}
         </Modal.Body>
         <Modal.Footer>

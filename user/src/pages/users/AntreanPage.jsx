@@ -161,15 +161,16 @@ function AntreanPage() {
                 <label className="sr-only" htmlFor="address">
                   Alamat
                 </label>
-                <input
+                <textarea
                   className="w-full rounded-lg form-control p-3 border-gray-400"
                   placeholder="Alamat"
                   type="text"
                   id="address"
                   name="alamat"
+                  rows={3}
                   value={formData.alamat}
                   onChange={handleChange}
-                />
+                ></textarea>
               </div>
 
               <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
