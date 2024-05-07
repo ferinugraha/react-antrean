@@ -3,6 +3,7 @@ import { Form, Alert } from "react-bootstrap";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../../app/globals.css";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -75,7 +76,7 @@ function RegisterPage() {
     <div
       className="container-fluid vh-100 d-flex justify-content-center align-items-center"
       style={{
-        backgroundImage: `url('/background.medical.jpg.png')`,
+        backgroundImage: `url('/light-blue.jpg')`,
         backgroundSize: "cover",
       }}
     >
@@ -83,24 +84,24 @@ function RegisterPage() {
         <div
           className="card"
           style={{
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-            backgroundColor: "transparent",
+            boxShadow: "0 0 10px rgba(0,0,255, 0.3)",
+            backgroundColor: "white",
             backdropFilter: "blur(30px)",
             borderRadius: "16px",
           }}
         >
           <div className="card-body">
             <h1 className="card-title text-center" style={{ fontSize: "32px" }}>
-              Register Page
+              Register
             </h1>
             {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
             <form onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicName" className="mb-2">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Nama</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter name"
+                  placeholder="Masukan nama anda"
                   style={{
                     backgroundColor: "transparent",
                     borderColor: "grey",
@@ -111,15 +112,15 @@ function RegisterPage() {
                   minLength={3}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Name harus diisi dan minimal 3 karakter.
+                  Nama harus diisi dan minimal 3 karakter.
                 </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail" className="mb-2">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Alamat email</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Masukan email"
                   style={{
                     backgroundColor: "transparent",
                     borderColor: "grey",
@@ -133,7 +134,8 @@ function RegisterPage() {
                   Email harus diisi dan minimal 3 karakter.
                 </Form.Control.Feedback>
                 <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
+                  Kami tidak akan pernah membagikan email Anda kepada orang
+                  lain.
                 </Form.Text>
               </Form.Group>
 
@@ -171,37 +173,44 @@ function RegisterPage() {
 
               <button
                 type="submit"
-                className="btn btn-secondary w-100 mt-4"
+                className="btn btn-primary w-100 mt-4"
                 style={{ borderRadius: "16px" }}
               >
                 Submit
               </button>
 
               <p className="text-center mt-3">
-                Already have an account?{" "}
-                <Link to="/" className="text-decoration-none">
+                <>
                   <span
                     style={{
+                      fontWeight: "500",
+                      fontSize: "16px",
                       transition: "all 0.3s ease",
-                      color: "#000000",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "grey";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#000000";
                     }}
                   >
-                    Login
+                    Sudah memiliki akun?{" "}
                   </span>
-                </Link>
+                  <span style={{ display: "inline-block" }}>
+                    <Link
+                      to="/"
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "16px",
+                        transition: "all 0.3s ease",
+                        textDecoration: "underline",
+                      }}
+                      className="nav-link"
+                    >
+                      Login
+                    </Link>
+                  </span>
+                </>
               </p>
             </form>
           </div>
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

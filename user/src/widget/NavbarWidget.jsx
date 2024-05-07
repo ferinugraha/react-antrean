@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, Nav, Navbar, Button, Image } from "react-bootstrap";
 // import { Button } from "../components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import "../../app/globals.css";
 
 function NavbarWidget({ handleLogout, role }) {
+  const location = useLocation();
   const handleLogoutClick = () => {
     handleLogout();
   };
@@ -19,59 +21,51 @@ function NavbarWidget({ handleLogout, role }) {
           <Nav className="ms-auto">
             {role === "user" && (
               <>
-                <Nav.Link as={Link} to="/home-user">
-                  <span
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "16px",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#5356FF";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#000000";
-                    }}
-                  >
-                    Halaman Utama
-                  </span>
+                <Nav.Link
+                  as={Link}
+                  to="/home-user"
+                  style={{
+                    color:
+                      location.pathname === "/home-user"
+                        ? "#5356FF"
+                        : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Halaman Utama
                 </Nav.Link>
-                <Nav.Link as={Link} to="/registrasi">
-                  <span
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "16px",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#5356FF";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#000000";
-                    }}
-                  >
-                    Registrasi
-                  </span>
+                <Nav.Link
+                  as={Link}
+                  to="/registrasi"
+                  style={{
+                    color:
+                      location.pathname === "/registrasi"
+                        ? "#5356FF"
+                        : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Registrasi
                 </Nav.Link>
-                <Nav.Link as={Link} to="/history">
-                  <span
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "16px",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#5356FF";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#000000";
-                    }}
-                  >
-                    Riwayat
-                  </span>
+                <Nav.Link
+                  as={Link}
+                  to="/history"
+                  style={{
+                    color:
+                      location.pathname === "/history" ? "#5356FF" : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Riwayat
                 </Nav.Link>
               </>
             )}
