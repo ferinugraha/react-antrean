@@ -1,3 +1,4 @@
+const { create } = require("domain");
 const mongoose = require("mongoose");
 
 const PasienObject = {
@@ -10,9 +11,10 @@ const PasienObject = {
   keluhan: { type: String, required: true },
   status: { type: String, required: true, default: "Menunggu" },
   totalPembayaran: { type: Number, required: true },
-  namaDokter: { type: String, required: true },
+  namaDokter: { type: String },
   namaStaff: { type: String },
   hasilDokter: { type: String },
+  createdAt: { type: Date, default: Date.now },
 };
 
 const PasienSchema = new mongoose.Schema(PasienObject);

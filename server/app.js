@@ -4,9 +4,12 @@ const { UserRouter } = require("./user/user.router");
 const { ROUTER_BASE_USER } = require("./user/user.config");
 const { PasienRouter } = require("./pasien/pasien.router");
 const { ROUTER_BASE_PASIEN } = require("./pasien/pasien.config");
+const { kuotaRouter } = require("./kuota/kuota.router");
+const { ROUTER_BASE_KUOTA } = require("./kuota/kuota.config");
+
 const cors = require("cors");
 
-const { Logging } = require("./libs/lib.logging"); // Perubahan di sini, sesuaikan dengan nama file logging Anda
+const { Logging } = require("./libs/lib.logging");
 
 const app = express();
 
@@ -30,6 +33,7 @@ app.use((req, res, next) => {
 
 app.use(ROUTER_BASE_USER, UserRouter);
 app.use(ROUTER_BASE_PASIEN, PasienRouter);
+app.use(ROUTER_BASE_KUOTA, kuotaRouter);
 
 module.exports = {
   app,

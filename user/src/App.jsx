@@ -13,6 +13,7 @@ import HomeAdmin from "./pages/admin/HomeAdmin";
 import ReportPage from "./pages/admin/ReportPage";
 import HistoryPage from "./pages/users/HistoryPage";
 import ListUser from "./pages/admin/akun/PageList";
+import KuotaPage from "./pages/admin/KuotaPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -170,6 +171,16 @@ function App() {
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(ListUser, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/kuota"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(KuotaPage, "admin")}
             </div>
           }
         />

@@ -16,16 +16,21 @@ function AntreanPage() {
         },
         body: JSON.stringify(formData),
       });
-      if (!response.ok) {
-        throw new Error("Terjadi kesalahan saat mendaftarkan pasien.");
-      }
+      // if (!response.ok) {
+      //   throw new Error("Terjadi kesalahan saat mendaftarkan pasien.");
+      // }
+
       const data = await response.json();
-      console.log(data);
-      alert("Pasien berhasil didaftarkan!");
-      setFormData(PasienInit);
+      if (response.status === 400 && data.message === "Kuota habis") {
+        alert("Maaf, kuota untuk pasien hari ini sudah habis.");
+      } else {
+        alert("Pasien berhasil didaftarkan!");
+        console.log(data);
+        setFormData(PasienInit);
+      }
     } catch (error) {
       console.error(error.message);
-      alert("Terjadi kesalahan saat mendaftarkan pasien. Silakan coba lagi.");
+      alert(error.message);
     }
   };
 

@@ -4,34 +4,17 @@ import axios from "axios";
 
 function HomeStaff() {
   const [antreanData, setAntreanData] = useState([]);
-  const [sisaKuota, setSisaKuota] = useState(null); // Ubah initial state sisaKuota menjadi null
+  const [sisaAntrean, setSisaAntrean] = useState(100);
   const [antreanKeBerapa, setAntreanKeBerapa] = useState(0);
-
-  const fetchKuota = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/kuota/getkuota");
-      if (!response.data) {
-        throw new Error("Failed to fetch kuota data");
-      }
-      console.log(response.data);
-      setSisaKuota(
-        response.data.length > 0 ? response.data[0].Available : null
-      );
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
 
   const fetchPasien = async () => {
     try {
-      const responsePasien = await axios.get(
-        "http://localhost:3000/pasien/list"
-      );
-      if (!responsePasien.data) {
-        throw new Error("Failed to fetch pasien data");
+      const response = await axios.get("http://localhost:3000/pasien/list");
+      if (!response.data) {
+        throw new Error("Failed to fetch data");
       }
 
-      const sortedData = responsePasien.data.sort((a, b) => {
+      const sortedData = response.data.sort((a, b) => {
         if (a.status === "Diproses" && b.status !== "Diproses") {
           return -1;
         } else if (a.status !== "Diproses" && b.status === "Diproses") {
@@ -49,12 +32,10 @@ function HomeStaff() {
   };
 
   useEffect(() => {
-    fetchKuota();
     fetchPasien();
 
     const interval = setInterval(() => {
       console.log("Reloading data...");
-      fetchKuota();
       fetchPasien();
     }, 60000);
     return () => clearInterval(interval);
@@ -71,7 +52,7 @@ function HomeStaff() {
         item._id === _id ? { ...item, status: "Diproses" } : item
       );
       setAntreanData(updatedData);
-      setSisaKuota((prev) => prev - 1);
+      setSisaAntrean((prev) => prev - 1);
       setAntreanKeBerapa((prev) => prev + 1);
       alert("Status antrean berhasil diubah!");
     } catch (error) {
@@ -96,10 +77,8 @@ function HomeStaff() {
         <div className="d-flex justify-content-between mb-4 mt-4">
           <Card style={{ width: "45%" }}>
             <Card.Body>
-              <Card.Title>Kuota Hari Ini</Card.Title>
-              <Card.Text>
-                {sisaKuota !== null ? sisaKuota : "Loading..."}
-              </Card.Text>{" "}
+              <Card.Title>Sisa Antrean</Card.Title>
+              <Card.Text>{sisaAntrean}</Card.Text>
             </Card.Body>
           </Card>
           <Card style={{ width: "45%" }}>

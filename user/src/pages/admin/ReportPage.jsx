@@ -10,11 +10,14 @@ function ReportPage() {
   useEffect(() => {
     const fetchCompletedPatients = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/pasien/list?status=Selesai"
-        );
+        const response = await axios.get("http://localhost:3000/pasien/list");
         const data = response.data;
-        setCompletedPatients(data);
+
+        const completedPatients = data.filter(
+          (patient) => patient.status === "Selesai"
+        );
+
+        setCompletedPatients(completedPatients);
       } catch (error) {
         console.error("Error fetching completed patients:", error);
       }

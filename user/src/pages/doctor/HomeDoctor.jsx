@@ -38,6 +38,13 @@ function HomeDoctor({ loggedInUser }) {
     };
 
     fetchData();
+
+    const interval = setInterval(() => {
+      console.log("Reloading data...");
+      fetchData();
+    }, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {

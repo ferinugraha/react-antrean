@@ -1,7 +1,6 @@
 const { GetOr404 } = require("../libs/lib.common");
 const { ExceptionHandler } = require("../libs/lib.exception");
 const { PasienModel } = require("./pasien.model");
-const { KuotaModel } = require("../kuota/kuota.model");
 
 async function PasienList(req, res) {
   try {
@@ -14,33 +13,11 @@ async function PasienList(req, res) {
 }
 
 async function PasienCreate(req, res) {
-  const today = new Date();
-  const todayString = today.toISOString().slice(0, 10);
-  const kuota = await KuotaModel.findOne({ date: todayString });
-
-  if (!kuota) {
-    return res.status(400).json({ message: "Kuota habis" });
-  }
-
-  if (kuota.Available < 1) {
-    return res.status(400).json({ message: "Kuota habis untuk hari ini." });
-  }
-
-  kuota.Available -= 1;
-  kuota.Used += 1;
-  await kuota.save();
-
   try {
-    const { nama, umur, alamat } = req.body;
-    if (!nama || !umur || !alamat) {
-      return res.status(400).json({ message: "Data pasien tidak lengkap." });
-    }
-
     const result = await PasienModel.create(req.body);
-    console.log(`Pasien baru didaftarkan: ${result.nama}`);
     return res.status(201).json(result);
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return ExceptionHandler(error, res);
   }
 }

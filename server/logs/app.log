@@ -1108,3 +1108,839 @@
 2024-05-07T03:31:35.939Z info: Received a GET request for /pasien/list
 2024-05-07T03:31:46.759Z info: Berhasil terhubung ke database mongoDB
 2024-05-07T03:31:49.828Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:32:10.458Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T03:32:20.091Z info: Received a POST request for /user/signin
+2024-05-07T03:32:20.275Z info: Received a GET request for /pasien/list
+2024-05-07T03:32:22.138Z info: Received a PUT request for /pasien/update/66399c99c7d190a21b88bcfe
+2024-05-07T03:32:29.728Z info: Received a POST request for /user/signin
+2024-05-07T03:32:29.885Z info: Received a GET request for /pasien/list
+2024-05-07T03:32:46.720Z info: Received a PUT request for /pasien/update/66399c99c7d190a21b88bcfe
+2024-05-07T03:34:34.500Z info: Received a GET request for /pasien/list
+2024-05-07T03:34:37.506Z info: Received a GET request for /pasien/list
+2024-05-07T03:34:39.500Z info: Received a GET request for /pasien/list
+2024-05-07T03:34:58.831Z info: Received a GET request for /pasien/list
+2024-05-07T03:35:04.490Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T03:35:08.225Z info: Received a GET request for /pasien/list
+2024-05-07T03:36:35.492Z info: Received a GET request for /pasien/list
+2024-05-07T03:36:55.800Z info: Received a GET request for /pasien/list
+2024-05-07T03:37:06.659Z info: Received a PUT request for /pasien/update/663987466e01eb1e38bbccc8
+2024-05-07T03:37:24.619Z info: Received a POST request for /user/signin
+2024-05-07T03:37:26.378Z info: Received a GET request for /user/list
+2024-05-07T03:40:06.437Z info: Received a GET request for /user/list
+2024-05-07T03:41:14.513Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:42:24.496Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:42:26.499Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:43:34.502Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:43:50.508Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:43:59.233Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:44:24.098Z info: Received a GET request for /user/list
+2024-05-07T03:44:25.026Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:44:27.715Z info: Received a GET request for /user/list
+2024-05-07T03:44:28.885Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:44:36.491Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:44:39.788Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-07T03:44:40.763Z info: Received a GET request for /user/list
+2024-05-07T13:19:41.149Z info: Berhasil terhubung ke database mongoDB
+2024-05-07T13:20:29.963Z info: Received a POST request for /user/signin
+2024-05-07T13:20:30.282Z info: Received a GET request for /pasien/list
+2024-05-07T13:21:06.090Z info: Received a GET request for /pasien/list
+2024-05-07T13:22:21.101Z info: Received a POST request for /user/signin
+2024-05-08T01:41:29.212Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:42:41.834Z info: Received a POST request for /user/signin
+2024-05-08T01:42:59.767Z info: Received a POST request for /pasien/create
+2024-05-08T01:44:22.523Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:44:25.296Z info: Received a POST request for /pasien/create
+2024-05-08T01:45:38.825Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:45:48.132Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:45:50.860Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:45:57.827Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:46:14.131Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:46:55.980Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:47:01.532Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:47:27.906Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:47:32.630Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:47:41.272Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:47:56.450Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:48:06.266Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:48:16.734Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:48:23.059Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:48:30.355Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:48:44.183Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:49:05.265Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:49:10.693Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:49:56.572Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:50:03.751Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:50:15.896Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:50:23.828Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:50:32.605Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:50:36.747Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:51:40.465Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:51:52.746Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:51:58.230Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T01:52:12.847Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:05:25.341Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:05:33.327Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:05:35.666Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:05:59.996Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:06:25.460Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:06:32.248Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:06:35.320Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:06:45.189Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:08:01.110Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:08:16.136Z info: Received a POST request for /user/signin
+2024-05-08T02:08:30.638Z info: Received a POST request for /pasien/create
+2024-05-08T02:09:29.243Z info: Received a POST request for /user/signin
+2024-05-08T02:13:36.348Z info: Received a GET request for /user/list
+2024-05-08T02:13:38.762Z info: Received a GET request for /user/list
+2024-05-08T02:16:32.500Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:16:43.166Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:17:21.031Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:18:22.026Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:20:50.889Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:21:29.067Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:21:42.106Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:21:48.367Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:21:52.986Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:22:32.103Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:22:49.211Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:22:49.414Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:22:54.319Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:23:15.975Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:23:22.465Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:24:07.964Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:24:14.093Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:25:20.178Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:25:24.982Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:25:26.098Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:25:53.260Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:25:56.631Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:25:57.401Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:26:50.910Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:26:54.821Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:26:59.658Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:27:04.286Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:27:18.279Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:27:27.839Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:27:30.943Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:28:39.854Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:29:00.370Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:30:07.869Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:30:12.313Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:31:52.811Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:32:00.318Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:32:18.331Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:32:23.220Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:32:30.465Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:32:35.260Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:34:16.240Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:34:26.375Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:36:01.928Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:36:02.857Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:36:49.353Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:36:52.979Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:36:59.769Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:37:14.830Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:37:40.757Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:37:51.610Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:37:59.492Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:44:03.603Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:44:06.454Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:44:45.190Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:44:51.295Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:44:52.309Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:44:55.767Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:44:58.946Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:46:06.079Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:46:16.328Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:46:21.172Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:46:23.239Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:46:27.933Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:48:27.433Z info: Received a POST request for /kuota/getkuota
+2024-05-08T02:48:36.817Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:50:32.889Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:50:46.073Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:51:11.049Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:51:18.043Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:51:25.949Z info: Received a POST request for /kuota/KuotaCreate
+2024-05-08T02:51:59.677Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:52:00.792Z info: Received a POST request for /kuota/KuotaCreate
+2024-05-08T02:52:27.627Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:52:44.654Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:52:58.748Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:53:01.091Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:53:01.112Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:53:10.551Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:53:10.565Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:53:47.859Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:53:56.717Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:54:11.277Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:54:59.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:55:14.869Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:55:18.404Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:55:18.424Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:55:21.334Z info: Received a GET request for /kuota/createkuota
+2024-05-08T02:55:54.141Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:55:58.530Z info: Received a POST request for /kuota/createkuota
+2024-05-08T02:55:58.551Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:56:45.059Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:57:37.324Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T02:57:53.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T02:58:43.886Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:00:16.752Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:00:27.264Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:00:39.330Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:00:39.365Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:01:14.648Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:01:22.503Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:01:22.588Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:02:12.702Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:02:23.678Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:02:23.694Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:02:46.573Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:06:18.736Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:06:54.304Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:06:56.452Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:07:23.216Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:07:29.329Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:07:29.371Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:07:31.494Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:07:31.511Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:08:09.541Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:08:11.047Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:08:11.071Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:08:19.445Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:08:22.624Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:08:28.270Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:08:29.562Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:08:44.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:08:54.461Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:09:30.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:09:33.605Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:11:15.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:11:18.509Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:11:19.524Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:11:32.698Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:11:36.685Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:12:14.722Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:12:14.892Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:12:39.160Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:12:47.940Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:12:53.030Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:12:53.046Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:13:08.479Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:13:14.642Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:13:16.184Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:13:47.588Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:13:57.944Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:14:09.845Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:14:11.114Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:14:11.131Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:14:21.270Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:14:29.819Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:14:29.830Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:14:57.250Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:14:58.749Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:15:32.196Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:16:12.986Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:17:15.820Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:17:18.723Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:17:23.902Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:17:45.282Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:17:59.269Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:18:07.760Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:19:19.844Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:19:29.016Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:19:57.395Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:19:59.498Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:20:06.215Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:20:06.244Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:20:12.508Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:21:10.126Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:21:17.570Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:21:20.889Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:21:26.087Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:21:27.825Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:21:48.716Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:21:50.187Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:21:59.909Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:12.365Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:12.528Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:12.539Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:12.544Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:12.560Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:22:12.568Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:22:12.574Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:22:14.028Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:15.080Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:15.091Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:22:23.821Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:31.458Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:37.576Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:22:37.590Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:22:43.950Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:47.443Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:22:55.170Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:23:05.817Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:24:15.349Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:24:18.059Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:24:19.808Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:24:19.820Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:24:36.911Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:25:00.154Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:25:45.913Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:25:48.179Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:25:48.193Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:26:00.239Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:26:06.020Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:26:06.027Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:26:22.435Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:26:23.671Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:26:23.685Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:26:36.181Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:26:36.191Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:27:27.473Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:27:28.444Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:28:00.928Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:28:08.877Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:13.864Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:28:13.878Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:27.252Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:28:27.259Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:30.724Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:36.873Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:28:36.889Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:54.696Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:28:57.439Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:29:24.858Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:29:29.730Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:29:36.542Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:29:36.555Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:29:38.379Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:29:38.387Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:29:52.581Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:00.702Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:30:14.891Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:19.871Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:29.234Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:30:29.252Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:30:33.366Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:42.936Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:44.189Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:30:53.684Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:31:05.448Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:31:05.465Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:31:35.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:31:38.854Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:31:46.692Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:31:52.663Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:31:52.679Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:32:10.533Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:32:16.176Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:32:16.187Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:32:31.854Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:32:42.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:32:43.784Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:33:44.253Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:33:53.419Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:33:58.293Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:33:58.304Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:34:14.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:34:20.702Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:34:32.560Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:34:56.700Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:35:01.526Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:35:13.784Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:35:36.375Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:35:47.580Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:35:58.800Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:36:04.709Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:36:41.700Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:36:46.121Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:36:57.449Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:37:04.696Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:37:12.059Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:38:55.831Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:38:59.634Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:38:59.641Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:39:43.705Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:39:49.721Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:39:53.033Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:39:59.886Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:40:05.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:40:07.719Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:40:21.720Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:40:31.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:41:10.702Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:41:15.694Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:41:34.853Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:41:55.271Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:46:19.978Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:46:24.084Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:01.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:24.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:28.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:36.419Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:46.835Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:47:50.580Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:48:07.710Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:48:12.220Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:48:36.709Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:49:00.653Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:49:07.947Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:49:15.243Z info: Received a PUT request for /kuota/updatekuota/663af3d3f9b8f81925180415
+2024-05-08T03:49:15.275Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:49:24.075Z info: Received a PUT request for /kuota/updatekuota/663af3d3f9b8f81925180415
+2024-05-08T03:49:24.081Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:49:39.907Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:49:43.219Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:49:45.123Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:49:48.748Z info: Received a PUT request for /kuota/updatekuota/663af3d3f9b8f81925180415
+2024-05-08T03:49:48.762Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:51:47.611Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:51:50.124Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:51:58.701Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:53:30.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:53:35.384Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:53:43.709Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:54:20.683Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:54:22.640Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:54:31.744Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:54:49.232Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:54:52.162Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:55:02.130Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:55:04.941Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:56:23.967Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:56:26.979Z info: Received a DELETE request for /kuota/deletekuota/663af3d3f9b8f81925180415
+2024-05-08T03:56:26.988Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:56:31.495Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:56:31.505Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:56:39.149Z info: Received a PUT request for /kuota/updatekuota/663af7ef8c309c2a88647a3e
+2024-05-08T03:56:39.156Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:57:18.238Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:57:20.012Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:57:21.757Z info: Received a DELETE request for /kuota/deletekuota/663af7ef8c309c2a88647a3e
+2024-05-08T03:57:21.763Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:57:24.584Z info: Received a POST request for /kuota/createkuota
+2024-05-08T03:57:24.595Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:57:50.970Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:57:57.663Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:58:12.836Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:59:01.940Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:59:06.355Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T03:59:14.438Z info: Received a PUT request for /kuota/updatekuota/663af8248c309c2a88647a47
+2024-05-08T03:59:14.469Z info: Received a GET request for /kuota/getkuota
+2024-05-08T03:59:23.155Z info: Received a POST request for /user/signin
+2024-05-08T03:59:41.480Z info: Received a POST request for /pasien/create
+2024-05-08T04:00:00.397Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:00:06.639Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:01:34.674Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:01:47.583Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:01:48.608Z info: Received a POST request for /pasien/create
+2024-05-08T04:02:14.422Z info: Received a POST request for /pasien/create
+2024-05-08T04:02:36.907Z info: Received a POST request for /pasien/create
+2024-05-08T04:03:00.078Z info: Received a POST request for /pasien/create
+2024-05-08T04:03:42.457Z info: Received a POST request for /pasien/create
+2024-05-08T04:03:55.957Z info: Received a POST request for /pasien/create
+2024-05-08T04:05:07.230Z info: Received a POST request for /pasien/create
+2024-05-08T04:05:21.683Z info: Received a POST request for /pasien/create
+2024-05-08T04:05:26.182Z info: Received a POST request for /pasien/create
+2024-05-08T04:05:40.365Z info: Received a POST request for /pasien/create
+2024-05-08T04:06:01.223Z info: Received a POST request for /pasien/create
+2024-05-08T04:06:33.783Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:07:00.449Z info: Received a POST request for /pasien/create
+2024-05-08T04:07:18.373Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:07:57.875Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:07:58.544Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:08:02.134Z info: Received a POST request for /pasien/create
+2024-05-08T04:08:20.350Z info: Received a POST request for /pasien/create
+2024-05-08T04:08:51.042Z info: Received a POST request for /user/signin
+2024-05-08T04:08:51.206Z info: Received a GET request for /pasien/list
+2024-05-08T04:09:33.873Z info: Received a POST request for /user/signin
+2024-05-08T04:11:05.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:26.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:28.696Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:29.107Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:29.448Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:29.604Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:29.792Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:29.946Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:39.746Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:11:44.701Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:09.341Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:09.724Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:09.898Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:10.083Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:10.249Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:23.662Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:24.235Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:24.649Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:24.812Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:24.956Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:35.682Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:39.184Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:58.528Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:12:58.710Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:02.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:12.521Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:16.438Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:27.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:38.739Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:55.457Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:13:56.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:14:31.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:14:33.558Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:14:47.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:09.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:12.744Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:17.390Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:18.521Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:18.955Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:19.282Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:19.455Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:19.598Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:15:57.733Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:16:00.970Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:16:04.363Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:16:28.180Z info: Received a POST request for /pasien/create
+2024-05-08T04:17:00.978Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:18:00.980Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:18:52.542Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:19:00.970Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:19:28.514Z info: Received a POST request for /user/signin
+2024-05-08T04:19:28.677Z info: Received a GET request for /pasien/list
+2024-05-08T04:20:01.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:20:28.702Z info: Received a GET request for /pasien/list
+2024-05-08T04:21:01.705Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:21:28.705Z info: Received a GET request for /pasien/list
+2024-05-08T04:22:01.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:22:28.703Z info: Received a GET request for /pasien/list
+2024-05-08T04:23:01.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:23:28.701Z info: Received a GET request for /pasien/list
+2024-05-08T04:23:51.716Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:23:51.723Z info: Received a GET request for /pasien/list
+2024-05-08T04:24:01.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:24:08.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:24:08.718Z info: Received a GET request for /pasien/list
+2024-05-08T04:24:13.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:24:13.722Z info: Received a GET request for /pasien/list
+2024-05-08T04:25:01.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:25:14.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:25:14.710Z info: Received a GET request for /pasien/list
+2024-05-08T04:25:28.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:25:28.716Z info: Received a GET request for /pasien/list
+2024-05-08T04:25:53.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:25:53.709Z info: Received a GET request for /pasien/list
+2024-05-08T04:25:56.735Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:25:56.740Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:00.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:00.708Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:01.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:01.724Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:01.730Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:07.710Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:07.720Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:10.319Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:10.321Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:12.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:12.701Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:22.731Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:22.733Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:29.033Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:29.035Z info: Received a GET request for /pasien/list
+2024-05-08T04:26:36.486Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:26:36.487Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:01.705Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:30.854Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:30.858Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:33.270Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:33.752Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:33.983Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:36.793Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:36.849Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:37.131Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:37.135Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:37.349Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:37.360Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:37.519Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:37.520Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:37.719Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:37.720Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:37.882Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:37.883Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:38.085Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:38.087Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:38.285Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:38.290Z info: Received a GET request for /pasien/list
+2024-05-08T04:27:40.080Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:27:40.081Z info: Received a GET request for /pasien/list
+2024-05-08T04:28:15.782Z info: Received a POST request for /user/signin
+2024-05-08T04:28:15.921Z info: Received a GET request for /pasien/list
+2024-05-08T04:28:25.601Z info: Received a PUT request for /pasien/update/66399c99c7d190a21b88bcfe
+2024-05-08T04:28:40.095Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:28:40.097Z info: Received a GET request for /pasien/list
+2024-05-08T04:29:09.254Z info: Received a PUT request for /pasien/update/663ad8f9d95c458c2f5dced4
+2024-05-08T04:29:17.767Z info: Received a GET request for /pasien/list
+2024-05-08T04:29:17.801Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:30:18.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:30:18.708Z info: Received a GET request for /pasien/list
+2024-05-08T04:30:45.702Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:17.776Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:31:17.779Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:38.696Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:31:38.720Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:44.710Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:31:44.813Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:46.557Z info: Received a PUT request for /pasien/update/663ad8f9d95c458c2f5dced4
+2024-05-08T04:31:46.708Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:49.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:31:49.708Z info: Received a GET request for /pasien/list
+2024-05-08T04:31:52.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:31:52.715Z info: Received a GET request for /pasien/list
+2024-05-08T04:32:16.611Z info: Received a PUT request for /pasien/update/663ad8f9d95c458c2f5dced4
+2024-05-08T04:32:46.729Z info: Received a GET request for /pasien/list
+2024-05-08T04:32:52.716Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:32:52.717Z info: Received a GET request for /pasien/list
+2024-05-08T04:32:57.308Z info: Received a PUT request for /pasien/update/663ade9ee3d2eeeb4ab431d2
+2024-05-08T04:33:45.713Z info: Received a GET request for /pasien/list
+2024-05-08T04:33:53.711Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:33:53.752Z info: Received a GET request for /pasien/list
+2024-05-08T04:34:46.702Z info: Received a GET request for /pasien/list
+2024-05-08T04:34:53.708Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:34:53.712Z info: Received a GET request for /pasien/list
+2024-05-08T04:35:47.710Z info: Received a GET request for /pasien/list
+2024-05-08T04:36:01.715Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:36:01.715Z info: Received a GET request for /pasien/list
+2024-05-08T04:36:48.701Z info: Received a GET request for /pasien/list
+2024-05-08T04:37:01.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:37:01.709Z info: Received a GET request for /pasien/list
+2024-05-08T04:37:46.713Z info: Received a GET request for /pasien/list
+2024-05-08T04:37:53.708Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:37:53.710Z info: Received a GET request for /pasien/list
+2024-05-08T04:38:09.689Z info: Received a POST request for /user/signin
+2024-05-08T04:38:09.919Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:38:17.221Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:38:35.106Z info: Received a POST request for /pasien/create
+2024-05-08T04:38:39.325Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:38:41.532Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:38:46.700Z info: Received a GET request for /pasien/list
+2024-05-08T04:38:52.722Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:38:52.723Z info: Received a GET request for /pasien/list
+2024-05-08T04:38:59.741Z info: Received a GET request for /pasien/list
+2024-05-08T04:39:02.520Z info: Received a PUT request for /pasien/update/663ade9ee3d2eeeb4ab431d2
+2024-05-08T04:39:07.859Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:39:07.862Z info: Received a GET request for /pasien/list
+2024-05-08T04:40:00.706Z info: Received a GET request for /pasien/list
+2024-05-08T04:40:08.716Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:40:08.720Z info: Received a GET request for /pasien/list
+2024-05-08T04:40:41.637Z info: Received a PUT request for /pasien/update/663ade9ee3d2eeeb4ab431d2
+2024-05-08T04:41:00.698Z info: Received a GET request for /pasien/list
+2024-05-08T04:41:07.875Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:41:07.882Z info: Received a GET request for /pasien/list
+2024-05-08T04:41:15.697Z info: Received a GET request for /pasien/list
+2024-05-08T04:41:27.967Z info: Received a POST request for /user/signin
+2024-05-08T04:41:30.475Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:41:56.029Z info: Received a PUT request for /kuota/updatekuota/663af8248c309c2a88647a47
+2024-05-08T04:41:56.064Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:42:08.711Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:42:08.719Z info: Received a GET request for /pasien/list
+2024-05-08T04:42:12.720Z info: Received a POST request for /pasien/create
+2024-05-08T04:42:14.733Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:42:21.033Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:42:29.294Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:42:44.240Z info: Received a POST request for /pasien/create
+2024-05-08T04:42:50.475Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:43:08.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:43:08.707Z info: Received a GET request for /pasien/list
+2024-05-08T04:43:16.639Z info: Received a PUT request for /kuota/updatekuota/663af8248c309c2a88647a47
+2024-05-08T04:43:16.654Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:44:08.711Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:44:08.721Z info: Received a GET request for /pasien/list
+2024-05-08T04:45:00.541Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:02.805Z info: Received a GET request for /pasien/list
+2024-05-08T04:45:02.836Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:17.655Z info: Received a POST request for /user/signin
+2024-05-08T04:45:17.842Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:35.390Z info: Received a POST request for /pasien/create
+2024-05-08T04:45:38.903Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:39.818Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:43.449Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:45:43.453Z info: Received a GET request for /pasien/list
+2024-05-08T04:46:06.139Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:46:40.721Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:46:43.702Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:46:43.705Z info: Received a GET request for /pasien/list
+2024-05-08T04:47:03.226Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:47:21.237Z info: Received a POST request for /pasien/create
+2024-05-08T04:47:25.050Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:47:25.960Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:47:43.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:47:43.715Z info: Received a GET request for /pasien/list
+2024-05-08T04:47:43.778Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:47:48.833Z info: Received a PUT request for /kuota/updatekuota/663af8248c309c2a88647a47
+2024-05-08T04:47:48.856Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:48:08.685Z info: Received a POST request for /pasien/create
+2024-05-08T04:48:24.365Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:48:24.368Z info: Received a GET request for /pasien/list
+2024-05-08T04:48:34.138Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:48:53.131Z info: Received a POST request for /pasien/create
+2024-05-08T04:48:57.917Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:48:58.540Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:49:24.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:49:24.715Z info: Received a GET request for /pasien/list
+2024-05-08T04:49:24.838Z info: Received a POST request for /pasien/create
+2024-05-08T04:50:10.750Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:50:13.200Z info: Berhasil terhubung ke database mongoDB
+2024-05-08T04:50:24.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:50:24.717Z info: Received a GET request for /pasien/list
+2024-05-08T04:50:46.598Z info: Received a POST request for /pasien/create
+2024-05-08T04:50:53.253Z info: Received a POST request for /pasien/create
+2024-05-08T04:51:24.700Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:51:24.706Z info: Received a GET request for /pasien/list
+2024-05-08T04:52:24.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:52:24.710Z info: Received a GET request for /pasien/list
+2024-05-08T04:53:57.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:53:57.704Z info: Received a GET request for /pasien/list
+2024-05-08T04:54:58.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:54:58.706Z info: Received a GET request for /pasien/list
+2024-05-08T04:55:59.709Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:55:59.713Z info: Received a GET request for /pasien/list
+2024-05-08T04:57:00.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:57:00.708Z info: Received a GET request for /pasien/list
+2024-05-08T04:58:01.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:58:01.705Z info: Received a GET request for /pasien/list
+2024-05-08T04:59:01.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T04:59:01.705Z info: Received a GET request for /pasien/list
+2024-05-08T05:00:01.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:00:01.701Z info: Received a GET request for /pasien/list
+2024-05-08T05:01:01.708Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:01:01.710Z info: Received a GET request for /pasien/list
+2024-05-08T05:02:01.724Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:02:01.726Z info: Received a GET request for /pasien/list
+2024-05-08T05:03:01.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:03:01.710Z info: Received a GET request for /pasien/list
+2024-05-08T05:04:01.699Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:04:01.701Z info: Received a GET request for /pasien/list
+2024-05-08T05:05:01.727Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:05:01.729Z info: Received a GET request for /pasien/list
+2024-05-08T05:06:01.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:06:01.719Z info: Received a GET request for /pasien/list
+2024-05-08T05:07:01.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:07:01.713Z info: Received a GET request for /pasien/list
+2024-05-08T05:08:01.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:08:01.709Z info: Received a GET request for /pasien/list
+2024-05-08T05:09:01.701Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:09:01.705Z info: Received a GET request for /pasien/list
+2024-05-08T05:10:01.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:10:01.712Z info: Received a GET request for /pasien/list
+2024-05-08T05:11:01.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:11:01.719Z info: Received a GET request for /pasien/list
+2024-05-08T05:12:01.713Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:12:01.717Z info: Received a GET request for /pasien/list
+2024-05-08T05:13:01.700Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:13:01.705Z info: Received a GET request for /pasien/list
+2024-05-08T05:14:01.720Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:14:01.722Z info: Received a GET request for /pasien/list
+2024-05-08T05:15:01.723Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:15:01.724Z info: Received a GET request for /pasien/list
+2024-05-08T05:16:01.701Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:16:01.702Z info: Received a GET request for /pasien/list
+2024-05-08T05:17:01.712Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:17:01.714Z info: Received a GET request for /pasien/list
+2024-05-08T05:18:01.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:18:01.716Z info: Received a GET request for /pasien/list
+2024-05-08T05:19:01.715Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:19:01.718Z info: Received a GET request for /pasien/list
+2024-05-08T05:20:01.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:20:01.712Z info: Received a GET request for /pasien/list
+2024-05-08T05:21:01.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:21:01.719Z info: Received a GET request for /pasien/list
+2024-05-08T05:22:01.706Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:22:01.707Z info: Received a GET request for /pasien/list
+2024-05-08T05:23:01.704Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:23:01.708Z info: Received a GET request for /pasien/list
+2024-05-08T05:24:01.708Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:24:01.711Z info: Received a GET request for /pasien/list
+2024-05-08T05:25:01.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:25:01.709Z info: Received a GET request for /pasien/list
+2024-05-08T05:26:01.705Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:26:01.710Z info: Received a GET request for /pasien/list
+2024-05-08T05:27:01.707Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:27:01.708Z info: Received a GET request for /pasien/list
+2024-05-08T05:28:01.716Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:28:01.717Z info: Received a GET request for /pasien/list
+2024-05-08T05:29:01.705Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:29:01.711Z info: Received a GET request for /pasien/list
+2024-05-08T05:30:01.715Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:30:01.718Z info: Received a GET request for /pasien/list
+2024-05-08T05:31:01.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:31:01.704Z info: Received a GET request for /pasien/list
+2024-05-08T05:32:01.711Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:32:01.713Z info: Received a GET request for /pasien/list
+2024-05-08T05:33:01.710Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:33:01.714Z info: Received a GET request for /pasien/list
+2024-05-08T05:34:01.714Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:34:01.716Z info: Received a GET request for /pasien/list
+2024-05-08T05:35:01.703Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:35:01.706Z info: Received a GET request for /pasien/list
+2024-05-08T05:35:54.751Z info: Received a GET request for /kuota/getkuota
+2024-05-08T05:35:54.753Z info: Received a GET request for /pasien/list
+2024-05-08T09:39:16.451Z info: Received a POST request for /user/signin
+2024-05-08T09:39:16.634Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:39:31.924Z info: Received a POST request for /user/signin
+2024-05-08T09:39:33.744Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:39:39.309Z info: Received a GET request for /user/list
+2024-05-08T09:39:40.910Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:39:48.343Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:40:23.730Z info: Received a PUT request for /kuota/updatekuota/663af8248c309c2a88647a47
+2024-05-08T09:40:23.786Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:40:51.825Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:40:52.767Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:40:55.349Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:40:56.690Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:40:57.442Z info: Received a GET request for /user/list
+2024-05-08T09:40:58.586Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:40:59.812Z info: Received a GET request for /user/list
+2024-05-08T09:41:01.510Z info: Received a GET request for /user/list?filter=user
+2024-05-08T09:41:03.865Z info: Received a GET request for /user/list?filter=sistem
+2024-05-08T09:41:05.633Z info: Received a GET request for /user/list?filter=user
+2024-05-08T09:41:11.197Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:41:19.946Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:41:21.693Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:41:26.763Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:41:28.969Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:41:35.236Z info: Received a GET request for /user/list
+2024-05-08T09:41:36.090Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:42:14.705Z info: Received a GET request for /pasien/
+2024-05-08T09:42:17.634Z info: Received a GET request for /pasien/
+2024-05-08T09:42:21.697Z info: Received a GET request for /pasien/list?status=Selesai
+2024-05-08T09:42:27.711Z info: Received a GET request for /pasien/list
+2024-05-08T09:42:30.758Z info: Received a GET request for /pasien/list
+2024-05-08T09:43:31.705Z info: Received a GET request for /pasien/list
+2024-05-08T09:43:34.708Z info: Received a GET request for /pasien/list
+2024-05-08T09:43:40.984Z info: Received a GET request for /pasien/list
+2024-05-08T09:43:45.708Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:20.031Z info: Received a GET request for /user/list
+2024-05-08T09:44:22.144Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:44:23.914Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:27.241Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:29.784Z info: Received a GET request for /user/list
+2024-05-08T09:44:30.675Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:32.655Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:33.572Z info: Received a GET request for /user/list
+2024-05-08T09:44:36.329Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:44:41.428Z info: Received a GET request for /user/list
+2024-05-08T09:44:42.397Z info: Received a GET request for /pasien/list
+2024-05-08T09:44:54.350Z info: Received a GET request for /user/list
+2024-05-08T09:44:57.491Z info: Received a GET request for /user/list?filter=user
+2024-05-08T09:45:02.486Z info: Received a GET request for /pasien/list
+2024-05-08T09:49:35.645Z info: Received a GET request for /user/list
+2024-05-08T09:49:36.829Z info: Received a GET request for /pasien/list
+2024-05-08T09:49:38.984Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:50:10.695Z info: Received a POST request for /user/signin
+2024-05-08T09:50:10.786Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:50:10.787Z info: Received a GET request for /pasien/list
+2024-05-08T09:50:42.900Z info: Received a POST request for /user/signin
+2024-05-08T09:50:42.983Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:50:55.976Z info: Received a POST request for /pasien/create
+2024-05-08T09:50:58.468Z info: Received a GET request for /kuota/getkuota
+2024-05-08T09:51:58.467Z info: Received a GET request for /kuota/getkuota
