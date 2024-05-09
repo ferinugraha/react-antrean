@@ -7,7 +7,6 @@ import HomeDoctors from "./pages/doctor/HomeDoctor";
 import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
 import AboutPage from "./pages/users/AboutPage";
-import AntreanPage from "./pages/users/AntreanPage";
 import NavbarWidget from "./widget/NavbarWidget";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import ReportPage from "./pages/admin/ReportPage";
@@ -43,6 +42,8 @@ function App() {
     setIsLoggedIn(false);
     setRole(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("uuiid");
     localStorage.removeItem("lastVisitedPage");
   };
 
@@ -121,16 +122,6 @@ function App() {
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(AboutPage, "user")}
-            </div>
-          }
-        />
-
-        <Route
-          path="/antrean"
-          element={
-            <div>
-              <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(AntreanPage, "user")}
             </div>
           }
         />

@@ -4,8 +4,8 @@ import axios from "axios";
 
 function HomeStaff() {
   const [antreanData, setAntreanData] = useState([]);
-  const [sisaKuota, setSisaKuota] = useState(null); // Ubah initial state sisaKuota menjadi null
-  const [antreanKeBerapa, setAntreanKeBerapa] = useState(0);
+  const [sisaKuota, setSisaKuota] = useState(null);
+  const username = localStorage.getItem("name");
 
   const fetchKuota = async () => {
     try {
@@ -41,7 +41,6 @@ function HomeStaff() {
         }
       });
 
-      console.log(sortedData);
       setAntreanData(sortedData);
     } catch (error) {
       console.error(error.message);
@@ -64,15 +63,13 @@ function HomeStaff() {
     try {
       const response = await axios.put(
         `http://localhost:3000/pasien/update/${_id}`,
-        { status: "Diproses" }
+        { status: "Diproses", namaStaff: username }
       );
       console.log(response.data);
       const updatedData = antreanData.map((item) =>
         item._id === _id ? { ...item, status: "Diproses" } : item
       );
       setAntreanData(updatedData);
-      setSisaKuota((prev) => prev - 1);
-      setAntreanKeBerapa((prev) => prev + 1);
       alert("Status antrean berhasil diubah!");
     } catch (error) {
       console.error(error.message);
@@ -105,7 +102,7 @@ function HomeStaff() {
           <Card style={{ width: "45%" }}>
             <Card.Body>
               <Card.Title>Antrean Ke Berapa</Card.Title>
-              <Card.Text>{antreanKeBerapa}</Card.Text>
+              <Card.Text></Card.Text>
             </Card.Body>
           </Card>
         </div>

@@ -1,30 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Card, Modal, Button } from "react-bootstrap";
 
 function HistoryPage() {
-  const historyData = [
-    {
-      id: 1,
-      penyakit: "Flu",
-      tanggal: "2023-05-20",
-      detail: "Flu biasa tanpa komplikasi.",
-    },
-    {
-      id: 2,
-      penyakit: "Demam",
-      tanggal: "2023-08-10",
-      detail: "Demam ringan akibat cuaca.",
-    },
-    {
-      id: 3,
-      penyakit: "Batuk",
-      tanggal: "2023-11-15",
-      detail: "Batuk karena alergi debu.",
-    },
-  ];
-
+  const uuiid = localStorage.getItem("uuiid");
+  const [historyData, setHistoryData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const fetchHistoryData = async (order) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/pasien/cekantrean/${uuiid}?order=${order}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.");
+      }
+      const data = await response.json();
+      // Urutkan data berdasarkan createdAt
+      const sortedData = order === "desc" ? data.reverse() : data;
+      setHistoryData(sortedData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchHistoryData("desc"); // Mulai dengan data terbaru
+  }, []);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -44,8 +46,8 @@ function HistoryPage() {
               style={{ cursor: "pointer" }}
             >
               <Card.Body>
-                <Card.Title>{item.penyakit}</Card.Title>
-                <Card.Text>Tanggal: {item.tanggal}</Card.Text>
+                <Card.Title>{item.keluhan}</Card.Title>
+                <Card.Text>Tanggal: {item.createdAt}</Card.Text>
               </Card.Body>
             </Card>
           ))}
@@ -61,13 +63,13 @@ function HistoryPage() {
           {selectedItem && (
             <div>
               <p>
-                <strong>Nama Penyakit:</strong> {selectedItem.penyakit}
+                <strong>Nama Penyakit:</strong> {selectedItem.keluhan}
               </p>
               <p>
-                <strong>Tanggal:</strong> {selectedItem.tanggal}
+                <strong>Tanggal:</strong> {selectedItem.createdAt}
               </p>
               <p>
-                <strong>Detail:</strong> {selectedItem.detail}
+                <strong>Detail:</strong> {selectedItem.hasilDokter}
               </p>
             </div>
           )}

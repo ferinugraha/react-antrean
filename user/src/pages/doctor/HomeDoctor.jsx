@@ -12,12 +12,10 @@ import {
 import axios from "axios";
 
 function HomeDoctor({ loggedInUser }) {
-  const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [patients, setPatients] = useState([]);
+  const username = localStorage.getItem("name");
   const [message, setMessage] = useState("");
-  const [namaDokter, setNamaDokter] = useState(
-    loggedInUser ? loggedInUser.username : ""
-  );
   const [hasilDokter, setHasilDokter] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -61,11 +59,11 @@ function HomeDoctor({ loggedInUser }) {
         `http://localhost:3000/pasien/update/${selectedPatient._id}`,
         {
           status: "Selesai",
-          namaDokter: namaDokter,
+          namaDokter: username,
           hasilDokter: hasilDokter,
         }
       );
-      console.log("Mengirim pesan dan data dokter:", namaDokter, hasilDokter);
+      console.log("Mengirim pesan dan data dokter:", username, hasilDokter);
       alert("Pesan berhasil dikirim");
 
       // Mengupdate state lokal patients setelah pesan berhasil dikirim
@@ -164,15 +162,7 @@ function HomeDoctor({ loggedInUser }) {
                 />
               </InputGroup>
             </Form.Group>
-            <Form.Group controlId="formNamaDokter">
-              <Form.Label>Nama Dokter</Form.Label>
-              <Form.Control
-                type="text"
-                name="namaDokter"
-                value={namaDokter}
-                onChange={(e) => setNamaDokter(e.target.value)}
-              />
-            </Form.Group>
+
             <Button variant="primary" type="submit" className="mt-3">
               Kirim Pesan
             </Button>

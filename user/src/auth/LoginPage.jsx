@@ -42,20 +42,19 @@ function LoginPage({ authenticateUser }) {
         password,
       });
 
-      const { role } = response.data;
+      const { code_user } = response.data;
       const { token } = response.data;
-      localStorage.setItem("token", token);
+      const req = await axios.get(
+        `http://localhost:3000/user/cekuuid/${code_user}`
+      );
 
-      authenticateUser(role);
-      if (role === "user") {
-        navigate("/home-user");
-      } else if (role === "dokter") {
-        navigate("/home-doctor");
-      } else if (role === "admin") {
-        navigate("/home-admin");
-      } else {
-        navigate("/home-staff");
-      }
+      // console.log(code_user);
+      // console.log(req.data.name);
+      localStorage.setItem("token", token);
+      localStorage.setItem("uuiid", code_user);
+      localStorage.setItem("name", req.data.name);
+
+      authenticateUser(req.data.role);
     } catch (error) {
       console.error(error);
       setErrorMessage(

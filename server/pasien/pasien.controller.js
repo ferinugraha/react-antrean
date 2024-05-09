@@ -26,18 +26,11 @@ async function PasienCreate(req, res) {
     return res.status(400).json({ message: "Kuota habis untuk hari ini." });
   }
 
-  kuota.Available -= 1;
-  kuota.Used += 1;
-  await kuota.save();
-
   try {
-    const { nama, umur, alamat } = req.body;
-    if (!nama || !umur || !alamat) {
-      return res.status(400).json({ message: "Data pasien tidak lengkap." });
-    }
-
     const result = await PasienModel.create(req.body);
-    console.log(`Pasien baru didaftarkan: ${result.nama}`);
+    kuota.Available -= 1;
+    kuota.Used += 1;
+    await kuota.save();
     return res.status(201).json(result);
   } catch (error) {
     console.error(error);
@@ -69,18 +62,26 @@ async function PasienDetail(req, res) {
 //   }
 // }
 
+async function Pasiencekantrean(req, res) {
+  try {
+    const result = await PasienModel.find({ uuiid: req.params.uuiid });
+    return res.status(200).json(result);
+  } catch (error) {
+    return ExceptionHandler(error, res);
+  }
+}
+
 async function PasienUpdate(req, res) {
+  console.log(req.body);
   try {
     const updatedPatient = await PasienModel.findOneAndUpdate(
       { _id: req.params.id },
       req.body,
       { new: true }
     );
-
     if (!updatedPatient) {
       return res.status(404).json({ message: "Patient not found" });
     }
-
     return res.status(200).json(updatedPatient);
   } catch (error) {
     return ExceptionHandler(error, res);
@@ -104,4 +105,5 @@ module.exports = {
   PasienDetail,
   PasienUpdate,
   PasienDelete,
+  Pasiencekantrean,
 };

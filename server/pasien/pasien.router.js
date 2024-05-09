@@ -4,6 +4,7 @@ const {
   PasienList,
   PasienUpdate,
   PasienDelete,
+  Pasiencekantrean,
   PasienDetail,
 } = require("./pasien.controller");
 // const { Validate, IsAuthenticated } = require("../libs/lib.middleware");
@@ -21,6 +22,7 @@ PasienRouter.get("/list", PasienList);
 PasienRouter.post("/create", PasienCreate);
 PasienRouter.put("/update/:id", PasienUpdate);
 PasienRouter.delete("/delete/:id", PasienDelete);
+PasienRouter.get("/cekantrean/:uuiid", Pasiencekantrean);
 
 // PasienRouter.post(
 //   "/create",

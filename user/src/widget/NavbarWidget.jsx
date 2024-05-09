@@ -21,9 +21,6 @@ function NavbarWidget({ handleLogout, role }) {
                 <Nav.Link as={Link} to="/home-user">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/antrean">
-                  Register
-                </Nav.Link>
                 <Nav.Link as={Link} to="/history">
                   History
                 </Nav.Link>
