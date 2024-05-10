@@ -1,37 +1,47 @@
 const express = require("express");
-const { PasienCreate, PasienList, PasienUpdate, PasienDelete, PasienDetail, exportPasien } = require("./pasien.controller");
-const { Validate, IsAuthenticated } = require("../libs/lib.middleware");
-const { PasienNIKValidator, PasienNamaValidator, PasienTanggalLahirValidator, PasienTeleponValidator, PasienAlamatValidator } = require("./pasien.validator");
+const {
+  PasienCreate,
+  PasienList,
+  PasienUpdate,
+  PasienDelete,
+  Pasiencekantrean,
+  PasienDetail,
+} = require("./pasien.controller");
+// const { Validate, IsAuthenticated } = require("../libs/lib.middleware");
+// const {
+//   PasienNIKValidator,
+//   PasienNamaValidator,
+//   PasienTanggalLahirValidator,
+//   PasienTeleponValidator,
+//   PasienAlamatValidator,
+// } = require("./pasien.validator");
 
 const PasienRouter = express.Router();
 
-PasienRouter.get("/", PasienList);
-PasienRouter.get("/exportPasien", exportPasien);
-PasienRouter.post("/", [
-    Validate([
-        PasienNIKValidator(),
-        PasienNamaValidator(),
-        PasienTanggalLahirValidator(),
-        PasienTeleponValidator(),
-        PasienTeleponValidator(),
-        PasienAlamatValidator()
-    ])
-], PasienCreate )
+PasienRouter.get("/list", PasienList);
+PasienRouter.post("/create", PasienCreate);
+PasienRouter.put("/update/:id", PasienUpdate);
+PasienRouter.delete("/delete/:id", PasienDelete);
+PasienRouter.get("/cekantrean/:uuiid", Pasiencekantrean);
 
-PasienRouter.put("/:id", [
-  Validate([
-    PasienNIKValidator(),
-    PasienNamaValidator(),
-    PasienTanggalLahirValidator(),
-    PasienTeleponValidator(),
-    PasienTeleponValidator(),
-    PasienAlamatValidator()
-])
+// PasienRouter.post(
+//   "/create",
+//   [
+//     // IsAuthenticated,
+//     Validate([
+//       PasienNamaValidator(),
+//       PasienTanggalLahirValidator(),
+//       PasienTeleponValidator(),
+//       PasienAlamatValidator(),
+//     ]),
+//   ],
+//   PasienCreate
+// );
 
-], PasienUpdate);
-PasienRouter.delete("/:id", PasienDelete);
-PasienRouter.get("/:id", PasienDetail)
+// PasienRouter.put("/:id", [IsAuthenticated], PasienUpdate);
+// PasienRouter.delete("/:id", [IsAuthenticated], PasienDelete);
+// PasienRouter.get("/:id", [IsAuthenticated], PasienDetail);
 
 module.exports = {
-  PasienRouter
+  PasienRouter,
 };

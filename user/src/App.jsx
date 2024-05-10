@@ -3,11 +3,17 @@ import React, { useState, useEffect } from "react";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./auth/LoginPage";
 import RegisterPage from "./auth/RegisterPage";
-
+import HomeUser from "./pages/users/HomeUser";
+import HomeDoctors from "./pages/doctor/HomeDoctor";
+import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
-import HomeUser from "./users/HomeUser";
-import HomeDoctor from "./doctor/HomeDoctor";
-import HomeStaff from "./staff/HomeStaff";
+import AboutPage from "./pages/users/AboutPage";
+import NavbarWidget from "./widget/NavbarWidget";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import ReportPage from "./pages/admin/ReportPage";
+import HistoryPage from "./pages/users/HistoryPage";
+import ListUser from "./pages/admin/akun/PageList";
+import KuotaPage from "./pages/admin/KuotaPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,21 +21,36 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const lastVisitedPage = localStorage.getItem("lastVisitedPage");
+
     if (token) {
       setIsLoggedIn(true);
       setRole(token);
+
+      if (lastVisitedPage) {
+        navigate(lastVisitedPage);
+      }
     }
   }, []);
 
   const authenticateUser = (role) => {
     setIsLoggedIn(true);
     setRole(role);
+    localStorage.setItem("token", role);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setRole(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("uuiid");
+    localStorage.removeItem("lastVisitedPage");
+  };
+
+  const navigate = (path) => {
+    window.location.href = path;
+    localStorage.setItem("lastVisitedPage", path);
   };
 
   const checkRoleAndRender = (Component, expectedRole) => {
@@ -49,10 +70,12 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -67,10 +90,12 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -79,18 +104,99 @@ function App() {
             )
           }
         />
+
+        <Route path="/home-user">
+          <Route
+            index
+            element={
+              <div>
+                <NavbarWidget handleLogout={handleLogout} role={role} />
+                {checkRoleAndRender(HomeUser, "user")}
+              </div>
+            }
+          />
+        </Route>
+
         <Route
-          path="/home-user"
-          element={checkRoleAndRender(HomeUser, "user")}
+          path="/about"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(AboutPage, "user")}
+            </div>
+          }
         />
+
+        <Route
+          path="/history"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HistoryPage, "user")}
+            </div>
+          }
+        />
+
         <Route
           path="/home-doctor"
-          element={checkRoleAndRender(HomeDoctor, "doctor")}
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeDoctors, "dokter")}
+            </div>
+          }
         />
+
+        <Route
+          path="/home-admin"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeAdmin, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/akun"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(ListUser, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/kuota"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(KuotaPage, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/report"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(ReportPage, "admin")}
+            </div>
+          }
+        />
+
         <Route
           path="/home-staff"
-          element={checkRoleAndRender(HomeStaff, "staff")}
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeStaff, "staff")}
+            </div>
+          }
         />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>

@@ -49,7 +49,6 @@ function RegisterPage() {
             password: password,
           }
         );
-        console.log(response.data);
         alert("Registrasi berhasil!");
         Navigate("/");
       }
