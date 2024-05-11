@@ -69,10 +69,66 @@ function NavbarWidget({ handleLogout, role }) {
                 </Nav.Link>
               </>
             )}
-            {role === "staff" && (
+
+            {role === "admin" && (
               <>
-                <Nav.Link as={Link} to="/home-staff">
-                  Home
+                <Nav.Link
+                  as={Link}
+                  to="/home-admin"
+                  style={{
+                    color:
+                      location.pathname === "/home-admin"
+                        ? "#5356FF"
+                        : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Halaman Utama
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to="/report"
+                  style={{
+                    color:
+                      location.pathname === "/report" ? "#5356FF" : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Laporan
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to="/akun"
+                  style={{
+                    color:
+                      location.pathname === "/akun" ? "#5356FF" : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Akun
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to="/kuota"
+                  style={{
+                    color:
+                      location.pathname === "/kuota" ? "#5356FF" : "#000000",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="nav-link"
+                >
+                  Kuota
                 </Nav.Link>
               </>
             )}

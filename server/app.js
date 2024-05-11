@@ -2,6 +2,8 @@ const express = require("express");
 const { MongoDBConnection } = require("./libs/lib.database");
 const { UserRouter } = require("./user/user.router");
 const { ROUTER_BASE_USER } = require("./user/user.config");
+const { PasienRouter } = require("./pasien/pasien.router");
+const { ROUTER_BASE_PASIEN } = require("./pasien/pasien.config");
 const cors = require("cors");
 
 const { Logging } = require("./libs/lib.logging"); // Perubahan di sini, sesuaikan dengan nama file logging Anda
@@ -14,7 +16,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5174",
   })
 );
 
@@ -27,6 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use(ROUTER_BASE_USER, UserRouter);
+app.use(ROUTER_BASE_PASIEN, PasienRouter);
 
 module.exports = {
   app,

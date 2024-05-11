@@ -71,9 +71,10 @@ function HistoryPage() {
             {historyData.map((item) => (
               <Col key={item.id} md={6} className="mt-2">
                 <article
-                  className="hover:animate-background rounded-xl bg-blue-300 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
+                  className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
                   onClick={() => handleItemClick(item)}
                 >
+                  <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                   <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
                     <time
                       datetime={item.tanggal}
@@ -258,6 +259,8 @@ function HistoryPage() {
                   <Form.Label>Detail</Form.Label>
                   <Form.Group className="mb-2">
                     <Form.Control
+                      as="textarea"
+                      rows={3}
                       type="text"
                       value={selectedItem.detail}
                       disabled

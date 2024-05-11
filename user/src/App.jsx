@@ -11,6 +11,11 @@ import AboutPage from "./pages/users/HistoryPage";
 import NavbarWidget from "./widget/NavbarWidget";
 import HistoryPage from "./pages/users/HistoryPage";
 import AntreanPage from "./pages/users/AntreanPage";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+// import ListUser from "./pages/admin/akun/PageList";
+import PageList from "./pages/admin/akun/PageList";
+import KuotaPage from "./pages/admin/KuotaPage";
+import ReportPage from "./pages/admin/ReportPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -57,6 +62,8 @@ function App() {
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -121,6 +128,46 @@ function App() {
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(HomeDoctors, "doctor")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/home-admin"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeAdmin, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/akun"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(PageList, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/kuota"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(KuotaPage, "admin")}
+            </div>
+          }
+        />
+
+        <Route
+          path="/report"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(ReportPage, "admin")}
             </div>
           }
         />

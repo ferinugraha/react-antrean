@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "apexcharts": "^3.49.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "flowbite": "^2.3.0",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.10.2",
     "react-bootstrap-icons": "^1.11.4",
     "react-dom": "^18.2.0",
@@ -24,7 +27,8 @@
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.22.3",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",

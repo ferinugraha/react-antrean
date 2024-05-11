@@ -79,3 +79,7 @@
     color: #5356ff !important;
   }
 
+  .custom-border {
+    border: 3px solid #EEEEEE !important;
+  }
+

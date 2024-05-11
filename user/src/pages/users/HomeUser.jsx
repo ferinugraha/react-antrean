@@ -10,6 +10,32 @@ function HomeUser() {
   const antreanHariIni = 10;
   const antreanAnda = 2;
 
+  // const [sisaKuota, setSisaKuota] = useState(null);
+  // const antreanHariIni = 10;
+  // const antreanAnda = 2;
+
+  // useEffect(() => {
+  //   async function fetchSisaKuota() {
+  //     try {
+  //       const response = await fetch("http://localhost:3000/kuota/getkuota");
+  //       if (!response.ok) {
+  //         throw new Error("Gagal mengambil data sisa kuota.");
+  //       }
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setSisaKuota(data.length > 0 ? data[0].Available : null);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+
+  //   fetchSisaKuota();
+
+  //   const intervalId = setInterval(fetchSisaKuota, 60000);
+
+  //   return () => clearInterval(intervalId);
+  // });
+
   return (
     <>
       <div>
