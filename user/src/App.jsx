@@ -133,6 +133,16 @@ function App() {
         />
 
         <Route
+          path="/home-doctor"
+          element={
+            <div>
+              <NavbarWidget handleLogout={handleLogout} role={role} />
+              {checkRoleAndRender(HomeDoctors, "dokter")}
+            </div>
+          }
+        />
+
+        <Route
           path="/home-admin"
           element={
             <div>
