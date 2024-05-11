@@ -1,68 +1,97 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Chart from "chart.js/auto";
-import axios from "axios";
 import * as XLSX from "xlsx";
 
 function HomeAdmin() {
   const [monthlyChartData, setMonthlyChartData] = useState(null);
   const [genderChartData, setGenderChartData] = useState(null);
+  const [kuotaHariIni, setKuotaHariIni] = useState(null);
+  const [antreanHariIni, setAntreanHariIni] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchSisaKuota() {
       try {
-        const response = await axios.get("http://localhost:3000/pasien/list");
-        if (!response.data) {
-          throw new Error("Failed to fetch data.");
+        const response = await fetch("http://localhost:3000/kuota/getkuota");
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data sisa kuota.");
         }
-        const data = response.data;
-
-        const monthlyCounts = data.reduce((acc, curr) => {
-          const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
-            month: "long",
-          });
-          acc[month] = (acc[month] || 0) + 1;
-          return acc;
-        }, {});
-
-        const monthlyLabels = Object.keys(monthlyCounts);
-        const monthlyCountsData = monthlyLabels.map(
-          (month) => monthlyCounts[month]
-        );
-
-        setMonthlyChartData({
-          labels: monthlyLabels,
-          data: monthlyCountsData,
-        });
-
-        const genderCounts = data.reduce((acc, curr) => {
-          const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
-            month: "long",
-          });
-          if (!acc[month]) {
-            acc[month] = { perempuan: 0, lakiLaki: 0 };
-          }
-          if (curr.gender === "perempuan") {
-            acc[month].perempuan += 1;
-          } else {
-            acc[month].lakiLaki += 1;
-          }
-          return acc;
-        }, {});
-
-        const genderLabels = Object.keys(genderCounts);
-        const genderCountsData = Object.values(genderCounts);
-
-        setGenderChartData({
-          labels: genderLabels,
-          data: genderCountsData,
-        });
+        const data = await response.json();
+        setKuotaHariIni(data.length > 0 ? data[0].Available : null);
+        setAntreanHariIni(data.length > 0 ? data[0].antrean : null);
       } catch (error) {
         console.error(error);
       }
-    };
+    }
 
+    fetchSisaKuota();
+
+    const intervalId = setInterval(fetchSisaKuota, 600);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/pasien/list");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.");
+      }
+      const data = await response.json();
+
+      const monthlyCounts = data.reduce((acc, curr) => {
+        const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
+          month: "long",
+        });
+        acc[month] = (acc[month] || 0) + 1;
+        return acc;
+      }, {});
+
+      const monthlyLabels = Object.keys(monthlyCounts);
+      const monthlyCountsData = monthlyLabels.map(
+        (month) => monthlyCounts[month]
+      );
+
+      setMonthlyChartData({
+        labels: monthlyLabels,
+        data: monthlyCountsData,
+      });
+
+      const genderCounts = data.reduce((acc, curr) => {
+        const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
+          month: "long",
+        });
+        if (!acc[month]) {
+          acc[month] = { perempuan: 0, lakiLaki: 0 };
+        }
+        if (curr.gender === "perempuan") {
+          acc[month].perempuan += 1;
+        } else {
+          acc[month].lakiLaki += 1;
+        }
+        return acc;
+      }, {});
+
+      const genderLabels = Object.keys(genderCounts);
+      const genderCountsData = Object.values(genderCounts);
+
+      setGenderChartData({
+        labels: genderLabels,
+        data: genderCountsData,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
+
+    const intervalFetch = setInterval(fetchData, 60000);
+    return () => {
+      clearInterval(intervalFetch);
+    };
   }, []);
 
   const exportMonthlyChartData = () => {
@@ -99,75 +128,107 @@ function HomeAdmin() {
   useEffect(() => {
     if (monthlyChartData) {
       const monthlyCtx = document.getElementById("monthlyChart");
-      new Chart(monthlyCtx, {
-        type: "bar",
-        data: {
-          labels: monthlyChartData.labels,
-          datasets: [
-            {
-              label: "Jumlah Pasien",
-              data: monthlyChartData.data,
-              backgroundColor: "rgba(54, 162, 235, 0.5)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
+      if (monthlyCtx) {
+        if (monthlyCtx.chart) {
+          monthlyCtx.chart.destroy(); // Destroy existing chart instance
+        }
+        monthlyCtx.chart = new Chart(monthlyCtx, {
+          type: "bar",
+          data: {
+            labels: monthlyChartData.labels,
+            datasets: [
+              {
+                label: "Jumlah Pasien",
+                data: monthlyChartData.data,
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
             },
           },
-        },
-      });
+        });
+      }
     }
 
     if (genderChartData) {
       const genderCtx = document.getElementById("genderChart");
-      new Chart(genderCtx, {
-        type: "bar",
-        data: {
-          labels: genderChartData.labels,
-          datasets: [
-            {
-              label: "Perempuan",
-              data: genderChartData.data.map((item) => item.perempuan),
-              backgroundColor: "rgba(255, 99, 132, 0.5)",
-              borderColor: "rgba(255, 99, 132, 1)",
-              borderWidth: 1,
-            },
-            {
-              label: "Laki-Laki",
-              data: genderChartData.data.map((item) => item.lakiLaki),
-              backgroundColor: "rgba(54, 162, 235, 0.5)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
+      if (genderCtx) {
+        if (genderCtx.chart) {
+          genderCtx.chart.destroy(); // Destroy existing chart instance
+        }
+        genderCtx.chart = new Chart(genderCtx, {
+          type: "bar",
+          data: {
+            labels: genderChartData.labels,
+            datasets: [
+              {
+                label: "Perempuan",
+                data: genderChartData.data.map((item) => item.perempuan),
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "Laki-Laki",
+                data: genderChartData.data.map((item) => item.lakiLaki),
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
             },
           },
-        },
-      });
+        });
+      }
     }
   }, [monthlyChartData, genderChartData]);
 
   return (
     <Container className="mt-5">
       <Row className="mb-4">
-        <Col className="mt-2">
+        <Col md={6}>
+          <Card>
+            <Card.Body>
+              <Card.Title>Sisa Kuota</Card.Title>
+              <Card.Text>
+                {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card>
+            <Card.Body>
+              <Card.Title>Antrean Hari Ini</Card.Title>
+              <Card.Text>
+                {antreanHariIni === null ? "Loading..." : antreanHariIni}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="mb-4">
+        <Col>
           <h5>Grafik Jumlah Pasien per Bulan</h5>
           <canvas id="monthlyChart" width="400" height="250"></canvas>
           <Button onClick={exportMonthlyChartData} variant="primary">
             Export
           </Button>
         </Col>
-        <Col className="mt-2">
+        <Col>
           <h5>Grafik Jumlah Pasien Perempuan dan Laki-Laki per Bulan</h5>
           <canvas id="genderChart" width="400" height="250"></canvas>
           <Button onClick={exportGenderChartData} variant="primary">

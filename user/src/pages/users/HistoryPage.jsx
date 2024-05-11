@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Container, Card, Modal, Button } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  Form,
+  Button,
+  InputGroup,
+  Modal,
+  Row,
+  Col,
+} from "react-bootstrap";
 
 function HistoryPage() {
   const uuiid = localStorage.getItem("uuiid");
@@ -16,7 +25,6 @@ function HistoryPage() {
         throw new Error("Failed to fetch data.");
       }
       const data = await response.json();
-      // Urutkan data berdasarkan createdAt
       const sortedData = order === "desc" ? data.reverse() : data;
       setHistoryData(sortedData);
     } catch (error) {
@@ -25,7 +33,7 @@ function HistoryPage() {
   };
 
   useEffect(() => {
-    fetchHistoryData("desc"); // Mulai dengan data terbaru
+    fetchHistoryData("desc");
   }, []);
 
   const handleItemClick = (item) => {
@@ -46,15 +54,17 @@ function HistoryPage() {
               style={{ cursor: "pointer" }}
             >
               <Card.Body>
-                <Card.Title>{item.keluhan}</Card.Title>
-                <Card.Text>Tanggal: {item.createdAt}</Card.Text>
+                <div className="d-flex justify-content-between">
+                  <h4>{item.nama}</h4>
+                  <p>{item.status}</p>
+                </div>
+                <Card.Text>Tanggal: {item.createdAt.slice(0, 10)}</Card.Text>
               </Card.Body>
             </Card>
           ))}
         </div>
       </Container>
 
-      {/* Modal untuk menampilkan detail item */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Detail Penyakit</Modal.Title>
@@ -62,15 +72,102 @@ function HistoryPage() {
         <Modal.Body>
           {selectedItem && (
             <div>
-              <p>
-                <strong>Nama Penyakit:</strong> {selectedItem.keluhan}
-              </p>
-              <p>
-                <strong>Tanggal:</strong> {selectedItem.createdAt}
-              </p>
-              <p>
-                <strong>Detail:</strong> {selectedItem.hasilDokter}
-              </p>
+              <Row>
+                <Col md={12}>
+                  <Form.Group controlId="formNama">
+                    <Form.Label>Nama</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="nama"
+                      value={selectedItem?.nama || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+
+                <Col md={6} className="mt-2">
+                  <Form.Group controlId="formUmur">
+                    <Form.Label>Umur</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="umur"
+                      value={selectedItem?.umur || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6} className="mt-2">
+                  <Form.Group controlId="formJenisKelamin">
+                    <Form.Label>Jenis Kelamin</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="jenisKelamin"
+                      value={selectedItem?.gender || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+
+                <Col md={6} className="mt-2">
+                  <Form.Group controlId="formTelepon">
+                    <Form.Label>No Telepon</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="telepon"
+                      value={selectedItem?.telepon || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6} className="mt-2">
+                  <Form.Group controlId="formJenisPembayaran">
+                    <Form.Label>Jenis Pembayaran</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="jenisPembayaran"
+                      value={selectedItem?.jenisPembayaran || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+
+                <Col md={12} className="mt-2">
+                  <Form.Group controlId="formNamaStaff">
+                    <Form.Label>Nama Staff</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="namaStaff"
+                      value={selectedItem?.namaStaff || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+
+                <Col md={12} className="mt-2">
+                  <Form.Group controlId="formAlamat">
+                    <Form.Label>Alamat</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      rows={2}
+                      name="alamat"
+                      value={selectedItem?.alamat || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={12} className="mt-2">
+                  <Form.Group controlId="formKeluhan">
+                    <Form.Label>Keluhan</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      rows={2}
+                      name="keluhan"
+                      value={selectedItem?.keluhan || ""}
+                      disabled
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
             </div>
           )}
         </Modal.Body>

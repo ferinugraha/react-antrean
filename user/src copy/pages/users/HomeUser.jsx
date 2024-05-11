@@ -26,10 +26,7 @@ function HomeUser() {
       });
 
       const data = await response.json();
-      if (
-        response.status === 400 &&
-        data.error === "Maaf, kuota untuk hari ini sudah habis"
-      ) {
+      if (response.status === 400 && data.message === "Kuota habis") {
         alert("Maaf, kuota untuk pasien hari ini sudah habis.");
       } else {
         alert("Pasien berhasil didaftarkan!");
@@ -53,6 +50,19 @@ function HomeUser() {
     setFormData(updatedData);
   };
 
+  // const cekantreanuser = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/pasien/cekantrean/${uuiid}`
+  //     );
+  //     const data = await response.json();
+  //     const status = data.length > 0 ? data[0].status : null;
+
+  //     setQueueStatus(status);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const cekantreanuser = async () => {
     try {
       const response = await fetch(
@@ -81,7 +91,7 @@ function HomeUser() {
         }
         const data = await response.json();
         setSisaKuota(data.length > 0 ? data[0].Available : null);
-        setAntreanHariIni(data.length > 0 ? data[0].antrean : null);
+        setAntreanHariIni(data.length > 0 ? data[0].Used : null);
       } catch (error) {
         console.error(error);
       }
@@ -90,7 +100,7 @@ function HomeUser() {
     fetchSisaKuota();
     cekantreanuser();
 
-    const intervalId = setInterval(fetchSisaKuota, 600);
+    const intervalId = setInterval(fetchSisaKuota, 60000);
     const intervalantrean = setInterval(cekantreanuser, 600);
     return () => {
       clearInterval(intervalId);

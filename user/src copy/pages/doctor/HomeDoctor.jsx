@@ -109,7 +109,7 @@ function HomeDoctor({ loggedInUser }) {
               <Card style={{ cursor: "pointer" }}>
                 <Card.Body>
                   <Card.Title>{selectedPatient.nama}</Card.Title>
-                  <Card.Text>UID: {selectedPatient.uuiid}</Card.Text>
+                  <Card.Text>ID: {selectedPatient._id}</Card.Text>
                   <Card.Text>Status: {selectedPatient.status}</Card.Text>
                 </Card.Body>
               </Card>
@@ -129,98 +129,7 @@ function HomeDoctor({ loggedInUser }) {
                   <Form.Control
                     type="text"
                     name="nama"
-                    value={selectedPatient?.nama || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formUmur">
-                  <Form.Label>Umur</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="umur"
-                    value={selectedPatient?.umur || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formJenisKelamin">
-                  <Form.Label>Jenis Kelamin</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="jenisKelamin"
-                    value={selectedPatient?.gender || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formTelepon">
-                  <Form.Label>No Telepon</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="telepon"
-                    value={selectedPatient?.telepon || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formJenisPembayaran">
-                  <Form.Label>Jenis Pembayaran</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="jenisPembayaran"
-                    value={selectedPatient?.jenisPembayaran || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formNamaStaff">
-                  <Form.Label>Nama Staff</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="namaStaff"
-                    value={selectedPatient?.namaStaff || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formAlamat">
-                  <Form.Label>Alamat</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={2}
-                    name="alamat"
-                    value={selectedPatient?.alamat || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formKeluhan">
-                  <Form.Label>Keluhan</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={2}
-                    name="keluhan"
-                    value={selectedPatient?.keluhan || ""}
+                    value={selectedPatient?.nama}
                     onChange={handleChangeInput}
                     disabled
                   />

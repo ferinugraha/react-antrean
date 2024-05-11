@@ -1,18 +1,16 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from "react";
 
-function HomeUser({ handleLogout }) {
+function HomePage({ handleLogout }) {
   const handleLogoutClick = () => {
     handleLogout();
   };
 
   return (
     <div>
-      <h1>HomeUser</h1>
+      <h1>HomePage</h1>
       <button onClick={handleLogoutClick}>Logout</button>
     </div>
   );
 }
 
-export default HomeUser;
+export default HomePage;

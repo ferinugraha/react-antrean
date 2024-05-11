@@ -26,7 +26,13 @@ function NavbarWidget({ handleLogout, role }) {
                 </Nav.Link>
               </>
             )}
-
+            {role === "staff" && (
+              <>
+                <Nav.Link as={Link} to="/home-staff">
+                  Home
+                </Nav.Link>
+              </>
+            )}
             {role === "admin" && (
               <>
                 <Nav.Link as={Link} to="/home-admin">

@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Button, Modal } from "react-bootstrap";
+import {
+  Container,
+  Table,
+  Button,
+  Modal,
+  Col,
+  Form,
+  Row,
+} from "react-bootstrap";
 import axios from "axios";
 
 function ReportPage() {
@@ -29,6 +37,14 @@ function ReportPage() {
   const handleViewDetails = (patient) => {
     setSelectedPatient(patient);
     setShowModal(true);
+  };
+
+  const handleChangeInput = (event) => {
+    const { name, value } = event.target;
+    setSelectedPatient((prevPatient) => ({
+      ...prevPatient,
+      [name]: value,
+    }));
   };
 
   return (
@@ -75,18 +91,139 @@ function ReportPage() {
           <Modal.Title>Detail Pasien: {selectedPatient?.nama}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Nama: {selectedPatient?.nama}</p>
-          <p>Gender: {selectedPatient?.gender}</p>
-          <p>Alamat: {selectedPatient?.alamat}</p>
-          <p>Jenis Pembayaran: {selectedPatient?.jenisPembayaran}</p>
-          <p>Telepon: {selectedPatient?.telepon}</p>
-          <p>Umur: {selectedPatient?.umur}</p>
-          <p>Keluhan: {selectedPatient?.keluhan}</p>
-          <p>Status: {selectedPatient?.status}</p>
-          <p>Total Pembayaran: {selectedPatient?.totalPembayaran}</p>
-          <p>Nama Dokter: {selectedPatient?.namaDokter}</p>
-          <p>Nama Staff: {selectedPatient?.namaStaff}</p>
-          <p>Hasil Dokter: {selectedPatient?.hasilDokter}</p>
+          <Row>
+            <Col md={12}>
+              <Form.Group controlId="formNama">
+                <Form.Label>Nama</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nama"
+                  value={selectedPatient?.nama || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formUmur">
+                <Form.Label>Umur</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="umur"
+                  value={selectedPatient?.umur || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formJenisKelamin">
+                <Form.Label>Jenis Kelamin</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="jenisKelamin"
+                  value={selectedPatient?.gender || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formTelepon">
+                <Form.Label>No Telepon</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="telepon"
+                  value={selectedPatient?.telepon || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formJenisPembayaran">
+                <Form.Label>Jenis Pembayaran</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="jenisPembayaran"
+                  value={selectedPatient?.jenisPembayaran || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formNamaStaff">
+                <Form.Label>Nama Staff</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="namaStaff"
+                  value={selectedPatient?.namaStaff || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formNamaDokter">
+                <Form.Label>Nama Dokter</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="namaDokter"
+                  value={selectedPatient?.namaDokter || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formAlamat">
+                <Form.Label>Alamat</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  name="alamat"
+                  value={selectedPatient?.alamat || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formKeluhan">
+                <Form.Label>Keluhan</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  name="keluhan"
+                  value={selectedPatient?.keluhan || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formHasilDokter">
+                <Form.Label>Hasil Dokter</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  name="hasilDokter"
+                  value={selectedPatient?.hasilDokter || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>

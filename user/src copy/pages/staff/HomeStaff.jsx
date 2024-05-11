@@ -5,7 +5,6 @@ import axios from "axios";
 function HomeStaff() {
   const [antreanData, setAntreanData] = useState([]);
   const [sisaKuota, setSisaKuota] = useState(null);
-  const [antreanHariIni, setAntreanHariIni] = useState(null);
   const username = localStorage.getItem("name");
 
   const fetchKuota = async () => {
@@ -17,9 +16,6 @@ function HomeStaff() {
       console.log(response.data);
       setSisaKuota(
         response.data.length > 0 ? response.data[0].Available : null
-      );
-      setAntreanHariIni(
-        response.data.length > 0 ? response.data[0].antrean : null
       );
     } catch (error) {
       console.error(error.message);
@@ -52,15 +48,15 @@ function HomeStaff() {
   };
 
   useEffect(() => {
-    async function fetchData() {
+    fetchKuota();
+    fetchPasien();
+
+    const interval = setInterval(() => {
+      console.log("Reloading data...");
       fetchKuota();
       fetchPasien();
-    }
-
-    fetchData();
-
-    const intervalId = setInterval(fetchData, 900);
-    return () => clearInterval(intervalId);
+    }, 900);
+    return () => clearInterval(interval);
   }, []);
 
   const updateStatus = async (_id, status) => {
@@ -100,15 +96,13 @@ function HomeStaff() {
               <Card.Title>Kuota Hari Ini</Card.Title>
               <Card.Text>
                 {sisaKuota !== null ? sisaKuota : "Loading..."}
-              </Card.Text>
+              </Card.Text>{" "}
             </Card.Body>
           </Card>
           <Card style={{ width: "45%" }}>
             <Card.Body>
               <Card.Title>Antrean Ke Berapa</Card.Title>
-              <Card.Text>
-                {antreanHariIni !== null ? antreanHariIni : "Loading..."}
-              </Card.Text>
+              <Card.Text></Card.Text>
             </Card.Body>
           </Card>
         </div>
