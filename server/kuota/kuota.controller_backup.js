@@ -1,10 +1,7 @@
 const { KuotaModel } = require("./kuota.model");
-const moment = require("moment");
 
 async function KuotaList(req, res) {
   try {
-    await autoUpdateKuota();
-
     const result = await KuotaModel.find();
     return res.status(200).json(result);
   } catch (error) {
@@ -14,8 +11,6 @@ async function KuotaList(req, res) {
 
 async function KuotaCreate(req, res) {
   try {
-    await autoUpdateKuota();
-
     const { date, Transaction, Quota } = req.body;
     const Available = Quota;
     const newKuota = new KuotaModel({
@@ -33,10 +28,11 @@ async function KuotaCreate(req, res) {
 
 async function KuotaUpdate(req, res) {
   try {
-    await autoUpdateKuota();
-
     const { id } = req.params;
-    const { date, Transaction, Quota, Available, Used, antrean } = req.body;
+    const { date, Transaction, Quota } = req.body;
+    const Available = Quota;
+    const Used = 0;
+    const antrean = 0;
     const result = await KuotaModel.findByIdAndUpdate(
       id,
       { date, Transaction, Quota, Available, Used, antrean },
@@ -48,45 +44,8 @@ async function KuotaUpdate(req, res) {
   }
 }
 
-async function autoUpdateKuota() {
-  try {
-    const date = moment().format("YYYY-MM-DD");
-    const yesterdayDate = moment().subtract(1, "days").format("YYYY-MM-DD");
-
-    const kuotaKemarin = await KuotaModel.findOne({
-      date: yesterdayDate,
-    });
-
-    if (!kuotaKemarin) {
-      console.log("Tidak ada data kuota untuk tanggal kemarin.");
-      return;
-    }
-
-    const Available = kuotaKemarin.Quota;
-    const Transaction = kuotaKemarin.Transaction;
-    const Used = 0;
-    const antrean = 0;
-
-    const updatedKuota = await KuotaModel.findByIdAndUpdate(
-      kuotaKemarin._id,
-      { date, Transaction, Available, Used, antrean },
-      { new: true }
-    );
-
-    if (updatedKuota) {
-      console.log("Pembaruan kuota berhasil");
-    } else {
-      console.log("Gagal melakukan pembaruan kuota.");
-    }
-  } catch (error) {
-    console.error("Error saat melakukan auto update kuota:", error);
-  }
-}
-
 async function KuotaDelete(req, res) {
   try {
-    await autoUpdateKuota();
-
     const { id } = req.params;
     const result = await KuotaModel.findByIdAndDelete(id);
     return res.status(200).json(result);
@@ -100,5 +59,4 @@ module.exports = {
   KuotaCreate,
   KuotaUpdate,
   KuotaDelete,
-  autoUpdateKuota,
 };
