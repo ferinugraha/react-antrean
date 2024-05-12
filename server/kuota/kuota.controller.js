@@ -52,9 +52,11 @@ async function autoUpdateKuota() {
   try {
     const date = moment().format("YYYY-MM-DD");
     const yesterdayDate = moment().subtract(1, "days").format("YYYY-MM-DD");
+    const Transaction = "Kuota Pasien";
 
     const kuotaKemarin = await KuotaModel.findOne({
       date: yesterdayDate,
+      Transaction,
     });
 
     if (!kuotaKemarin) {
@@ -62,22 +64,16 @@ async function autoUpdateKuota() {
       return;
     }
 
+    const Quota = kuotaKemarin.Quota;
     const Available = kuotaKemarin.Quota;
-    const Transaction = kuotaKemarin.Transaction;
     const Used = 0;
     const antrean = 0;
 
-    const updatedKuota = await KuotaModel.findByIdAndUpdate(
+    await KuotaModel.findByIdAndUpdate(
       kuotaKemarin._id,
-      { date, Transaction, Available, Used, antrean },
+      { date, Transaction, Quota, Available, Used, antrean },
       { new: true }
     );
-
-    if (updatedKuota) {
-      console.log("Pembaruan kuota berhasil");
-    } else {
-      console.log("Gagal melakukan pembaruan kuota.");
-    }
   } catch (error) {
     console.error("Error saat melakukan auto update kuota:", error);
   }

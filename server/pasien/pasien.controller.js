@@ -41,9 +41,6 @@ async function PasienCreate(req, res) {
         .status(400)
         .json({ error: "Maaf, kuota untuk hari ini sudah habis" });
     } else {
-      const pasien = new PasienModel(req.body);
-      await pasien.save();
-
       const today = new Date();
       const todayString = today.toISOString().slice(0, 10);
       const kuota = await KuotaModel.findOne({ date: todayString });
@@ -59,6 +56,9 @@ async function PasienCreate(req, res) {
       kuota.Available -= 1;
       kuota.Used += 1;
       await kuota.save();
+
+      const pasien = new PasienModel(req.body);
+      await pasien.save();
 
       return res.status(201).json(pasien);
     }
@@ -102,7 +102,6 @@ async function Pasiencekantrean(req, res) {
 }
 
 async function PasienUpdate(req, res) {
-  console.log(req.body);
   try {
     const updatedPatient = await PasienModel.findOneAndUpdate(
       { _id: req.params.id },
@@ -110,14 +109,16 @@ async function PasienUpdate(req, res) {
       { new: true }
     );
 
-    const kuota = await KuotaModel.findOne();
+    if (req.body.status == "Diproses") {
+      const kuota = await KuotaModel.findOne();
 
-    if (!kuota) {
-      throw new Error("Kuota not found");
+      if (!kuota) {
+        throw new Error("Kuota not found");
+      }
+
+      kuota.antrean += 1;
+      await kuota.save();
     }
-
-    kuota.antrean += 1;
-    await kuota.save();
 
     return res.status(200).json(updatedPatient);
   } catch (error) {
