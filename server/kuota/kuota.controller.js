@@ -36,7 +36,10 @@ async function KuotaUpdate(req, res) {
     await autoUpdateKuota();
 
     const { id } = req.params;
-    const { date, Transaction, Quota, Available, Used, antrean } = req.body;
+    const { date, Transaction, Quota } = req.body;
+    const Available = Quota;
+    const Used = 0;
+    const antrean = 0;
     const result = await KuotaModel.findByIdAndUpdate(
       id,
       { date, Transaction, Quota, Available, Used, antrean },
