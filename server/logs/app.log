@@ -35038,3 +35038,4 @@
 2024-05-13T04:14:32.815Z info: Received a GET request for /pasien/cekantrean/43M23MM
 2024-05-13T04:15:10.545Z info: Received a GET request for /pasien/list
 2024-05-13T04:16:10.550Z info: Received a GET request for /pasien/list
+2024-05-13T05:27:27.365Z info: Berhasil terhubung ke database mongoDB
