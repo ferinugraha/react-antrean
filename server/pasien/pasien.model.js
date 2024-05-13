@@ -16,6 +16,7 @@ const PasienObject = {
   namaStaff: { type: String },
   hasilDokter: { type: String },
   createdAt: { type: Date, default: Date.now },
+  antrean: { type: String, default: "0" },
 };
 
 const PasienSchema = new mongoose.Schema(PasienObject);
