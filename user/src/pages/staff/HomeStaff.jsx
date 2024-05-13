@@ -1,57 +1,95 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "../../../app/globals.css";
+import axios from "axios";
 
 function HomeStaff() {
-  const [antreanData, setAntreanData] = useState([
-    { id: 1, nama: "John Doe", status: "Menunggu" },
-    { id: 2, nama: "Jane Doe", status: "Menunggu" },
-    { id: 3, nama: "Alice", status: "Menunggu" },
-  ]);
+  const [antreanData, setAntreanData] = useState([]);
+  const [sisaKuota, setSisaKuota] = useState(null);
+  const [antreanHariIni, setAntreanHariIni] = useState(null);
+  const username = localStorage.getItem("name");
 
-  const [sisaAntrean, setSisaAntrean] = useState(100);
-  const [antreanKeBerapa, setAntreanKeBerapa] = useState(0);
-
-  const updateStatus = (id) => {
-    const updatedData = antreanData.map((item) =>
-      item.id === id ? { ...item, status: "Diproses" } : item
-    );
-    setAntreanData(updatedData);
-    setSisaAntrean((prev) => prev - 1);
-    setAntreanKeBerapa((prev) => prev + 1);
-    alert("Status antrean berhasil diubah!");
+  const fetchKuota = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/kuota/getkuota");
+      if (!response.data) {
+        throw new Error("Failed to fetch kuota data");
+      }
+      console.log(response.data);
+      setSisaKuota(
+        response.data.length > 0 ? response.data[0].Available : null
+      );
+      setAntreanHariIni(
+        response.data.length > 0 ? response.data[0].antrean : null
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
-  const finishAntrean = (id) => {
-    const updatedData = antreanData.map((item) =>
-      item.id === id ? { ...item, status: "Selesai" } : item
-    );
-    setAntreanData(updatedData);
-    alert("Antrean telah selesai diproses!");
+  const fetchPasien = async () => {
+    try {
+      const responsePasien = await axios.get(
+        "http://localhost:3000/pasien/list"
+      );
+      if (!responsePasien.data) {
+        throw new Error("Failed to fetch pasien data");
+      }
 
-    // Tambahkan kembali ke dalam kuota setelah waktu selesai
-    setTimeout(() => {
-      setSisaAntrean((prev) => prev + 1);
-    }, 60000); // 1 menit
+      const sortedData = responsePasien.data.sort((a, b) => {
+        if (a.status === "Diproses" && b.status !== "Diproses") {
+          return -1;
+        } else if (a.status !== "Diproses" && b.status === "Diproses") {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+
+      setAntreanData(sortedData);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("Reloading data...");
-      setAntreanData((prevData) => [...prevData]);
-    }, 60000);
-    return () => clearInterval(interval);
+    async function fetchData() {
+      fetchKuota();
+      fetchPasien();
+    }
+
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 900);
+    return () => clearInterval(intervalId);
   }, []);
+
+  const updateStatus = async (_id, status) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/pasien/update/${_id}`,
+        { status: "Diproses", namaStaff: username }
+      );
+      console.log(response.data);
+      const updatedData = antreanData.map((item) =>
+        item._id === _id ? { ...item, status: "Diproses" } : item
+      );
+      setAntreanData(updatedData);
+      alert("Status antrean berhasil diubah!");
+    } catch (error) {
+      console.error(error.message);
+      alert(
+        "Terjadi kesalahan saat memperbarui status antrean. Silakan coba lagi."
+      );
+    }
+  };
 
   const antreanMenunggu = antreanData.filter(
     (item) => item.status === "Menunggu"
   );
-
   const antreanDiproses = antreanData.filter(
     (item) => item.status === "Diproses"
   );
-
-  const namaStaff = "Mr. White";
 
   return (
     <>
@@ -62,7 +100,7 @@ function HomeStaff() {
             <div className="mt-2">
               <span className="text-black" style={{ fontSize: "64px" }}>
                 {" "}
-                {namaStaff}!
+                {username}!
               </span>
             </div>
           </h2>
@@ -84,7 +122,7 @@ function HomeStaff() {
                       Sisa Antrean
                     </h1>
                     <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      {sisaAntrean}
+                      {sisaKuota}
                     </h3>
                   </a>
                 </div>
@@ -100,7 +138,7 @@ function HomeStaff() {
                       Antrean Ke Berapa
                     </h1>
                     <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      {antreanKeBerapa}
+                      {antreanHariIni}
                     </h3>
                   </a>
                 </div>
@@ -131,48 +169,33 @@ function HomeStaff() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-gray-200">
-                {antreanMenunggu.map((item) => (
-                  <tr key={item.id}>
-                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                      {item.id}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.nama}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.status}
-                    </td>
-                    <td className="px-4 py-2 text-center">
-                      {item.status === "Menunggu" && (
-                        <Button onClick={() => updateStatus(item.id)}>
-                          Proses
-                        </Button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-                {antreanDiproses.map((item) => (
-                  <tr key={item.id}>
-                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                      {item.id}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.nama}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.status}
-                    </td>
-                    <td className="px-4 py-2 text-center">
-                      {item.status === "Diproses" && (
-                        <Button onClick={() => finishAntrean(item.id)}>
-                          Selesai
-                        </Button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+              <tbody>
+            {antreanDiproses.map((item, index) => (
+              <tr key={index + 1}>
+                <td>{index + 1}</td>
+                <td>{item.nama}</td>
+                <td>{item.status}</td>
+                <td>{item.status === "Diproses" && <p>Tunggu Update</p>}</td>
+              </tr>
+            ))}
+            {antreanMenunggu.map((item, index) => (
+              <tr key={antreanDiproses.length + index + 1}>
+                <td>{antreanDiproses.length + index + 1}</td>
+                <td>{item.nama}</td>
+                <td>{item.status}</td>
+                <td>
+                  <Button
+                    disabled={
+                      item.status === "Diproses" || antreanDiproses.length > 0
+                    }
+                    onClick={() => updateStatus(item._id, item.status)}
+                  >
+                    Proses
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
             </table>
           </div>
         </div>

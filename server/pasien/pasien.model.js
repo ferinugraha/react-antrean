@@ -2,7 +2,8 @@ const { create } = require("domain");
 const mongoose = require("mongoose");
 
 const PasienObject = {
-  nama: { type: String, required: true },
+  uuiid: { type: String, required: true },
+  nama: { type: String },
   gender: { type: String, required: true },
   alamat: { type: String, required: true },
   jenisPembayaran: { type: String, required: true },

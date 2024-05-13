@@ -31,9 +31,11 @@ async function KuotaUpdate(req, res) {
     const { id } = req.params;
     const { date, Transaction, Quota } = req.body;
     const Available = Quota;
+    const Used = 0;
+    const antrean = 0;
     const result = await KuotaModel.findByIdAndUpdate(
       id,
-      { date, Transaction, Quota, Available },
+      { date, Transaction, Quota, Available, Used, antrean },
       { new: true }
     );
     return res.status(200).json(result);

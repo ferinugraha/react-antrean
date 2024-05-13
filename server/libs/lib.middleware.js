@@ -25,7 +25,12 @@ const IsAuthenticated = (req, res, next) => {
 };
 
 const Validate = (validations) => {
+<<<<<<< HEAD
+  return async ( req, res, next) => {
+
+=======
   return async (req, res, next) => {
+>>>>>>> f1f5ced3138aca6a9c867e22214eb21dd4cc1d63
     for (let validation of validations) {
       await validation.run(req);
       // if (result.errors.length) break;

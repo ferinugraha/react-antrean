@@ -1,59 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 // import { Container } from "react-bootstrap";
 // import History from "../../../app/_components/History";
 import "../../../app/globals.css";
 
 function HistoryPage() {
-  const pengguna = [
-    {
-      nama: "Theodorus Fredrik Kiatra",
-      jenisKelamin: "Laki-laki",
-      umur: "21",
-      email: "patricia.yahya@gmail.com",
-      noTelp: "081234567890",
-      alamat:
-        "Perumahan Sinbad Agung, Sinbad Agung, RT04/RW01, Sukadamai Kel., Tanah Sareal, Bogor Kota, 16165, Indonesia",
-    },
-  ];
-  const historyData = [
-    {
-      id: 1,
-      penyakit: "Flu",
-      tanggal: "2023-05-20",
-      namaDokter: "Dr. Raditya Dika",
-      detail: "Flu biasa tanpa komplikasi.",
-
-      jenisPembayaran: "Bayar Sendiri",
-      totalPembayaran: "50000",
-      keluhan: "Sakit kepala disertai flu",
-    },
-    {
-      id: 2,
-      penyakit: "Demam",
-      tanggal: "2023-08-10",
-      namaDokter: "Dr. Tony Stark",
-      detail: "Demam ringan akibat cuaca.",
-
-      jenisPembayaran: "BPJS",
-      totalPembayaran: "0",
-      keluhan: "Sakit kepala disertai demam",
-    },
-    {
-      id: 3,
-      penyakit: "Batuk",
-      tanggal: "2023-11-15",
-      namaDokter: "Dr. Calvin Evans",
-      detail: "Batuk karena alergi debu.",
-
-      jenisPembayaran: "BPJS",
-      totalPembayaran: "0",
-      keluhan: "Batuk & pilek seperti bersin-bersin terus",
-    },
-  ];
-
+  const uuiid = localStorage.getItem("uuiid");
+  const [historyData, setHistoryData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const fetchHistoryData = async (order) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/pasien/cekantrean/${uuiid}?order=${order}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.");
+      }
+      const data = await response.json();
+      const sortedData = order === "desc" ? data.reverse() : data;
+      setHistoryData(sortedData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchHistoryData("desc");
+  }, []);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -77,10 +52,9 @@ function HistoryPage() {
                   <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                   <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
                     <time
-                      datetime={item.tanggal}
                       className="block text-xs text-gray-500"
                     >
-                      {item.tanggal}
+                      {item.createdAt.slice(0, 10)}
                     </time>
 
                     <h1 className="mt-0.5 text-lg font-medium text-gray-900">
@@ -118,7 +92,7 @@ function HistoryPage() {
                       <Form.Label>Nama</Form.Label>
                       <Form.Control
                         type="text"
-                        value={pengguna[0].nama}
+                        value={selectedItem?.nama || ""}
                         disabled
                       />
                     </Form.Group>
@@ -132,7 +106,7 @@ function HistoryPage() {
                     <Form.Label>Jenis Kelamin</Form.Label>
                     <Form.Control
                       type="text"
-                      value={pengguna[0].jenisKelamin}
+                      value={selectedItem?.gender || ""}
                       disabled
                     />
                   </Form.Group>
@@ -142,7 +116,7 @@ function HistoryPage() {
                     <Form.Label>Umur</Form.Label>
                     <Form.Control
                       type="text"
-                      value={pengguna[0].umur}
+                      value={selectedItem?.umur || ""}
                       disabled
                     />
                   </Form.Group>
@@ -150,7 +124,7 @@ function HistoryPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <Form>
+                {/* <Form>
                   <Form.Label>Email</Form.Label>
                   <Form.Group className="mb-2">
                     <Form.Control
@@ -159,13 +133,13 @@ function HistoryPage() {
                       disabled
                     />
                   </Form.Group>
-                </Form>
+                </Form> */}
                 <Form>
                   <Form.Label>Nomor Telefon</Form.Label>
                   <Form.Group className="mb-2">
                     <Form.Control
                       type="text"
-                      value={pengguna[0].noTelp}
+                      value={selectedItem?.telepon || ""}
                       disabled
                     />
                   </Form.Group>
@@ -180,7 +154,7 @@ function HistoryPage() {
                       as="textarea"
                       rows={3}
                       type="text"
-                      value={pengguna[0].alamat}
+                      value={selectedItem?.alamat || ""}
                       disabled
                     />
                   </Form.Group>
@@ -192,7 +166,7 @@ function HistoryPage() {
                       as="textarea"
                       rows={3}
                       type="text"
-                      value={selectedItem.keluhan}
+                      value={selectedItem?.keluhan || ""}
                       disabled
                     />
                   </Form.Group>
@@ -205,7 +179,7 @@ function HistoryPage() {
                   <Form.Group className="mb-2">
                     <Form.Control
                       type="text"
-                      value={selectedItem.jenisPembayaran}
+                      value={selectedItem?.jenisPembayaran || ""}
                       disabled
                     />
                   </Form.Group>
@@ -238,7 +212,7 @@ function HistoryPage() {
                   <Form.Group className="mb-2">
                     <Form.Control
                       type="text"
-                      value={selectedItem.penyakit}
+                      value={selectedItem.keluhan}
                       disabled
                     />
                   </Form.Group>
@@ -248,7 +222,7 @@ function HistoryPage() {
                   <Form.Group className="mb-2">
                     <Form.Control
                       type="text"
-                      value={selectedItem.tanggal}
+                      value={selectedItem.createdAt.slice(0, 10)}
                       disabled
                     />
                   </Form.Group>
@@ -262,7 +236,7 @@ function HistoryPage() {
                       as="textarea"
                       rows={3}
                       type="text"
-                      value={selectedItem.detail}
+                      value={selectedItem.hasilDokter}
                       disabled
                     />
                   </Form.Group>

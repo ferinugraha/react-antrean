@@ -10,25 +10,8 @@ import {
 } from "react-bootstrap";
 
 function KuotaPage() {
-  const [data, setData] = useState([
-    {
-      _id: "1",
-      date: "2024-05-12",
-      Transaction: "Kuota Pasien",
-      Quota: 100,
-      Available: 80,
-      Used: 20,
-    },
-    {
-      _id: "2",
-      date: "2024-05-13",
-      Transaction: "Kuota Pasien",
-      Quota: 150,
-      Available: 100,
-      Used: 50,
-    },
-  ]);
-  const [showForm, setShowForm] = useState(true);
+  const [data, setData] = useState([]);
+  const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     date: new Date().toISOString().slice(0, 10),
     Transaction: "Kuota Pasien",
@@ -43,8 +26,21 @@ function KuotaPage() {
   });
 
   useEffect(() => {
-    // fetchData();
+    fetchData();
   }, []);
+
+  const fetchData = () => {
+    fetch("http://localhost:3000/kuota/getkuota")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.length === 0) {
+          setShowForm(true);
+        } else {
+          setData(data);
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -57,15 +53,22 @@ function KuotaPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newData = {
-      ...formData,
-      _id: Math.random().toString(),
-      Available: 0,
-      Used: 0,
-    };
+    const requestBody = JSON.stringify(formData);
 
-    setData((prevData) => [...prevData, newData]);
-    setShowForm(false);
+    fetch("http://localhost:3000/kuota/createkuota", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: requestBody,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data berhasil disimpan:", data);
+        setShowForm(false);
+        fetchData();
+      })
+      .catch((error) => console.error("Error saving data:", error));
   };
 
   const handleEditModalOpen = (id) => {
@@ -74,9 +77,9 @@ function KuotaPage() {
       id: selectedData._id,
       date: selectedData.date,
       Transaction: selectedData.Transaction,
-      Quota: selectedData.Quota.toString(),
-      Available: selectedData.Available.toString(),
-      Used: selectedData.Used.toString(),
+      Quota: selectedData.Quota,
+      Available: selectedData.Available,
+      Used: selectedData.Used,
     });
     setShowEditModal(true);
   };
@@ -88,18 +91,37 @@ function KuotaPage() {
   const handleEditSubmit = (event) => {
     event.preventDefault();
 
-    const updatedData = data.map((item) =>
-      item._id === editFormData.id ? { ...editFormData } : item
-    );
+    const { id, ...rest } = editFormData;
+    const requestBody = JSON.stringify(rest);
 
-    setData(updatedData);
-    handleEditModalClose();
+    fetch(`http://localhost:3000/kuota/updatekuota/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: requestBody,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data berhasil diubah:", data);
+        handleEditModalClose();
+        fetchData();
+      })
+      .catch((error) => console.error("Error updating data:", error));
   };
 
   const handleDelete = (id) => {
-    const filteredData = data.filter((item) => item._id !== id);
-    setData(filteredData);
+    fetch(`http://localhost:3000/kuota/deletekuota/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data berhasil dihapus:", data);
+        fetchData();
+      })
+      .catch((error) => console.error("Error deleting data:", error));
   };
+
 
   return (
     <div>

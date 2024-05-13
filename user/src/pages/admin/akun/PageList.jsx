@@ -14,12 +14,8 @@ function PageList() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState({});
-  const [users, setUsers] = useState([
-    { _id: 1, name: "John Doe", email: "john@example.com", role: "admin" },
-    { _id: 2, name: "Jane Smith", email: "jane@example.com", role: "staff" },
-    { _id: 3, name: "Bob Johnson", email: "bob@example.com", role: "dokter" },
-  ]);
-  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -46,28 +42,90 @@ function PageList() {
     setShowViewModal(true);
   };
 
-  const handleDelete = (id) => {
-    const updatedUsers = users.filter((user) => user._id !== id);
-    setUsers(updatedUsers);
-    setSuccessMessage("Pengguna berhasil dihapus");
-    handleClose();
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/user/delete/${id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to delete user");
+      }
+      setSuccessMessage("User deleted successfully");
+      fetchData();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      setErrorMessage("Failed to delete user");
+    }
   };
 
-  const handleAddUser = () => {
-    const newUser = { ...selectedUser, _id: users.length + 1 };
-    setUsers([...users, newUser]);
-    setSuccessMessage("Pengguna berhasil ditambahkan");
-    handleClose();
+  const handleAddUser = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...selectedUser, password }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to add user");
+      }
+      setSuccessMessage("User added successfully");
+      fetchData();
+      handleClose();
+    } catch (error) {
+      console.error("Error adding user:", error);
+      setErrorMessage("Failed to add user");
+    }
   };
 
-  const handleEditUser = () => {
-    const updatedUsers = users.map((user) =>
-      user._id === selectedUser._id ? { ...user, ...selectedUser } : user
-    );
-    setUsers(updatedUsers);
-    setSuccessMessage("Pengguna berhasil diperbarui");
-    handleClose();
+  const handleEditUser = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/user/edit/${selectedUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...selectedUser, password }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to edit user");
+      }
+      setSuccessMessage("User updated successfully");
+      fetchData();
+      handleClose();
+    } catch (error) {
+      console.error("Error editing user:", error);
+      setErrorMessage("Failed to edit user");
+    }
   };
+
+  const fetchData = async () => {
+    try {
+      let url = "http://localhost:3000/user/list";
+      if (filter) {
+        url += `?filter=${filter}`;
+      }
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      setUsers(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [filter]);
 
   return (
     <Container className="mt-3">

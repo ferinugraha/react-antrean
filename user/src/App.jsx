@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./auth/LoginPage";
@@ -6,16 +7,13 @@ import HomeUser from "./pages/users/HomeUser";
 import HomeDoctors from "./pages/doctor/HomeDoctor";
 import HomeStaff from "./pages/staff/HomeStaff";
 import NotFound from "./pages/NotFoundPage";
-import AboutPage from "./pages/users/HistoryPage";
-// import AntreanPage from "./pages/users/AntreanPage";
+import AboutPage from "./pages/users/AboutPage";
 import NavbarWidget from "./widget/NavbarWidget";
-import HistoryPage from "./pages/users/HistoryPage";
-import AntreanPage from "./pages/users/AntreanPage";
 import HomeAdmin from "./pages/admin/HomeAdmin";
-// import ListUser from "./pages/admin/akun/PageList";
-import PageList from "./pages/admin/akun/PageList";
-import KuotaPage from "./pages/admin/KuotaPage";
 import ReportPage from "./pages/admin/ReportPage";
+import HistoryPage from "./pages/users/HistoryPage";
+import ListUser from "./pages/admin/akun/PageList";
+import KuotaPage from "./pages/admin/KuotaPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,9 +21,15 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const lastVisitedPage = localStorage.getItem("lastVisitedPage");
+
     if (token) {
       setIsLoggedIn(true);
       setRole(token);
+
+      if (lastVisitedPage) {
+        navigate(lastVisitedPage);
+      }
     }
   }, []);
 
@@ -39,6 +43,14 @@ function App() {
     setIsLoggedIn(false);
     setRole(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("uuiid");
+    localStorage.removeItem("lastVisitedPage");
+  };
+
+  const navigate = (path) => {
+    window.location.href = path;
+    localStorage.setItem("lastVisitedPage", path);
   };
 
   const checkRoleAndRender = (Component, expectedRole) => {
@@ -58,7 +70,7 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
@@ -78,10 +90,12 @@ function App() {
             isLoggedIn ? (
               role === "user" ? (
                 <Navigate to="/home-user" replace />
-              ) : role === "doctor" ? (
+              ) : role === "dokter" ? (
                 <Navigate to="/home-doctor" replace />
               ) : role === "staff" ? (
                 <Navigate to="/home-staff" replace />
+              ) : role === "admin" ? (
+                <Navigate to="/home-admin" replace />
               ) : (
                 <Navigate to="/" replace />
               )
@@ -90,6 +104,7 @@ function App() {
             )
           }
         />
+
         <Route path="/home-user">
           <Route
             index
@@ -103,11 +118,11 @@ function App() {
         </Route>
 
         <Route
-          path="/registrasi"
+          path="/about"
           element={
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(AntreanPage, "user")}
+              {checkRoleAndRender(AboutPage, "user")}
             </div>
           }
         />
@@ -118,16 +133,6 @@ function App() {
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
               {checkRoleAndRender(HistoryPage, "user")}
-            </div>
-          }
-        />
-
-        <Route
-          path="/home-doctor"
-          element={
-            <div>
-              <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(HomeDoctors, "doctor")}
             </div>
           }
         />
@@ -157,7 +162,7 @@ function App() {
           element={
             <div>
               <NavbarWidget handleLogout={handleLogout} role={role} />
-              {checkRoleAndRender(PageList, "admin")}
+              {checkRoleAndRender(ListUser, "admin")}
             </div>
           }
         />

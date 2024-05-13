@@ -37,7 +37,7 @@ function NavbarWidget({ handleLogout, role }) {
                 >
                   Halaman Utama
                 </Nav.Link>
-                <Nav.Link
+                {/* <Nav.Link
                   as={Link}
                   to="/registrasi"
                   style={{
@@ -52,7 +52,7 @@ function NavbarWidget({ handleLogout, role }) {
                   className="nav-link"
                 >
                   Registrasi
-                </Nav.Link>
+                </Nav.Link> */}
                 <Nav.Link
                   as={Link}
                   to="/history"

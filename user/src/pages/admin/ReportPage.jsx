@@ -1,75 +1,42 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Container, Button, Modal, Form, Col } from "react-bootstrap";
 
 function ReportPage() {
-  const [completedPatients, setCompletedPatients] = useState([
-    {
-      _id: "1",
-      nama: "John Doe",
-      telepon: "1234567890",
-      status: "Selesai",
-      namaDokter: "Dr. Smith",
-      namaStaff: "Nurse Jane",
-      gender: "Male",
-      alamat: "123 Main St",
-      jenisPembayaran: "Bayar Sendiri",
-      umur: 35,
-      keluhan: "Fever",
-      totalPembayaran: 100000,
-      hasilDokter: "Recovered",
-    },
-    {
-      _id: "2",
-      nama: "Jane Smith",
-      telepon: "0987654321",
-      status: "Selesai",
-      namaDokter: "Dr. Johnson",
-      namaStaff: "Nurse Kate",
-      gender: "Female",
-      alamat: "456 Elm St",
-      jenisPembayaran: "BPJS",
-      umur: 45,
-      keluhan: "Headache",
-      totalPembayaran: 0,
-      hasilDokter: "In recovery",
-    },
-    {
-      _id: "3",
-      nama: "Jane Smith",
-      telepon: "0987654321",
-      status: "Selesai",
-      namaDokter: "Dr. Johnson",
-      namaStaff: "Nurse Kate",
-      gender: "Female",
-      alamat: "456 Elm St",
-      jenisPembayaran: "BPJS",
-      umur: 45,
-      keluhan: "Headache",
-      totalPembayaran: 0,
-      hasilDokter: "In recovery",
-    },
-    {
-      _id: "4",
-      nama: "Jane Smith",
-      telepon: "0987654321",
-      status: "Selesai",
-      namaDokter: "Dr. Johnson",
-      namaStaff: "Nurse Kate",
-      gender: "Female",
-      alamat: "456 Elm St",
-      jenisPembayaran: "BPJS",
-      umur: 45,
-      keluhan: "Headache",
-      totalPembayaran: 0,
-      hasilDokter: "In recovery",
-    },
-  ]);
+  const [completedPatients, setCompletedPatients] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
+
+  useEffect(() => {
+    const fetchCompletedPatients = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/pasien/list");
+        const data = response.data;
+
+        const completedPatients = data.filter(
+          (patient) => patient.status === "Selesai"
+        );
+
+        setCompletedPatients(completedPatients);
+      } catch (error) {
+        console.error("Error fetching completed patients:", error);
+      }
+    };
+
+    fetchCompletedPatients();
+  }, []);
 
   const handleViewDetails = (patient) => {
     setSelectedPatient(patient);
     setShowModal(true);
+  };
+
+  const handleChangeInput = (event) => {
+    const { name, value } = event.target;
+    setSelectedPatient((prevPatient) => ({
+      ...prevPatient,
+      [name]: value,
+    }));
   };
 
   const handleCloseModal = () => {
@@ -161,6 +128,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.nama}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -172,6 +140,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.gender}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -187,6 +156,7 @@ function ReportPage() {
                         rows={3}
                         type="text"
                         value={selectedPatient?.alamat}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -200,6 +170,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.umur}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -210,6 +181,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.telepon}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -225,6 +197,7 @@ function ReportPage() {
                         rows={3}
                         type="text"
                         value={selectedPatient?.keluhan}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -238,6 +211,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.namaStaff}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -248,6 +222,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.status}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -261,6 +236,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.jenisPembayaran}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -271,6 +247,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.totalPembayaran}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -284,6 +261,7 @@ function ReportPage() {
                       <Form.Control
                         type="text"
                         value={selectedPatient?.namaDokter}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>
@@ -299,6 +277,7 @@ function ReportPage() {
                         rows={3}
                         type="text"
                         value={selectedPatient?.hasilDokter}
+                        onChange={handleChangeInput}
                         disabled
                       />
                     </Form.Group>

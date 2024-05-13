@@ -1,34 +1,40 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Modal, Row, Col } from "react-bootstrap";
 
 function HomeDoctor({ loggedInUser }) {
-  const [patients, setPatients] = useState([
-    {
-      _id: "1",
-      nama: "Pasien A",
-      status: "Diproses",
-    },
-    {
-      _id: "2",
-      nama: "Pasien B",
-      status: "Diproses",
-    },
-    {
-      _id: "3",
-      nama: "Pasien C",
-      status: "Diproses",
-    },
-  ]);
-
-  const namaDokters = ["Dr. David Alexander"];
-
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [patients, setPatients] = useState([]);
+  const username = localStorage.getItem("name");
   const [message, setMessage] = useState("");
-  const [namaDokter, setNamaDokter] = useState(
-    loggedInUser ? loggedInUser.username : ""
-  );
   const [hasilDokter, setHasilDokter] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/pasien/list");
+        const data = response.data;
+
+        const filteredPatients = data.filter(
+          (patient) => patient.status === "Diproses"
+        );
+
+        setPatients(filteredPatients);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+
+    const interval = setInterval(() => {
+      console.log("Reloading data...");
+      fetchData();
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (patients.length > 0) {
@@ -40,9 +46,18 @@ function HomeDoctor({ loggedInUser }) {
     e.preventDefault();
 
     try {
-      console.log("Mengirim pesan dan data dokter:", namaDokters, hasilDokter);
+      await axios.put(
+        `http://localhost:3000/pasien/update/${selectedPatient._id}`,
+        {
+          status: "Selesai",
+          namaDokter: username,
+          hasilDokter: hasilDokter,
+        }
+      );
+      console.log("Mengirim pesan dan data dokter:", username, hasilDokter);
       alert("Pesan berhasil dikirim");
 
+      // Mengupdate state lokal patients setelah pesan berhasil dikirim
       const updatedPatients = patients.filter(
         (patient) => patient._id !== selectedPatient._id
       );
@@ -51,6 +66,7 @@ function HomeDoctor({ loggedInUser }) {
       setMessage("");
       setHasilDokter("");
 
+      // Mengatur selectedPatient ke pasien selanjutnya jika masih ada pasien yang tersisa
       const nextPatientIndex =
         patients.findIndex((patient) => patient._id === selectedPatient._id) +
         1;
@@ -66,17 +82,16 @@ function HomeDoctor({ loggedInUser }) {
 
   const handleCloseModal = () => setShowModal(false);
 
-  const handleClearForm = () => {
-    setHasilDokter("");
-    setNamaDokter("");
-  };
-
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setSelectedPatient((prevPatient) => ({
       ...prevPatient,
       [name]: value,
     }));
+  };
+
+  const handleClearForm = () => {
+    setHasilDokter("");
   };
 
   return (
@@ -89,7 +104,7 @@ function HomeDoctor({ loggedInUser }) {
                 Selamat Datang Kembali,
               </h1>
               <h1 className=" font-bold text-black sm:text-5xl">
-                {namaDokters}!
+                {username}!
               </h1>
 
               <p className="mt-1.5 text-sm text-gray-500">
@@ -109,9 +124,9 @@ function HomeDoctor({ loggedInUser }) {
               <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
               {selectedPatient && (
                 <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
-                  <id className="block text-xs text-gray-500">
-                    ID: {selectedPatient._id}
-                  </id>
+                  <h3 className="block text-xs text-gray-500">
+                    UID: {selectedPatient.uuiid}
+                  </h3>
 
                   <h3 className="mt-0.5 text-3xl font-medium text-gray-900">
                     {selectedPatient.nama}
@@ -160,8 +175,8 @@ function HomeDoctor({ loggedInUser }) {
                     type="text"
                     id="name"
                     name="nama"
-                    value={namaDokters}
-                    onChange={(e) => setNamaDokter(e.target.value)}
+                    value={username}
+                    onChange={(e) => setHasilDokter(e.target.value)}
                     disabled
                   />
                 </div>

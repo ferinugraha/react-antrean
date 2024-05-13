@@ -21,6 +21,10 @@ const KuotaObject = {
     type: Number,
     default: 0,
   },
+  antrean: {
+    type: Number,
+    default: 0,
+  },
 };
 
 const KuotaSchema = new mongoose.Schema(KuotaObject);

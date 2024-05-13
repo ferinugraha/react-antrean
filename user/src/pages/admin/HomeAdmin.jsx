@@ -6,45 +6,93 @@ import * as XLSX from "xlsx";
 function HomeAdmin() {
   const [monthlyChartData, setMonthlyChartData] = useState(null);
   const [genderChartData, setGenderChartData] = useState(null);
-  const namaAdmin = "Sarah";
+  const [kuotaHariIni, setKuotaHariIni] = useState(null);
+  const [antreanHariIni, setAntreanHariIni] = useState(null);
+  const username = localStorage.getItem("name");
 
   useEffect(() => {
-    const monthlyLabels = [
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-    ];
-    const monthlyData = [20, 15, 25, 30, 35, 40];
+    async function fetchSisaKuota() {
+      try {
+        const response = await fetch("http://localhost:3000/kuota/getkuota");
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data sisa kuota.");
+        }
+        const data = await response.json();
+        setKuotaHariIni(data.length > 0 ? data[0].Available : null);
+        setAntreanHariIni(data.length > 0 ? data[0].antrean : null);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-    setMonthlyChartData({
-      labels: monthlyLabels,
-      data: monthlyData,
-    });
+    fetchSisaKuota();
 
-    const genderLabels = [
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-    ];
-    const genderData = [
-      { perempuan: 10, lakiLaki: 15 },
-      { perempuan: 12, lakiLaki: 18 },
-      { perempuan: 14, lakiLaki: 20 },
-      { perempuan: 16, lakiLaki: 22 },
-      { perempuan: 18, lakiLaki: 24 },
-      { perempuan: 20, lakiLaki: 26 },
-    ];
+    const intervalId = setInterval(fetchSisaKuota, 600);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
-    setGenderChartData({
-      labels: genderLabels,
-      data: genderData,
-    });
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/pasien/list");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.");
+      }
+      const data = await response.json();
+
+      const monthlyCounts = data.reduce((acc, curr) => {
+        const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
+          month: "long",
+        });
+        acc[month] = (acc[month] || 0) + 1;
+        return acc;
+      }, {});
+
+      const monthlyLabels = Object.keys(monthlyCounts);
+      const monthlyCountsData = monthlyLabels.map(
+        (month) => monthlyCounts[month]
+      );
+
+      setMonthlyChartData({
+        labels: monthlyLabels,
+        data: monthlyCountsData,
+      });
+
+      const genderCounts = data.reduce((acc, curr) => {
+        const month = new Date(curr.createdAt).toLocaleDateString("en-US", {
+          month: "long",
+        });
+        if (!acc[month]) {
+          acc[month] = { perempuan: 0, lakiLaki: 0 };
+        }
+        if (curr.gender === "perempuan") {
+          acc[month].perempuan += 1;
+        } else {
+          acc[month].lakiLaki += 1;
+        }
+        return acc;
+      }, {});
+
+      const genderLabels = Object.keys(genderCounts);
+      const genderCountsData = Object.values(genderCounts);
+
+      setGenderChartData({
+        labels: genderLabels,
+        data: genderCountsData,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+
+    const intervalFetch = setInterval(fetchData, 60000);
+    return () => {
+      clearInterval(intervalFetch);
+    };
   }, []);
 
   const exportMonthlyChartData = () => {
@@ -78,6 +126,77 @@ function HomeAdmin() {
     }
   };
 
+  useEffect(() => {
+    if (monthlyChartData) {
+      const monthlyCtx = document.getElementById("monthlyChart");
+      if (monthlyCtx) {
+        if (monthlyCtx.chart) {
+          monthlyCtx.chart.destroy(); // Destroy existing chart instance
+        }
+        monthlyCtx.chart = new Chart(monthlyCtx, {
+          type: "bar",
+          data: {
+            labels: monthlyChartData.labels,
+            datasets: [
+              {
+                label: "Jumlah Pasien",
+                data: monthlyChartData.data,
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+    }
+
+    if (genderChartData) {
+      const genderCtx = document.getElementById("genderChart");
+      if (genderCtx) {
+        if (genderCtx.chart) {
+          genderCtx.chart.destroy(); // Destroy existing chart instance
+        }
+        genderCtx.chart = new Chart(genderCtx, {
+          type: "bar",
+          data: {
+            labels: genderChartData.labels,
+            datasets: [
+              {
+                label: "Perempuan",
+                data: genderChartData.data.map((item) => item.perempuan),
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "Laki-Laki",
+                data: genderChartData.data.map((item) => item.lakiLaki),
+                backgroundColor: "rgba(54, 162, 235, 0.5)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+    }
+  }, [monthlyChartData, genderChartData]);
+
   return (
     <>
       <Container className="mt-2">
@@ -87,7 +206,7 @@ function HomeAdmin() {
             <div className="mt-2">
               <span className="text-black" style={{ fontSize: "64px" }}>
                 {" "}
-                {namaAdmin}!
+                {username}!
               </span>
             </div>
           </h2>
@@ -96,6 +215,44 @@ function HomeAdmin() {
           </p> */}
         </div>
       </Container>
+
+      <div>
+        <Container className="mt-2">
+          <div className="d-flex justify-content-between mb-4 mt-4">
+            <Col md={5}>
+              <article className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                  <a>
+                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      Sisa Kuota
+                    </h1>
+                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
+                    </h3>
+                  </a>
+                </div>
+              </article>
+            </Col>
+            <Col md={2}></Col>
+            <Col md={5}>
+              <article className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                  <a>
+                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      Antrean Ke Berapa
+                    </h1>
+                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    {antreanHariIni === null ? "Loading..." : antreanHariIni}
+                    </h3>
+                  </a>
+                </div>
+              </article>
+            </Col>
+          </div>
+        </Container>
+      </div>
 
       <Container className="mt-5">
         <Row className="mb-4">
