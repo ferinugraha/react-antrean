@@ -1,15 +1,6 @@
-import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Card,
-  Form,
-  Button,
-  InputGroup,
-  Modal,
-  Row,
-  Col,
-} from "react-bootstrap";
 import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Container, Form, Button, Modal, Row, Col } from "react-bootstrap";
 
 function HomeDoctor({ loggedInUser }) {
   const [selectedPatient, setSelectedPatient] = useState(null);
@@ -99,168 +90,176 @@ function HomeDoctor({ loggedInUser }) {
     }));
   };
 
+  const handleClearForm = () => {
+    setHasilDokter("");
+  };
+
   return (
-    <div>
+    <>
       <Container className="mt-2">
-        <h1 className="mb-4">HomeDoctor</h1>
-        <div className="d-flex flex-wrap gap-3">
-          {selectedPatient && (
-            <div onClick={handleShowModal} className="w-100">
-              <Card style={{ cursor: "pointer" }}>
-                <Card.Body>
-                  <Card.Title>{selectedPatient.nama}</Card.Title>
-                  <Card.Text>UID: {selectedPatient.uuiid}</Card.Text>
-                  <Card.Text>Status: {selectedPatient.status}</Card.Text>
-                </Card.Body>
-              </Card>
+        <div className=" max-w-screen-xl py-8">
+          <div className="sm:flex">
+            <div className="sm:text-left">
+              <h1 className=" font-bold text-blue-500 sm:text-5xl">
+                Selamat Datang Kembali,
+              </h1>
+              <h1 className=" font-bold text-black sm:text-5xl">{username}!</h1>
+
+              <p className="mt-1.5 text-sm text-gray-500">
+                Ayo, semangat bekerja untuk menciptakan kesehatan dan kenyamanan
+                bagi setiap pasien!
+              </p>
             </div>
-          )}
+          </div>
         </div>
 
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Detail Pasien: {selectedPatient?.nama}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Row>
-              <Col md={12}>
-                <Form.Group controlId="formNama">
-                  <Form.Label>Nama</Form.Label>
-                  <Form.Control
+        <Row className="mt-4">
+          <Col md={4}>
+            <article
+              className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
+              onClick={handleShowModal}
+            >
+              <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+              {selectedPatient && (
+                <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
+                  <h3 className="block text-xs text-gray-500">
+                    UID: {selectedPatient.uuiid}
+                  </h3>
+
+                  <h3 className="mt-0.5 text-3xl font-medium text-gray-900">
+                    {selectedPatient.nama}
+                  </h3>
+
+                  <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
+                    {selectedPatient.status}
+                  </span>
+                </div>
+              )}
+            </article>
+          </Col>
+
+          <Col
+            md={1}
+            className="d-flex align-items-center justify-content-center"
+          >
+            {" "}
+            {}
+            <div className="h-100 border border-gray-300"></div>
+          </Col>
+
+          <Col md={7}>
+            {selectedPatient && (
+              <form onSubmit={handleSubmitMessage} style={{ width: "100%" }}>
+                {/* <h3 className="mt-4">Detail Pasien: {selectedPatient.nama}</h3> */}
+                <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+                  <textarea
+                    id="Pesan Penyakit"
+                    className="w-full resize-none border-none align-top focus:ring-0 sm:text-sm p-3"
+                    rows="12"
+                    placeholder="Masukkan pesan penyakit pasien"
+                    name="hasildokter"
+                    value={hasilDokter}
+                    onChange={(e) => setHasilDokter(e.target.value)}
+                    style={{ resize: "none" }}
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="sr-only" htmlFor="name">
+                    Nama Dokter
+                  </label>
+                  <input
+                    className="w-full rounded-lg form-control p-3 border-gray-400 mt-4"
+                    placeholder="Nama"
                     type="text"
+                    id="name"
                     name="nama"
-                    value={selectedPatient?.nama || ""}
-                    onChange={handleChangeInput}
+                    value={username}
+                    onChange={(e) => setHasilDokter(e.target.value)}
                     disabled
                   />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formUmur">
-                  <Form.Label>Umur</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="umur"
-                    value={selectedPatient?.umur || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formJenisKelamin">
-                  <Form.Label>Jenis Kelamin</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="jenisKelamin"
-                    value={selectedPatient?.gender || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formTelepon">
-                  <Form.Label>No Telepon</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="telepon"
-                    value={selectedPatient?.telepon || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6} className="mt-2">
-                <Form.Group controlId="formJenisPembayaran">
-                  <Form.Label>Jenis Pembayaran</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="jenisPembayaran"
-                    value={selectedPatient?.jenisPembayaran || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formNamaStaff">
-                  <Form.Label>Nama Staff</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="namaStaff"
-                    value={selectedPatient?.namaStaff || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formAlamat">
-                  <Form.Label>Alamat</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={2}
-                    name="alamat"
-                    value={selectedPatient?.alamat || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={12} className="mt-2">
-                <Form.Group controlId="formKeluhan">
-                  <Form.Label>Keluhan</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={2}
-                    name="keluhan"
-                    value={selectedPatient?.keluhan || ""}
-                    onChange={handleChangeInput}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Tutup
-            </Button>
-          </Modal.Footer>
-        </Modal>
-
-        {selectedPatient && (
-          <Form onSubmit={handleSubmitMessage} style={{ width: "100%" }}>
-            <h3 className="mt-4">Detail Pasien: {selectedPatient.nama}</h3>
-            <Form.Group controlId="formMessage">
-              <Form.Label>Masukkan Pesan Penyakit</Form.Label>
-              <InputGroup>
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="Masukkan pesan penyakit pasien"
-                  name="hasildokter"
-                  value={hasilDokter}
-                  onChange={(e) => setHasilDokter(e.target.value)}
-                  style={{ resize: "none" }}
-                />
-              </InputGroup>
-            </Form.Group>
-
-            <Button variant="primary" type="submit" className="mt-3">
-              Kirim Pesan
-            </Button>
-          </Form>
-        )}
+                </div>
+                <div className="flex items-center justify-end gap-2 bg-white p-3">
+                  <button
+                    type="button"
+                    className="rounded bg-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-gray-600"
+                    onClick={handleClearForm}
+                  >
+                    Hapus Pesan
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700"
+                    onClick={handleSubmitMessage}
+                  >
+                    Kirim Pesan
+                  </button>
+                </div>
+              </form>
+            )}
+          </Col>
+        </Row>
       </Container>
-    </div>
+
+      {/* {selectedPatient && (
+        <Form onSubmit={handleSubmitMessage} style={{ width: "100%" }}>
+          <h3 className="mt-4">Detail Pasien: {selectedPatient.nama}</h3>
+          <Form.Group controlId="formMessage">
+            <Form.Label>Masukkan Pesan Penyakit</Form.Label>
+            <InputGroup>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Masukkan pesan penyakit pasien"
+                name="hasildokter"
+                value={hasilDokter}
+                onChange={(e) => setHasilDokter(e.target.value)}
+                style={{ resize: "none" }}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group controlId="formNamaDokter">
+            <Form.Label>Nama Dokter</Form.Label>
+            <Form.Control
+              type="text"
+              name="namaDokter"
+              value={namaDokter}
+              onChange={(e) => setNamaDokter(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" className="mt-3">
+            Kirim Pesan
+          </Button>
+        </Form>
+      )} */}
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Detail Pasien: {selectedPatient?.nama}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col md={12}>
+              <Form.Group controlId="formNama">
+                <Form.Label>Nama</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nama"
+                  value={selectedPatient?.nama}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Tutup
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 

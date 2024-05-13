@@ -1,186 +1,261 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { PasienInit } from "../../data/Pasien";
+// import FormRegistrasi from "../../../app/_components/FormRegistrasi";
 
 function AntreanPage() {
-  const [formData, setFormData] = useState(PasienInit);
-
-  const onCreatePasien = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:3000/pasien/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      // if (!response.ok) {
-      //   throw new Error("Terjadi kesalahan saat mendaftarkan pasien.");
-      // }
-
-      const data = await response.json();
-      if (response.status === 400 && data.message === "Kuota habis") {
-        alert("Maaf, kuota untuk pasien hari ini sudah habis.");
-      } else {
-        alert("Pasien berhasil didaftarkan!");
-        console.log(data);
-        setFormData(PasienInit);
-      }
-    } catch (error) {
-      console.error(error.message);
-      alert(error.message);
-    }
+  const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
+  const [jumlahPembayaran, setJumlahPembayaran] = useState("");
+  const handleJumlahPembayaranChange = (event) => {
+    setJumlahPembayaran(event.target.value);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let updatedData = { ...formData, [name]: value };
-    if (name === "jenisPembayaran" && value === "bpjs") {
-      updatedData = { ...updatedData, totalPembayaran: 0 };
-    } else if (name === "jenisPembayaran" && value === "tunai") {
-      updatedData = { ...updatedData, totalPembayaran: 100000 };
+    if (name === "jenisPembayaran") {
+      const totalPembayaran = value === "bpjs" ? "0" : "100000";
+      setFormData((prevData) => ({
+        ...prevData,
+        jenisPembayaran: value,
+        totalPembayaran,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
     }
-    setFormData(updatedData);
   };
 
-  const formatRupiah = (angka) => {
-    const reverse = angka.toString().split("").reverse().join("");
-    const ribuan = reverse.match(/\d{1,3}/g);
-    const formattedValue = ribuan.join(".").split("").reverse().join("");
-    return `Rp ${formattedValue}`;
+  const [formData, setFormData] = useState({
+    nama: "",
+    notelp: "",
+    jenisKelamin: "",
+    umur: "",
+    alamat: "",
+    keluhan: "",
+    jenisPembayaran: "",
+    totalPembayaran: "0",
+    email: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(JSON.stringify(formData, null, 2));
   };
 
   return (
-    <div>
-      <Container className="mt-4">
-        <h4>Form Pendaftaran Antrean</h4>
-        <Form onSubmit={onCreatePasien}>
-          <Row className="mb-3">
-            <Col md={6}>
-              <Form.Group controlId="formNama">
-                <Form.Label>Nama</Form.Label>
-                <Form.Control
+    <section className="bg-gray-100">
+      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+          <div className="lg:col-span-2 lg:py-12">
+            <p className="max-w-xl text-lg">
+              Daftarkan diri Anda sekarang untuk mendapatkan nomor antrean.
+              Dengan mendaftar, Anda dapat memilih cara pembayaran dan
+              memberikan pesan atau keluhan jika diperlukan
+            </p>
+
+            <div className="mt-8">
+              <a href="#" className="text-2xl font-bold text-blue-500">
+                {" "}
+                021 1000 200{" "}
+              </a>
+
+              <address className="mt-2 not-italic">
+                Jl. Tebet Timur Dalam IX No.2, Tebet Tim., Kec. Tebet, Kota
+                Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12820
+              </address>
+            </div>
+          </div>
+
+          <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="sr-only" htmlFor="name">
+                  Nama
+                </label>
+                <input
+                  className="w-full rounded-lg form-control p-3 border-gray-400"
+                  placeholder="Nama"
                   type="text"
-                  placeholder="Masukkan nama"
+                  id="name"
                   name="nama"
                   value={formData.nama}
                   onChange={handleChange}
                 />
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group controlId="formTelepon">
-                <Form.Label>No Telp</Form.Label>
-                <Form.Control
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="gender" className="sr-only">
+                    Jenis Kelamin
+                  </label>
+                  <select
+                    id="gender"
+                    className="w-full rounded-lg form-control p-3 border-gray-400"
+                    defaultValue=""
+                    style={{
+                      color:
+                        formData.jenisKelamin === "" ? "#616161" : "#00000",
+                    }}
+                    name="jenisKelamin"
+                    onChange={handleChange}
+                    value={formData.jenisKelamin}
+                  >
+                    <option disabled value="">
+                      Pilih Jenis Kelamin
+                    </option>
+                    <option value="male">Laki-laki</option>
+                    <option value="female">Perempuan</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="age"
+                    className="block text-sm font-medium text-gray-700"
+                  ></label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="umur"
+                    className="w-full rounded-lg form-control p-3 border-gray-400"
+                    placeholder="Umur"
+                    value={formData.umur}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="sr-only" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    className="w-full rounded-lg form-control p-3 border-gray-400"
+                    placeholder="Alamat Email"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div>
+                  <label className="sr-only" htmlFor="phone">
+                    Nomor Telfon
+                  </label>
+                  <input
+                    className="w-full rounded-lg form-control p-3 border-gray-400"
+                    placeholder="Nomor Telfon"
+                    type="tel"
+                    id="phone"
+                    name="notelp"
+                    value={formData.notelp}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="sr-only" htmlFor="address">
+                  Alamat
+                </label>
+                <textarea
+                  className="w-full rounded-lg form-control p-3 border-gray-400"
+                  placeholder="Alamat"
                   type="text"
-                  placeholder="Masukkan Nomor Telepon"
-                  name="telepon"
-                  value={formData.telepon}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-
-          <Row className="mb-3">
-            <Col md={6}>
-              <Form.Group controlId="formJenisKelamin">
-                <Form.Label>Jenis Kelamin</Form.Label>
-                <Form.Control
-                  as="select"
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                >
-                  <option value="">Pilih jenis kelamin</option>
-                  <option value="laki-laki">Laki-laki</option>
-                  <option value="perempuan">Perempuan</option>
-                </Form.Control>
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group controlId="formUmur">
-                <Form.Label>Umur</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Masukkan umur"
-                  name="umur"
-                  value={formData.umur}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-
-          <Row className="mb-3">
-            <Col md={6}>
-              <Form.Group controlId="formAlamat">
-                <Form.Label>Alamat</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="Masukkan alamat"
+                  id="address"
                   name="alamat"
+                  rows={3}
                   value={formData.alamat}
                   onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
+                ></textarea>
+              </div>
 
-            <Col md={6}>
-              <Form.Group controlId="formKeluhan">
-                <Form.Label>Keluhan</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="Masukkan keluhan"
-                  name="keluhan"
-                  value={formData.keluhan}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
+              <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="Option1"
+                    className="block w-full cursor-pointer rounded-lg form-control border-gray-400 p-3 text-gray-600 hover:border-blue-500 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-500 has-[:checked]:text-white"
+                    tabIndex="0"
+                  >
+                    <input
+                      className="sr-only"
+                      id="Option1"
+                      type="radio"
+                      tabIndex="-1"
+                      name="option"
+                      onChange={() => setSelectedPaymentOption("bayarSendiri")}
+                    />
 
-          <Row className="mb-3">
-            <Col md={6}>
-              <Form.Group controlId="formJenisPembayaran">
-                <Form.Label>Jenis Pembayaran</Form.Label>
-                <Form.Control
-                  as="select"
-                  name="jenisPembayaran"
-                  value={formData.jenisPembayaran}
-                  onChange={handleChange}
+                    <span className="text-sm"> Bayar Sendiri </span>
+                  </label>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="Option2"
+                    className="block w-full cursor-pointer rounded-lg form-control border-gray-400 p-3 text-gray-600  hover:border-blue-500 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-500 has-[:checked]:text-white"
+                    tabIndex="0"
+                  >
+                    <input
+                      className="sr-only"
+                      id="Option2"
+                      type="radio"
+                      tabIndex="-1"
+                      name="option"
+                      onChange={() => setSelectedPaymentOption("bpjs")}
+                    />
+
+                    <span className="text-sm"> BPJS </span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                {selectedPaymentOption === "bayarSendiri" && (
+                  <div>
+                    <label className="sr-only" htmlFor="jumlahPembayaran">
+                      Jumlah Pembayaran
+                    </label>
+                    <input
+                      className="w-full rounded-lg form-control border-gray-400 p-3"
+                      placeholder="Jumlah Pembayaran"
+                      type="text"
+                      id="jumlahPembayaran"
+                      value={jumlahPembayaran}
+                      onChange={handleJumlahPembayaranChange}
+                    />
+                  </div>
+                )}
+              </div>
+              <div>
+                <label className="sr-only" htmlFor="message">
+                  Pesan Keluhan
+                </label>
+
+                <textarea
+                  className="w-full rounded-lg form-control border-gray-400 p-3"
+                  placeholder="Pesan Keluhan "
+                  rows="8"
+                  id="message"
+                ></textarea>
+              </div>
+
+              <div className="mt-4">
+                <button
+                  type="submit"
+                  className="inline-block w-full rounded-lg bg-blue-500 px-5 py-3 font-medium text-white sm:w-auto"
                 >
-                  <option value="">Pilih jenis pembayaran</option>
-                  <option value="tunai">Tunai</option>
-                  <option value="bpjs">BPJS</option>
-                </Form.Control>
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group controlId="formTotalPembayaran">
-                <Form.Label>Total Pembayaran</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder={formatRupiah(formData.totalPembayaran)}
-                  name="totalPembayaran"
-                  value={formData.totalPembayaran}
-                  onChange={handleChange}
-                  readOnly
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-
-          <Button variant="primary" type="submit" className="mt-4">
-            Submit
-          </Button>
-        </Form>
-      </Container>
-    </div>
+                  Daftar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

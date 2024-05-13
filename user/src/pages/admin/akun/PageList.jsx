@@ -131,7 +131,7 @@ function PageList() {
     <Container className="mt-3">
       <div className="mb-3 d-flex justify-content-between align-items-center">
         <Button variant="primary" className="me-auto" onClick={handleShowAdd}>
-          Add User
+          Tambah Pengguna
         </Button>
         <Dropdown>
           <Dropdown.Toggle
@@ -152,7 +152,7 @@ function PageList() {
               Sistem
             </Dropdown.Item>
             <Dropdown.Item onClick={() => setFilter("user")}>
-              User
+              Pengguna
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -178,117 +178,134 @@ function PageList() {
           {errorMessage}
         </Alert>
       )}
-      <Table striped bordered hover className="mt-3">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <tr key={user._id}>
-              <td>{index + 1}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>
-                {filter === "user" ? (
-                  <Button
-                    variant="primary"
-                    onClick={() => handleShowView(user)}
-                  >
-                    View
-                  </Button>
-                ) : (
-                  <>
-                    <Button variant="info" onClick={() => handleShowEdit(user)}>
-                      Edit
-                    </Button>{" "}
-                    <Button
-                      variant="danger"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Are you sure you want to delete this user?"
-                          )
-                        ) {
-                          handleDelete(user._id);
-                        }
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
 
+      {loading && <Alert variant="info">Loading...</Alert>}
+      {error && <Alert variant="danger">{error}</Alert>}
+      {successMessage && (
+        <Alert
+          variant="success"
+          onClose={() => setSuccessMessage(null)}
+          dismissible
+        >
+          {successMessage}
+        </Alert>
+      )}
+      {errorMessage && (
+        <Alert
+          variant="danger"
+          onClose={() => setErrorMessage(null)}
+          dismissible
+        >
+          {errorMessage}
+        </Alert>
+      )}
+
+      <div className="overflow-x-auto border rounded-lg">
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+          <thead className="ltr:text-left rtl:text-right">
+            <tr>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                Nama
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                Email
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                Role
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                Tindakan
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {users.map((user, index) => (
+              <tr
+                key={user._id}
+                className={index % 2 === 0 ? "odd:bg-gray-50" : ""}
+              >
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                  {user.name}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                  {user.email}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                  {user.role}
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                  {filter === "user" ? (
+                    <Button
+                      variant="primary"
+                      onClick={() => handleShowView(user)}
+                    >
+                      View
+                    </Button>
+                  ) : (
+                    <>
+                      <Button
+                        variant="info"
+                        onClick={() => handleShowEdit(user)}
+                      >
+                        Edit
+                      </Button>{" "}
+                      <Button
+                        variant="danger"
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              "Apakah Anda yakin ingin menghapus pengguna ini?"
+                            )
+                          ) {
+                            handleDelete(user._id);
+                          }
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Modals */}
       <Modal show={showViewModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>User Details</Modal.Title>
+          <Modal.Title>Detail Pengguna</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <p>
-            <strong>Name:</strong> {selectedUser.name}
+          <p>
+            <strong>Nama:</strong> {selectedUser.name}
           </p>
           <p>
             <strong>Email:</strong> {selectedUser.email}
           </p>
           <p>
             <strong>Role:</strong> {selectedUser.role}
-          </p> */}
-          <Form.Group className="mt-2" controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter name"
-              value={selectedUser.name || ""}
-              disabled
-            />
-          </Form.Group>
-          <Form.Group className="mt-2" controlId="formEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={selectedUser.email || ""}
-              disabled
-            />
-          </Form.Group>
-          <Form.Group className="mt-2" controlId="formRole">
-            <Form.Label>Role</Form.Label>
-            <Form.Control
-              type="text"
-              value={selectedUser.role || ""}
-              disabled
-            />
-          </Form.Group>
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Tutup
           </Button>
         </Modal.Footer>
       </Modal>
 
       <Modal show={showAddModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add User</Modal.Title>
+          <Modal.Title>Tambah pengguna</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nama</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter name"
+                placeholder="Masukkan nama"
                 value={selectedUser.name || ""}
                 onChange={(e) =>
                   setSelectedUser({ ...selectedUser, name: e.target.value })
@@ -300,7 +317,7 @@ function PageList() {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="Masukkan email"
                 value={selectedUser.email || ""}
                 onChange={(e) =>
                   setSelectedUser({ ...selectedUser, email: e.target.value })
@@ -330,7 +347,7 @@ function PageList() {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter password"
+                placeholder="Masukkan password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -340,24 +357,25 @@ function PageList() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Tutup
           </Button>
           <Button variant="primary" onClick={handleAddUser}>
             Create
           </Button>
         </Modal.Footer>
       </Modal>
+
       <Modal show={showEditModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit User</Modal.Title>
+          <Modal.Title>Edit Pengguna</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nama</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter name"
+                placeholder="Masukkan name"
                 value={selectedUser.name || ""}
                 onChange={(e) =>
                   setSelectedUser({ ...selectedUser, name: e.target.value })
@@ -369,7 +387,7 @@ function PageList() {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="Masukkan email"
                 value={selectedUser.email || ""}
                 onChange={(e) =>
                   setSelectedUser({ ...selectedUser, email: e.target.value })
@@ -399,7 +417,7 @@ function PageList() {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter password"
+                placeholder="Masukkan password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -409,7 +427,7 @@ function PageList() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Tutup
           </Button>
           <Button variant="primary" onClick={handleEditUser}>
             Update

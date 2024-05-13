@@ -2,10 +2,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Form, Alert } from "react-bootstrap";
+import { Form, Alert, Image, Col } from "react-bootstrap";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../../app/globals.css";
 
 function LoginPage({ authenticateUser }) {
   const [email, setEmail] = useState("");
@@ -70,61 +71,158 @@ function LoginPage({ authenticateUser }) {
     setShowPassword(!showPassword);
   };
 
+
   return (
-    <div className="container">
-      <div className="row justify-content-center align-items-center vh-100">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title text-center">Login Page</h1>
-              {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-              <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={handleEmailChange}
+    // <div className="container">
+    // {/* <div className="row justify-content-center align-items-center vh-100"> */}
+    <div
+      className="container-fluid vh-100 d-flex justify-content-center align-items-center"
+      style={{
+        backgroundImage: `url('/light-blue.jpg')`,
+        backgroundSize: "cover",
+      }}
+    >
+      <>
+        <Col className="d-flex justify-content-center">
+          <div className="col-md-4">
+            <div
+              className="card"
+              style={{
+                boxShadow: "0 0 10px rgba(0,0,255, 0.3)",
+                backgroundColor: "white",
+                backdropFilter: "blur(30px)",
+                borderRadius: "16px",
+              }}
+            >
+              <div
+                className="card-body"
+                style={{
+                  padding: "32px",
+                }}
+              >
+                <h1
+                  className="card-title text-center d-flex justify-content-center"
+                  style={{ fontSize: "32px", alignItems: "center" }}
+                >
+                  <Image
+                    src="/logodemo.png" // Ganti dengan path logo Anda
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      marginRight: "10px",
+                    }} // Sesuaikan ukuran dan posisi logo sesuai kebutuhan Anda
                   />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
+                </h1>
+                <h1
+                  className="card-title text-center justify-content-center"
+                  style={{ fontSize: "32px", alignItems: "center" }}
+                >
+                  Logoipsum
+                </h1>
 
-                <Form.Group controlId="formBasicPassword" className="mt-2">
-                  <Form.Label>Password</Form.Label>
-                  <div className="input-group">
+                <h2
+                  className="card-title text-center justify-content-center"
+                  style={{ fontSize: "16px", alignItems: "center" }}
+                >
+                  Aplikasi Antrean Rumah Sakit
+                </h2>
+
+                <div className="mt-4">
+                  <h1
+                    className="card-title text-center justify-content-center"
+                    style={{ fontSize: "24px", alignItems: "center" }}
+                  >
+                    Silahkan Login
+                  </h1>
+                </div>
+
+                {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Alamat email</Form.Label>
                     <Form.Control
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Password"
-                      value={password}
-                      onChange={handlePasswordChange}
+                      type="email"
+                      placeholder="Masukan email"
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "grey",
+                      }}
+                      value={email}
+                      onChange={handleEmailChange}
                     />
-                    <span
-                      className="input-group-text"
-                      onClick={handleTogglePassword}
-                    >
-                      {showPassword ? <BsEye /> : <BsEyeSlash />}
-                    </span>
-                  </div>
-                </Form.Group>
 
-                <button type="submit" className="btn btn-primary w-100 mt-4">
-                  Submit
-                </button>
+                    {/* <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text> */}
+                  </Form.Group>
 
-                <p className="text-center mt-3">
-                  Don't have an account?
-                  <Link to="/register" className="text-decoration-none">
-                    Register
-                  </Link>
-                </p>
-              </Form>
+                  <Form.Group controlId="formBasicPassword" className="mt-2">
+                    <Form.Label>Password</Form.Label>
+                    <div className="input-group">
+                      <Form.Control
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        style={{
+                          backgroundColor: "transparent",
+                          borderColor: "grey",
+                        }}
+                        value={password}
+                        onChange={handlePasswordChange}
+                      />
+                      <span
+                        className="input-group-text"
+                        style={{
+                          backgroundColor: "transparent",
+                          borderColor: "grey",
+                        }}
+                        onClick={handleTogglePassword}
+                      >
+                        {showPassword ? <BsEye /> : <BsEyeSlash />}
+                      </span>
+                    </div>
+                  </Form.Group>
+
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mt-4"
+                    style={{ borderRadius: "16px" }}
+                  >
+                    Submit
+                  </button>
+
+                  <p className="text-center mt-3">
+                    <>
+                      <span
+                        style={{
+                          fontWeight: "500",
+                          fontSize: "16px",
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        Belum punya akun?{" "}
+                      </span>
+                      <span style={{ display: "inline-block" }}>
+                        <Link
+                          to="/register"
+                          style={{
+                            fontWeight: "500",
+                            fontSize: "16px",
+                            transition: "all 0.3s ease",
+                            textDecoration: "underline",
+                          }}
+                          className="nav-link"
+                        >
+                          Register
+                        </Link>
+                      </span>
+                    </>
+                  </p>
+                </Form>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </>
     </div>
   );
 }

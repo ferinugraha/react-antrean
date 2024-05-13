@@ -125,100 +125,135 @@ function KuotaPage() {
   return (
     <div>
       <Container className="mt-2">
-        <h4 className="mt-3">
-          Kuota Pasien Hari Ini ({new Date().toISOString().slice(0, 10)})
-        </h4>
+        <div className="lg:py-4">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            <span className="text-primary">Kuota Pasien </span>
+            <span className="text-black">
+              {" "}
+              Hari Ini ({new Date().toISOString().slice(0, 10)})
+            </span>
+          </h2>
+        </div>
+
         {showForm ? (
-          <Form onSubmit={handleSubmit} className="mt-3">
-            <Row className="mb-3">
-              <Col md={12} className="mt-2">
-                <Form.Group className="mt-2" controlId="formDate">
-                  <Form.Label>Date</Form.Label>
-                  <Form.Control
-                    type="date"
-                    placeholder="Masukkan Date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={12} className="mt-2">
-                <Form.Group className="mt-2" controlId="formTransaction">
-                  <Form.Label>Transaction</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Masukkan Transaction"
-                    name="Transaction"
-                    value="Kuota Pasien"
-                    onChange={handleChange}
-                    disabled
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={12} className="mt-2">
-                <Form.Group className="mt-2" controlId="formQuota">
-                  <Form.Label>Kuota</Form.Label>
-                  <Form.Control
-                    type="number"
-                    placeholder="Masukkan Quota"
-                    name="Quota"
-                    value={formData.Quota}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
+          <article className="hover:animate-background rounded-xl bg-gray-200 p-0.5 shadow-md">
+            <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+              <Form onSubmit={handleSubmit} className="mt-2">
+                <Row className="mb-3">
+                  <Col md={4} className="mt-2 ">
+                    <Form.Group className="mt-2" controlId="formDate">
+                      <Form.Label>Tanggal</Form.Label>
+                      <Form.Control
+                        type="date"
+                        placeholder="Masukkan Tanggal"
+                        name="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        disabled
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col md={4} className="mt-2">
+                    <Form.Group className="mt-2" controlId="formTransaction">
+                      <Form.Label>Transaksi</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Masukkan Transaksi"
+                        name="Transaction"
+                        value="Kuota Pasien"
+                        onChange={handleChange}
+                        disabled
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col md={4} className="mt-2">
+                    <Form.Group className="mt-2" controlId="formQuota">
+                      <Form.Label>Kuota</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Masukkan Kuota"
+                        name="Quota"
+                        value={formData.Quota}
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </div>
+          </article>
         ) : (
-          <Table striped bordered hover className="mt-3">
-            <thead>
-              <tr>
-                <th>Tanggal</th>
-                <th>Transaksi</th>
-                <th>Kuota</th>
-                <th>Tersedia</th>
-                <th>Digunakan</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <tr key={item._id}>
-                  <td>{item.date}</td>
-                  <td>{item.Transaction}</td>
-                  <td>{item.Quota}</td>
-                  <td>{item.Available}</td>
-                  <td>{item.Used}</td>
-                  <td>
-                    <Button
-                      variant="info"
-                      onClick={() => handleEditModalOpen(item._id)}
-                    >
-                      Edit
-                    </Button>{" "}
-                    <Button
-                      variant="danger"
-                      onClick={() => {
-                        const shouldDelete = window.confirm(
-                          "Apakah Anda yakin ingin menghapus item ini?"
-                        );
-                        if (shouldDelete) {
-                          handleDelete(item._id);
-                        }
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </td>
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead className="ltr:text-left rtl:text-right">
+                <tr>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Tanggal
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Transaksi
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Kuota
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Tersedia
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Digunakan
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {data.map((item) => (
+                  <tr key={item._id}>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      {item.date}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      {item.Transaction}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      {item.Quota}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      {item.Available}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      {item.Used}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
+                      <Button
+                        variant="info"
+                        onClick={() => handleEditModalOpen(item._id)}
+                      >
+                        Edit
+                      </Button>{" "}
+                      <Button
+                        variant="danger"
+                        onClick={() => {
+                          const shouldDelete = window.confirm(
+                            "Apakah Anda yakin ingin menghapus item ini?"
+                          );
+                          if (shouldDelete) {
+                            handleDelete(item._id);
+                          }
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </Container>
 

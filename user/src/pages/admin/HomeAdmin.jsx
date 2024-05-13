@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import Chart from "chart.js/auto";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import Chart from "react-apexcharts";
 import * as XLSX from "xlsx";
 
 function HomeAdmin() {
@@ -8,6 +8,7 @@ function HomeAdmin() {
   const [genderChartData, setGenderChartData] = useState(null);
   const [kuotaHariIni, setKuotaHariIni] = useState(null);
   const [antreanHariIni, setAntreanHariIni] = useState(null);
+  const username = localStorage.getItem("name");
 
   useEffect(() => {
     async function fetchSisaKuota() {
@@ -197,46 +198,157 @@ function HomeAdmin() {
   }, [monthlyChartData, genderChartData]);
 
   return (
-    <Container className="mt-5">
-      <Row className="mb-4">
-        <Col md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Sisa Kuota</Card.Title>
-              <Card.Text>
-                {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Antrean Hari Ini</Card.Title>
-              <Card.Text>
-                {antreanHariIni === null ? "Loading..." : antreanHariIni}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row className="mb-4">
-        <Col>
-          <h5>Grafik Jumlah Pasien per Bulan</h5>
-          <canvas id="monthlyChart" width="400" height="250"></canvas>
-          <Button onClick={exportMonthlyChartData} variant="primary">
-            Export
-          </Button>
-        </Col>
-        <Col>
-          <h5>Grafik Jumlah Pasien Perempuan dan Laki-Laki per Bulan</h5>
-          <canvas id="genderChart" width="400" height="250"></canvas>
-          <Button onClick={exportGenderChartData} variant="primary">
-            Export
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Container className="mt-2">
+        <div className="lg:py-4">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            <span className="text-primary">Selamat Datang Kembali,</span>
+            <div className="mt-2">
+              <span className="text-black" style={{ fontSize: "64px" }}>
+                {" "}
+                {username}!
+              </span>
+            </div>
+          </h2>
+          {/* <p className="mt-4 text-gray-600">
+            Berikut daftar antrean untuk memproses layanan pelanggan.
+          </p> */}
+        </div>
+      </Container>
+
+      <div>
+        <Container className="mt-2">
+          <div className="d-flex justify-content-between mb-4 mt-4">
+            <Col md={5}>
+              <article className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                  <a>
+                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      Sisa Kuota
+                    </h1>
+                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
+                    </h3>
+                  </a>
+                </div>
+              </article>
+            </Col>
+            <Col md={2}></Col>
+            <Col md={5}>
+              <article className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                  <a>
+                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      Antrean Ke Berapa
+                    </h1>
+                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                      {antreanHariIni === null ? "Loading..." : antreanHariIni}
+                    </h3>
+                  </a>
+                </div>
+              </article>
+            </Col>
+          </div>
+        </Container>
+      </div>
+
+      <Container className="mt-5">
+        <Row className="mb-4">
+          <Col className="mt-2">
+            <h5 style={{ textAlign: "center", fontWeight: "bold" }}>
+              Grafik Jumlah Pasien per Bulan
+            </h5>
+            <Chart
+              options={{
+                chart: {
+                  type: "bar",
+                  fontFamily: "Inter, sans-serif",
+                  toolbar: {
+                    show: false,
+                  },
+                },
+                xaxis: {
+                  categories: monthlyChartData ? monthlyChartData.labels : [],
+                },
+                yaxis: {
+                  show: true,
+                  labels: {
+                    formatter: function (val) {
+                      return val.toFixed(0);
+                    },
+                  },
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+              }}
+              series={[
+                {
+                  name: "Jumlah Pasien",
+                  data: monthlyChartData ? monthlyChartData.data : [],
+                },
+              ]}
+              type="bar"
+              height={300}
+            />
+            <Button onClick={exportMonthlyChartData} variant="primary">
+              Ekspor
+            </Button>
+          </Col>
+          <Col className="mt-2">
+            <h5 style={{ textAlign: "center", fontWeight: "bold" }}>
+              Grafik Jumlah Pasien Perempuan dan Laki-Laki per Bulan
+            </h5>
+            <Chart
+              options={{
+                chart: {
+                  type: "bar",
+                  fontFamily: "Inter, sans-serif",
+                  toolbar: {
+                    show: false,
+                  },
+                },
+                xaxis: {
+                  categories: genderChartData ? genderChartData.labels : [],
+                },
+                yaxis: {
+                  show: true,
+                  labels: {
+                    formatter: function (val) {
+                      return val.toFixed(0);
+                    },
+                  },
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+              }}
+              series={[
+                {
+                  name: "Perempuan",
+                  data: genderChartData
+                    ? genderChartData.data.map((item) => item.perempuan)
+                    : [],
+                },
+                {
+                  name: "Laki-Laki",
+                  data: genderChartData
+                    ? genderChartData.data.map((item) => item.lakiLaki)
+                    : [],
+                },
+              ]}
+              type="bar"
+              height={300}
+            />
+            <Button onClick={exportGenderChartData} variant="primary">
+              Ekspor
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
