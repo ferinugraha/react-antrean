@@ -103,9 +103,7 @@ function HomeDoctor({ loggedInUser }) {
               <h1 className=" font-bold text-blue-500 sm:text-5xl">
                 Selamat Datang Kembali,
               </h1>
-              <h1 className=" font-bold text-black sm:text-5xl">
-                {username}!
-              </h1>
+              <h1 className=" font-bold text-black sm:text-5xl">{username}!</h1>
 
               <p className="mt-1.5 text-sm text-gray-500">
                 Ayo, semangat bekerja untuk menciptakan kesehatan dan kenyamanan

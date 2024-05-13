@@ -228,7 +228,7 @@ function HomeAdmin() {
                       Sisa Kuota
                     </h1>
                     <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                    {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
+                      {kuotaHariIni === null ? "Loading..." : kuotaHariIni}
                     </h3>
                   </a>
                 </div>
@@ -244,7 +244,7 @@ function HomeAdmin() {
                       Antrean Ke Berapa
                     </h1>
                     <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                    {antreanHariIni === null ? "Loading..." : antreanHariIni}
+                      {antreanHariIni === null ? "Loading..." : antreanHariIni}
                     </h3>
                   </a>
                 </div>

@@ -130,6 +130,15 @@ function NavbarWidget({ handleLogout, role }) {
                 >
                   Kuota
                 </Nav.Link>
+                <Nav.Link as={Link} to="/report">
+                  Report
+                </Nav.Link>
+                <Nav.Link as={Link} to="/akun">
+                  Akun
+                </Nav.Link>
+                <Nav.Link as={Link} to="/kuota">
+                  Kuota
+                </Nav.Link>
               </>
             )}
             <Button
