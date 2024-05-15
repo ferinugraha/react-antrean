@@ -4,7 +4,7 @@ export const PasienInit = {
   alamat: "",
   jenisPembayaran: "",
   telepon: "",
-  umur: 0,
+  umur: "",
   keluhan: "",
-  totalPembayaran: 0,
+  totalPembayaran: "",
 };

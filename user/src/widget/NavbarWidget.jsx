@@ -14,7 +14,7 @@ function NavbarWidget({ handleLogout, role }) {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <Image src="/logo.svg" alt="logo" />
+          <Image src="/mediqueue.logo.svg" alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
@@ -128,15 +128,6 @@ function NavbarWidget({ handleLogout, role }) {
                   }}
                   className="nav-link"
                 >
-                  Kuota
-                </Nav.Link>
-                <Nav.Link as={Link} to="/report">
-                  Report
-                </Nav.Link>
-                <Nav.Link as={Link} to="/akun">
-                  Akun
-                </Nav.Link>
-                <Nav.Link as={Link} to="/kuota">
                   Kuota
                 </Nav.Link>
               </>

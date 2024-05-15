@@ -71,7 +71,6 @@ function LoginPage({ authenticateUser }) {
     setShowPassword(!showPassword);
   };
 
-
   return (
     // <div className="container">
     // {/* <div className="row justify-content-center align-items-center vh-100"> */}
@@ -102,29 +101,22 @@ function LoginPage({ authenticateUser }) {
               >
                 <h1
                   className="card-title text-center d-flex justify-content-center"
-                  style={{ fontSize: "32px", alignItems: "center" }}
+                  style={{ alignItems: "center" }}
                 >
                   <Image
-                    src="/logodemo.png" // Ganti dengan path logo Anda
+                    src="/2.svg"
                     style={{
-                      height: "80px",
-                      width: "80px",
+                      height: "160px",
+                      width: "160px",
                       marginRight: "10px",
-                    }} // Sesuaikan ukuran dan posisi logo sesuai kebutuhan Anda
+                    }}
                   />
                 </h1>
-                <h1
-                  className="card-title text-center justify-content-center"
-                  style={{ fontSize: "32px", alignItems: "center" }}
-                >
-                  Logoipsum
-                </h1>
-
                 <h2
-                  className="card-title text-center justify-content-center"
-                  style={{ fontSize: "16px", alignItems: "center" }}
+                  className="card-title text-center d-flex justify-content-center"
+                  style={{ alignItems: "center" }}
                 >
-                  Aplikasi Antrean Rumah Sakit
+                  <Image src="/2_text_blue.svg" />
                 </h2>
 
                 <div className="mt-4">

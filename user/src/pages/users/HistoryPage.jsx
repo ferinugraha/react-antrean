@@ -49,16 +49,14 @@ function HistoryPage() {
                   className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
                   onClick={() => handleItemClick(item)}
                 >
-                  <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+                  <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-400"></span>
                   <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
-                    <time
-                      className="block text-xs text-gray-500"
-                    >
+                    <time className="block text-xs text-gray-500">
                       {item.createdAt.slice(0, 10)}
                     </time>
 
-                    <h1 className="mt-0.5 text-lg font-medium text-gray-900">
-                      {item.penyakit}
+                    <h1 className="mt-0.5 text-lg font-medium text-gray-900 item-keluhan">
+                      {item.keluhan}
                     </h1>
 
                     <p className="text-right text-xs text-gray-500">
@@ -123,8 +121,8 @@ function HistoryPage() {
                 </Form>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {/* <Form>
+              {/* <div className="grid grid-cols-2 gap-4"> */}
+              {/* <Form>
                   <Form.Label>Email</Form.Label>
                   <Form.Group className="mb-2">
                     <Form.Control
@@ -134,6 +132,7 @@ function HistoryPage() {
                     />
                   </Form.Group>
                 </Form> */}
+              <div>
                 <Form>
                   <Form.Label>Nomor Telefon</Form.Label>
                   <Form.Group className="mb-2">

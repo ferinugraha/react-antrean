@@ -83,3 +83,8 @@
     border: 3px solid #EEEEEE !important;
   }
 
+  .item-keluhan {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; 
+  }

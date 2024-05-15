@@ -104,38 +104,42 @@ function HomeDoctor({ loggedInUser }) {
                 Selamat Datang Kembali,
               </h1>
               <h1 className=" font-bold text-black sm:text-5xl">{username}!</h1>
-
-              <p className="mt-1.5 text-sm text-gray-500">
-                Ayo, semangat bekerja untuk menciptakan kesehatan dan kenyamanan
-                bagi setiap pasien!
-              </p>
+              <div className="mt-3">
+                <p className="mt-1.5 text-sm text-gray-500">
+                  Ayo, semangat bekerja untuk menciptakan kesehatan dan
+                  kenyamanan bagi setiap pasien!
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         <Row className="mt-4">
           <Col md={4}>
-            <article
-              className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
-              onClick={handleShowModal}
-            >
-              <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
-              {selectedPatient && (
+            {selectedPatient && (
+              <article
+                className="hover:animate-background relative block overflow-hidden rounded-xl border border-gray-100 p-0.5 shadow-md transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
+                onClick={handleShowModal}
+              >
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500"></span>
+
                 <div className="rounded-[10px] bg-white p-4 !pt-8 sm:p-8">
                   <h3 className="block text-xs text-gray-500">
                     UID: {selectedPatient.uuiid}
                   </h3>
 
-                  <h3 className="mt-0.5 text-3xl font-medium text-gray-900">
+                  <h3 className="mt-0.5 text-2xl font-medium text-gray-900">
                     {selectedPatient.nama}
                   </h3>
 
-                  <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
-                    {selectedPatient.status}
-                  </span>
+                  <div className="mt-3">
+                    <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
+                      {selectedPatient.status}
+                    </span>
+                  </div>
                 </div>
-              )}
-            </article>
+              </article>
+            )}
           </Col>
 
           <Col
