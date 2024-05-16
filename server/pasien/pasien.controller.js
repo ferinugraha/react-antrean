@@ -2,6 +2,8 @@ const { GetOr404 } = require("../libs/lib.common");
 const { ExceptionHandler } = require("../libs/lib.exception");
 const { PasienModel } = require("./pasien.model");
 const { KuotaModel } = require("../kuota/kuota.model");
+const { LogModel } = require("./log.model");
+const { json } = require("stream/consumers");
 
 async function PasienList(req, res) {
   try {
@@ -57,8 +59,15 @@ async function PasienCreate(req, res) {
       kuota.Used += 1;
       await kuota.save();
 
-      const pasien = new PasienModel(req.body);
+      const pasien = new PasienModel({ ...req.body, antrean: kuota.Used });
       await pasien.save();
+
+      const log = new LogModel({
+        nama: pasien.nama,
+        message: "Pasien berhasil mendaftar",
+        action: JSON.stringify(req.body),
+      });
+      await log.save();
 
       return res.status(201).json(pasien);
     }
@@ -108,6 +117,14 @@ async function PasienUpdate(req, res) {
       req.body,
       { new: true }
     );
+
+    const log = new LogModel({
+      nama: updatedPatient.nama,
+      message: "Pasien berhasil diupdate",
+      action: JSON.stringify(req.body),
+    });
+
+    await log.save();
 
     if (req.body.status == "Diproses") {
       const kuota = await KuotaModel.findOne();

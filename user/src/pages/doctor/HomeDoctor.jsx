@@ -154,7 +154,6 @@ function HomeDoctor({ loggedInUser }) {
           <Col md={7}>
             {selectedPatient && (
               <form onSubmit={handleSubmitMessage} style={{ width: "100%" }}>
-                {/* <h3 className="mt-4">Detail Pasien: {selectedPatient.nama}</h3> */}
                 <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
                   <textarea
                     id="Pesan Penyakit"
@@ -204,38 +203,6 @@ function HomeDoctor({ loggedInUser }) {
         </Row>
       </Container>
 
-      {/* {selectedPatient && (
-        <Form onSubmit={handleSubmitMessage} style={{ width: "100%" }}>
-          <h3 className="mt-4">Detail Pasien: {selectedPatient.nama}</h3>
-          <Form.Group controlId="formMessage">
-            <Form.Label>Masukkan Pesan Penyakit</Form.Label>
-            <InputGroup>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Masukkan pesan penyakit pasien"
-                name="hasildokter"
-                value={hasilDokter}
-                onChange={(e) => setHasilDokter(e.target.value)}
-                style={{ resize: "none" }}
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group controlId="formNamaDokter">
-            <Form.Label>Nama Dokter</Form.Label>
-            <Form.Control
-              type="text"
-              name="namaDokter"
-              value={namaDokter}
-              onChange={(e) => setNamaDokter(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="mt-3">
-            Kirim Pesan
-          </Button>
-        </Form>
-      )} */}
-
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Detail Pasien: {selectedPatient?.nama}</Modal.Title>
@@ -248,7 +215,98 @@ function HomeDoctor({ loggedInUser }) {
                 <Form.Control
                   type="text"
                   name="nama"
-                  value={selectedPatient?.nama}
+                  value={selectedPatient?.nama || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formUmur">
+                <Form.Label>Umur</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="umur"
+                  value={selectedPatient?.umur || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formJenisKelamin">
+                <Form.Label>Jenis Kelamin</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="jenisKelamin"
+                  value={selectedPatient?.gender || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formTelepon">
+                <Form.Label>No Telepon</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="telepon"
+                  value={selectedPatient?.telepon || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mt-2">
+              <Form.Group controlId="formJenisPembayaran">
+                <Form.Label>Jenis Pembayaran</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="jenisPembayaran"
+                  value={selectedPatient?.jenisPembayaran || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formNamaStaff">
+                <Form.Label>Nama Staff</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="namaStaff"
+                  value={selectedPatient?.namaStaff || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formAlamat">
+                <Form.Label>Alamat</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  name="alamat"
+                  value={selectedPatient?.alamat || ""}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </Form.Group>
+            </Col>
+            <Col md={12} className="mt-2">
+              <Form.Group controlId="formKeluhan">
+                <Form.Label>Keluhan</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={2}
+                  name="keluhan"
+                  value={selectedPatient?.keluhan || ""}
                   onChange={handleChangeInput}
                   disabled
                 />

@@ -187,72 +187,65 @@ function KuotaPage() {
           </article>
         ) : (
           <div className="overflow-x-auto border rounded-lg">
-            <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-              <thead className="ltr:text-left rtl:text-right">
-                <tr>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Tanggal
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Transaksi
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Kuota
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Tersedia
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Digunakan
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {data.map((item) => (
-                  <tr key={item._id}>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.date}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.Transaction}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.Quota}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.Available}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      {item.Used}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
-                      <Button
-                        variant="info"
-                        onClick={() => handleEditModalOpen(item._id)}
-                      >
-                        Edit
-                      </Button>{" "}
-                      <Button
-                        variant="danger"
-                        onClick={() => {
-                          const shouldDelete = window.confirm(
-                            "Apakah Anda yakin ingin menghapus item ini?"
-                          );
-                          if (shouldDelete) {
-                            handleDelete(item._id);
-                          }
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            {data.map((item) => (
+              <div className="bg-white rounded-lg p-4 mb-4" key={item._id}>
+                <Row className="mb-3">
+                  <Col md={6}>
+                    <table className="table table-bordered mb-0">
+                      <tbody>
+                        <tr>
+                          <td className="fw-bold">Tanggal:</td>
+                          <td>{item.date}</td>
+                        </tr>
+                        <tr>
+                          <td className="fw-bold">Transaksi:</td>
+                          <td>{item.Transaction}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </Col>
+                  <Col md={6}>
+                    <table className="table table-bordered mb-0">
+                      <tbody>
+                        <tr>
+                          <td className="fw-bold">Kuota:</td>
+                          <td>{item.Quota}</td>
+                        </tr>
+                        <tr>
+                          <td className="fw-bold">Tersedia:</td>
+                          <td>{item.Available}</td>
+                        </tr>
+                        <tr>
+                          <td className="fw-bold">Digunakan:</td>
+                          <td>{item.Used}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </Col>
+                </Row>
+                <div className="mb-3">
+                  <Button
+                    variant="info"
+                    onClick={() => handleEditModalOpen(item._id)}
+                  >
+                    Edit
+                  </Button>{" "}
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      const shouldDelete = window.confirm(
+                        "Apakah Anda yakin ingin menghapus item ini?"
+                      );
+                      if (shouldDelete) {
+                        handleDelete(item._id);
+                      }
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </Container>

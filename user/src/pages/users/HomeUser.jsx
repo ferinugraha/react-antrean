@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import Hero from "../../../app/_components/Hero";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import "../../../app/globals.css";
 import { PasienInit } from "../../data/Pasien";
-
-// import { Button, Col, Container, Row } from "react-bootstrap";
 
 function HomeUser() {
   const [sisaKuota, setSisaKuota] = useState(null);
@@ -12,7 +10,7 @@ function HomeUser() {
   const username = localStorage.getItem("name");
   const uuiid = localStorage.getItem("uuiid");
   const [antreanHariIni, setAntreanHariIni] = useState(null);
-
+  const [antreanAnda, setAntreanAnda] = useState(null);
   const [formData, setFormData] = useState(PasienInit);
   const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
 
@@ -76,8 +74,19 @@ function HomeUser() {
       );
 
       const status = filteredQueue.length > 0 ? filteredQueue[0].status : null;
-
       setQueueStatus(status);
+
+      const today = new Date().toISOString().slice(0, 10);
+
+      const cekHari = data.filter(
+        (item) =>
+          item.status === "Menunggu" ||
+          (item.status === "Diproses" && item.createdAt.slice(0, 10) === today)
+      );
+
+      const antreanAnda = cekHari.length > 0 ? cekHari[0].antrean : null;
+
+      setAntreanAnda(antreanAnda);
     } catch (error) {
       console.error(error);
     }
@@ -101,8 +110,8 @@ function HomeUser() {
     fetchSisaKuota();
     cekantreanuser();
 
-    const intervalId = setInterval(fetchSisaKuota, 600);
-    const intervalantrean = setInterval(cekantreanuser, 600);
+    const intervalId = setInterval(fetchSisaKuota, 800);
+    const intervalantrean = setInterval(cekantreanuser, 800);
     return () => {
       clearInterval(intervalId);
       clearInterval(intervalantrean);
@@ -116,94 +125,69 @@ function HomeUser() {
 
   return (
     <>
-      <div>
-        <Container>
-          <section>
-            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-                <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
-                  <Image
-                    alt=""
-                    src="/dokter.hd.jpg"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="lg:py-24">
-                  <h2 className="text-3xl font-bold sm:text-4xl">
-                    <span className="text-primary">Selamat Datang</span> di
-                    Aplikasi
-                    <span className="text-primary"> Antrean </span> Rumah Sakit
-                  </h2>
-
-                  <p className="mt-4 text-gray-600">
-                    Dengan aplikasi kami, Anda dapat mengatur antrean secara
-                    online dan menghindari waktu tunggu yang panjang di rumah
-                    sakit.
-                  </p>
-
-                  <Button onClick={scrollToRegister} className="mt-8">
-                    Daftar Sekarang
-                  </Button>
-                </div>
+      <Container>
+        <h4>
+          <Hero />
+        </h4>
+        <Row className="mt-4">
+          <Col md={4}>
+            <article className="hover:animate-background rounded-xl bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+              <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                <a>
+                  <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    Sisa Kuota
+                  </h1>
+                  <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    {sisaKuota === null ? "Loading..." : sisaKuota}
+                  </h3>
+                </a>
               </div>
+            </article>
+          </Col>
+          <Col md={4}>
+            <article className="hover:animate-background rounded-xl bg-blue-700 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+              <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                <a>
+                  <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    Antrean Hari Ini
+                  </h1>
+                  <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    {antreanHariIni}
+                  </h3>
+                </a>
+              </div>
+            </article>
+          </Col>
+          <Col md={4}>
+            <article className="hover:animate-background rounded-xl bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+              <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
+                <a>
+                  <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    Antrean Anda
+                  </h1>
+                  <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
+                    {antreanAnda === null ? "-" : antreanAnda}
+                  </h3>
+                </a>
+              </div>
+            </article>
+          </Col>
+        </Row>
+
+        <div className="mt-5">
+          {queueStatus === "Menunggu" || queueStatus === "Diproses" ? (
+            <div className="rounded-lg bg-indigo-600 px-4 py-3 text-white shadow-lg">
+              <p className="text-center text-sm font-medium">
+                Anda Sudah Mendaftar || Status: {queueStatus}
+              </p>
             </div>
-          </section>
-          <Row className="mt-4">
-            <Col md={4}>
-              <article className="hover:animate-background rounded-xl bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
-                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
-                  <a>
-                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      Sisa Kuota
-                    </h1>
-                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      {sisaKuota === null ? "Loading..." : sisaKuota}
-                    </h3>
-                  </a>
-                </div>
-              </article>
-            </Col>
-            <Col md={4}>
-              <article className="hover:animate-background rounded-xl bg-blue-700 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
-                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
-                  <a>
-                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      Antrean Hari Ini
-                    </h1>
-                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      {antreanHariIni}
-                    </h3>
-                  </a>
-                </div>
-              </article>
-            </Col>
-            <Col md={4}>
-              <article className="hover:animate-background rounded-xl bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
-                <div className="rounded-[8px] bg-white p-4 !pt-8 sm:p-20">
-                  <a>
-                    <h1 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      Antrean Anda
-                    </h1>
-                    <h3 className="mt-0.5 text-xl font-medium text-gray-900 text-center">
-                      {antreanHariIni}
-                    </h3>
-                  </a>
-                </div>
-              </article>
-            </Col>
-          </Row>
-
-          <div className="mt-5">
-            {queueStatus === "Menunggu" || queueStatus === "Diproses" ? (
-              // <div className="fixed inset-x-0 bottom-0 p-4"> </div>
-              <div className="rounded-lg bg-indigo-600 px-4 py-3 text-white shadow-lg">
-                <p className="text-center text-sm font-medium">
-                  Anda Sudah Mendaftar || Status: {queueStatus}
-                </p>
-              </div>
-            ) : (
-              <>
+          ) : (
+            <>
+              <section
+                ref={registerSectionRef}
+                id="register"
+                className="bg-gray-100"
+              >
                 <section
                   ref={registerSectionRef}
                   id="register"
@@ -288,21 +272,6 @@ function HomeUser() {
                               />
                             </div>
                           </div>
-
-                          {/* <div>
-                  <label className="sr-only" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    className="w-full rounded-lg form-control p-3 border-gray-400"
-                    placeholder="Alamat Email"
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div> */}
 
                           <div>
                             <input
@@ -395,25 +364,25 @@ function HomeUser() {
                     </div>
                   </div>
                 </section>
-              </>
-            )}
+              </section>
+            </>
+          )}
+        </div>
+      </Container>
+
+      <div className="mt-8"></div>
+
+      <footer className="bg-gray-50">
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <div className="flex justify-center text-teal-600 sm:justify-start"></div>
+
+            <p className="mt-4 text-center text-sm text-black-500 lg:mt-0 lg:text-right">
+              Copyright &copy; Mediqueue 2024. All rights reserved.
+            </p>
           </div>
-        </Container>
-
-        <div className="mt-8"></div>
-
-        <footer className="bg-gray-50">
-          <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-            <div className="sm:flex sm:items-center sm:justify-between">
-              <div className="flex justify-center text-teal-600 sm:justify-start"></div>
-
-              <p className="mt-4 text-center text-sm text-black-500 lg:mt-0 lg:text-right">
-                Copyright &copy; Mediqueue 2024. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </>
   );
 }

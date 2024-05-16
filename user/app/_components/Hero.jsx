@@ -29,7 +29,7 @@ function Hero() {
                 dan menghindari waktu tunggu yang panjang di rumah sakit.
               </p>
 
-              <Link to="/registrasi">
+              <Link>
                 <Button className="mt-8">Daftar Sekarang</Button>
               </Link>
             </div>

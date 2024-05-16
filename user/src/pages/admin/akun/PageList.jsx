@@ -278,15 +278,32 @@ function PageList() {
           <Modal.Title>Detail Pengguna</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-            <strong>Nama:</strong> {selectedUser.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {selectedUser.email}
-          </p>
-          <p>
-            <strong>Role:</strong> {selectedUser.role}
-          </p>
+          <Form.Group className="mt-2" controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter name"
+              value={selectedUser.name || ""}
+              disabled
+            />
+          </Form.Group>
+          <Form.Group className="mt-2" controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={selectedUser.email || ""}
+              disabled
+            />
+          </Form.Group>
+          <Form.Group className="mt-2" controlId="formRole">
+            <Form.Label>Role</Form.Label>
+            <Form.Control
+              type="text"
+              value={selectedUser.role || ""}
+              disabled
+            />
+          </Form.Group>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
